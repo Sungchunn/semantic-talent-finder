@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SemanticTalentFinderApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(SemanticTalentFinderApplication.class, args);
+		System.out.println("Running");
 	}
 
 }
