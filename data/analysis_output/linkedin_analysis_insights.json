@@ -1087,7 +1087,7 @@
     },
     "processing_config": {
       "recommended_batch_size": 5000,
-      "memory_per_batch_mb": 5.69,
+      "memory_per_batch_mb": 67.47,
       "estimated_processing_time_hours": 85.59,
       "high_priority_fields": [
         "Full name",

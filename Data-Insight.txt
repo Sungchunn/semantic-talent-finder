@@ -1,0 +1,78 @@
+
+
+📊 Data Quality Analysis Results:
+
+Rows Analyzed: 200,000
+Chunks Processed: 4
+
+🟢 High Quality Fields (12):
+  ✅ Full name                      |   0.0% null
+  ✅ Location                       |   0.1% null
+  ✅ Locality                       |   2.6% null
+  ✅ Region                         |   2.2% null
+  ✅ First Name                     |   0.1% null
+  ✅ Last Name                      |   0.1% null
+  ✅ LinkedIn Url                   |   0.1% null
+  ✅ LinkedIn Username              |   0.1% null
+  ✅ Location Country               |   0.1% null
+  ✅ Location Continent             |   0.1% null
+
+🟡 Medium Quality Fields (7):
+  ⚠️  Industry                       |  13.8% null
+  ⚠️  Job title                      |  17.0% null
+  ⚠️  Metro                          |  11.2% null
+  ⚠️  Gender                         |  16.1% null
+  ⚠️  Last Updated                   |  18.6% null
+
+🔴 Low Quality Fields (43):
+  ❌ Sub Role                       |  76.1% null
+  ❌ Industry 2                     |  60.8% null
+  ❌ Emails                         |  54.4% null
+  ❌ Mobile                         |  94.7% null
+  ❌ Phone numbers                  |  84.6% null
+
+
+🔍 Generating Java Recommendations...
+✅ Java Recommendations Generated:
+   - Java Fields: 62
+   - Recommended Batch Size: 5000
+
+🔍 Generating Database Schema...
+✅ Database Schema Generated
+
+💾 Saving Analysis Results...
+✅ Results Saved to: /Users/chromatrical/CAREER/Side Projects/semantic-talent-finder/data/analysis_output
+   - Insights: linkedin_analysis_insights.json
+   - Database Schema: optimized_schema.sql
+
+================================================================================
+🎉 LINKEDIN DATASET ANALYSIS COMPLETE
+================================================================================
+
+📊 DATASET OVERVIEW:
+   📁 File Size: 15.15 GB
+   📋 Total Rows: 51,352,619
+   🗂️  Total Columns: 62
+   🔍 Rows Analyzed: 200,000
+
+🎯 DATA QUALITY SUMMARY:
+   🟢 High Quality Fields: 12
+   🟡 Medium Quality Fields: 7
+   🔴 Low Quality Fields: 43
+
+⚙️ PROCESSING RECOMMENDATIONS:
+   📦 Recommended Batch Size: 5,000
+   💾 Memory per Batch: 67.5 MB
+   ⏱️  Est. Processing Time: 85.6 hours
+
+📁 OUTPUT FILES GENERATED:
+   📋 Analysis Report: /Users/chromatrical/CAREER/Side Projects/semantic-talent-finder/data/analysis_output/linkedin_analysis_insights.json
+   🗃️  Database Schema: /Users/chromatrical/CAREER/Side Projects/semantic-talent-finder/data/analysis_output/optimized_schema.sql
+
+🚀 NEXT STEPS:
+   1. Review the generated analysis files
+   2. Use the database schema for your PostgreSQL setup
+   3. Apply the processing recommendations to your Java application
+   4. Use the identified high-quality fields for core functionality
+
+================================================================================
