@@ -1,0 +1,32 @@
+{
+  "embedding_generation": {
+    "primary_fields": [],
+    "content_template": "Professional: {job_title} at {company_name} | Industry: {industry} | Location: {location} | Skills: {skills_text}",
+    "max_content_length": 8000,
+    "preprocessing_steps": [
+      "Remove HTML tags and special characters",
+      "Normalize whitespace",
+      "Handle null values with defaults",
+      "Truncate if exceeds max length"
+    ]
+  },
+  "data_quality_rules": {
+    "minimum_quality_score": 0.7,
+    "required_fields": [
+      "full_name",
+      "linkedin_username"
+    ],
+    "embedding_generation_threshold": 0.5,
+    "content_validation": [
+      "full_name must not be empty",
+      "linkedin_username must be unique",
+      "at least one of job_title or industry must be present"
+    ]
+  },
+  "batch_processing": {
+    "recommended_batch_size": 5000,
+    "parallel_embedding_batch_size": 100,
+    "error_handling": "skip_and_log",
+    "retry_logic": "exponential_backoff"
+  }
+}

@@ -7,15 +7,25 @@ spring:
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
   
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
-    show-sql: true
+        format_sql: false
+        jdbc:
+          batch_size: 100
+        order_inserts: true
+        order_updates: true
+    show-sql: false
   
   ai:
     openai:
@@ -26,6 +36,13 @@ spring:
       embedding:
         options:
           model: text-embedding-3-small
+          dimensions: 1536
+  
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: embedded
   
   security:
     oauth2:
@@ -42,13 +59,34 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health,info,metrics,prometheus
   endpoint:
     health:
       show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
 
 logging:
   level:
-    com.semantictalent.finder: DEBUG
-    org.springframework.ai: DEBUG
-    org.hibernate.SQL: DEBUG
+    com.semantictalent.finder: INFO
+    org.springframework.ai: WARN
+    org.hibernate.SQL: WARN
+    org.springframework.batch: INFO
+
+# Custom application properties based on dataset analysis
+app:
+  data:
+    batch-size: 5000              # From analysis recommendation (67.5 MB memory/batch)
+    processing:
+      max-threads: 4              # Optimal for processing
+      chunk-size: 1000
+  search:
+    default-limit: 20
+    max-limit: 100
+    similarity-threshold: 0.7
+  skills:
+    technical-count: 18           # From analysis: 18 technical skills identified
+    soft-count: 20               # From analysis: 20 soft skills identified  
+    total-unique: 1871           # From analysis: 1,871 unique skills

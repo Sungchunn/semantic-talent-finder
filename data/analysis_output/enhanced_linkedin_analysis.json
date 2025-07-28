@@ -1,0 +1,2719 @@
+{
+  "schema_analysis": {
+    "total_columns": 62,
+    "total_rows": 51352619,
+    "file_size_gb": 15.15,
+    "columns": {
+      "Full name": {
+        "type": "string",
+        "nullable": true,
+        "index": 0
+      },
+      "Industry": {
+        "type": "string",
+        "nullable": true,
+        "index": 1
+      },
+      "Job title": {
+        "type": "string",
+        "nullable": true,
+        "index": 2
+      },
+      "Sub Role": {
+        "type": "string",
+        "nullable": true,
+        "index": 3
+      },
+      "Industry 2": {
+        "type": "string",
+        "nullable": true,
+        "index": 4
+      },
+      "Emails": {
+        "type": "string",
+        "nullable": true,
+        "index": 5
+      },
+      "Mobile": {
+        "type": "string",
+        "nullable": true,
+        "index": 6
+      },
+      "Phone numbers": {
+        "type": "string",
+        "nullable": true,
+        "index": 7
+      },
+      "Company Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 8
+      },
+      "Company Industry": {
+        "type": "string",
+        "nullable": true,
+        "index": 9
+      },
+      "Company Website": {
+        "type": "string",
+        "nullable": true,
+        "index": 10
+      },
+      "Company Size": {
+        "type": "string",
+        "nullable": true,
+        "index": 11
+      },
+      "Company Founded": {
+        "type": "string",
+        "nullable": true,
+        "index": 12
+      },
+      "Location": {
+        "type": "string",
+        "nullable": true,
+        "index": 13
+      },
+      "Locality": {
+        "type": "string",
+        "nullable": true,
+        "index": 14
+      },
+      "Metro": {
+        "type": "string",
+        "nullable": true,
+        "index": 15
+      },
+      "Region": {
+        "type": "string",
+        "nullable": true,
+        "index": 16
+      },
+      "Skills": {
+        "type": "string",
+        "nullable": true,
+        "index": 17
+      },
+      "First Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 18
+      },
+      "Middle Initial": {
+        "type": "string",
+        "nullable": true,
+        "index": 19
+      },
+      "Middle Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 20
+      },
+      "Last Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 21
+      },
+      "Birth Year": {
+        "type": "string",
+        "nullable": true,
+        "index": 22
+      },
+      "Birth Date": {
+        "type": "string",
+        "nullable": true,
+        "index": 23
+      },
+      "Gender": {
+        "type": "string",
+        "nullable": true,
+        "index": 24
+      },
+      "LinkedIn Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 25
+      },
+      "LinkedIn Username": {
+        "type": "string",
+        "nullable": true,
+        "index": 26
+      },
+      "Facebook Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 27
+      },
+      "Facebook Username": {
+        "type": "string",
+        "nullable": true,
+        "index": 28
+      },
+      "Twitter Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 29
+      },
+      "Twitter Username": {
+        "type": "string",
+        "nullable": true,
+        "index": 30
+      },
+      "Github Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 31
+      },
+      "Github Username": {
+        "type": "string",
+        "nullable": true,
+        "index": 32
+      },
+      "Company Linkedin Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 33
+      },
+      "Company Facebook Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 34
+      },
+      "Company Twitter Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 35
+      },
+      "Company Location Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 36
+      },
+      "Company Location Locality": {
+        "type": "string",
+        "nullable": true,
+        "index": 37
+      },
+      "Company Location Metro": {
+        "type": "string",
+        "nullable": true,
+        "index": 38
+      },
+      "Company Location Region": {
+        "type": "string",
+        "nullable": true,
+        "index": 39
+      },
+      "Company Location Geo": {
+        "type": "string",
+        "nullable": true,
+        "index": 40
+      },
+      "Company Location Street Address": {
+        "type": "string",
+        "nullable": true,
+        "index": 41
+      },
+      "Company Location Address Line 2": {
+        "type": "string",
+        "nullable": true,
+        "index": 42
+      },
+      "Company Location Postal Code": {
+        "type": "string",
+        "nullable": true,
+        "index": 43
+      },
+      "Company Location Country": {
+        "type": "string",
+        "nullable": true,
+        "index": 44
+      },
+      "Company Location Continent": {
+        "type": "string",
+        "nullable": true,
+        "index": 45
+      },
+      "Last Updated": {
+        "type": "string",
+        "nullable": true,
+        "index": 46
+      },
+      "Start Date": {
+        "type": "string",
+        "nullable": true,
+        "index": 47
+      },
+      "Job Summary": {
+        "type": "string",
+        "nullable": true,
+        "index": 48
+      },
+      "Location Country": {
+        "type": "string",
+        "nullable": true,
+        "index": 49
+      },
+      "Location Continent": {
+        "type": "string",
+        "nullable": true,
+        "index": 50
+      },
+      "Street Address": {
+        "type": "string",
+        "nullable": true,
+        "index": 51
+      },
+      "Address Line 2": {
+        "type": "string",
+        "nullable": true,
+        "index": 52
+      },
+      "Postal Code": {
+        "type": "string",
+        "nullable": true,
+        "index": 53
+      },
+      "Location Geo": {
+        "type": "string",
+        "nullable": true,
+        "index": 54
+      },
+      "Last Updated.1": {
+        "type": "string",
+        "nullable": true,
+        "index": 55
+      },
+      "Linkedin Connections": {
+        "type": "string",
+        "nullable": true,
+        "index": 56
+      },
+      "Inferred Salary": {
+        "type": "string",
+        "nullable": true,
+        "index": 57
+      },
+      "Years Experience": {
+        "type": "string",
+        "nullable": true,
+        "index": 58
+      },
+      "Summary": {
+        "type": "string",
+        "nullable": true,
+        "index": 59
+      },
+      "Countries": {
+        "type": "string",
+        "nullable": true,
+        "index": 60
+      },
+      "Interests": {
+        "type": "string",
+        "nullable": true,
+        "index": 61
+      }
+    },
+    "column_names": [
+      "Full name",
+      "Industry",
+      "Job title",
+      "Sub Role",
+      "Industry 2",
+      "Emails",
+      "Mobile",
+      "Phone numbers",
+      "Company Name",
+      "Company Industry",
+      "Company Website",
+      "Company Size",
+      "Company Founded",
+      "Location",
+      "Locality",
+      "Metro",
+      "Region",
+      "Skills",
+      "First Name",
+      "Middle Initial",
+      "Middle Name",
+      "Last Name",
+      "Birth Year",
+      "Birth Date",
+      "Gender",
+      "LinkedIn Url",
+      "LinkedIn Username",
+      "Facebook Url",
+      "Facebook Username",
+      "Twitter Url",
+      "Twitter Username",
+      "Github Url",
+      "Github Username",
+      "Company Linkedin Url",
+      "Company Facebook Url",
+      "Company Twitter Url",
+      "Company Location Name",
+      "Company Location Locality",
+      "Company Location Metro",
+      "Company Location Region",
+      "Company Location Geo",
+      "Company Location Street Address",
+      "Company Location Address Line 2",
+      "Company Location Postal Code",
+      "Company Location Country",
+      "Company Location Continent",
+      "Last Updated",
+      "Start Date",
+      "Job Summary",
+      "Location Country",
+      "Location Continent",
+      "Street Address",
+      "Address Line 2",
+      "Postal Code",
+      "Location Geo",
+      "Last Updated.1",
+      "Linkedin Connections",
+      "Inferred Salary",
+      "Years Experience",
+      "Summary",
+      "Countries",
+      "Interests"
+    ]
+  },
+  "data_quality": {
+    "total_rows_analyzed": 200000,
+    "chunks_processed": 4,
+    "null_counts": {
+      "Full name": "0",
+      "Industry": "27576",
+      "Job title": "33995",
+      "Sub Role": "152129",
+      "Industry 2": "121621",
+      "Emails": "108698",
+      "Mobile": "189411",
+      "Phone numbers": "169186",
+      "Company Name": "51511",
+      "Company Industry": "98678",
+      "Company Website": "112035",
+      "Company Size": "97024",
+      "Company Founded": "124050",
+      "Location": "95",
+      "Locality": "5265",
+      "Metro": "22315",
+      "Region": "4455",
+      "Skills": "113356",
+      "First Name": "132",
+      "Middle Initial": "181497",
+      "Middle Name": "189172",
+      "Last Name": "116",
+      "Birth Year": "190526",
+      "Birth Date": "194723",
+      "Gender": "32270",
+      "LinkedIn Url": "116",
+      "LinkedIn Username": "121",
+      "Facebook Url": "176660",
+      "Facebook Username": "176660",
+      "Twitter Url": "196423",
+      "Twitter Username": "196423",
+      "Github Url": "199334",
+      "Github Username": "199334",
+      "Company Linkedin Url": "97059",
+      "Company Facebook Url": "156761",
+      "Company Twitter Url": "149465",
+      "Company Location Name": "101397",
+      "Company Location Locality": "114122",
+      "Company Location Metro": "126325",
+      "Company Location Region": "109947",
+      "Company Location Geo": "116383",
+      "Company Location Street Address": "127590",
+      "Company Location Address Line 2": "188607",
+      "Company Location Postal Code": "126670",
+      "Company Location Country": "101398",
+      "Company Location Continent": "101398",
+      "Last Updated": "37143",
+      "Start Date": "115669",
+      "Job Summary": "173587",
+      "Location Country": "152",
+      "Location Continent": "160",
+      "Street Address": "173125",
+      "Address Line 2": "197566",
+      "Postal Code": "177179",
+      "Location Geo": "8160",
+      "Last Updated.1": "11231",
+      "Linkedin Connections": "13327",
+      "Inferred Salary": "82228",
+      "Years Experience": "86293",
+      "Summary": "66037",
+      "Countries": "251",
+      "Interests": "179452"
+    },
+    "null_percentages": {
+      "Full name": 0.0,
+      "Industry": 13.79,
+      "Job title": 17.0,
+      "Sub Role": 76.06,
+      "Industry 2": 60.81,
+      "Emails": 54.35,
+      "Mobile": 94.71,
+      "Phone numbers": 84.59,
+      "Company Name": 25.76,
+      "Company Industry": 49.34,
+      "Company Website": 56.02,
+      "Company Size": 48.51,
+      "Company Founded": 62.02,
+      "Location": 0.05,
+      "Locality": 2.63,
+      "Metro": 11.16,
+      "Region": 2.23,
+      "Skills": 56.68,
+      "First Name": 0.07,
+      "Middle Initial": 90.75,
+      "Middle Name": 94.59,
+      "Last Name": 0.06,
+      "Birth Year": 95.26,
+      "Birth Date": 97.36,
+      "Gender": 16.13,
+      "LinkedIn Url": 0.06,
+      "LinkedIn Username": 0.06,
+      "Facebook Url": 88.33,
+      "Facebook Username": 88.33,
+      "Twitter Url": 98.21,
+      "Twitter Username": 98.21,
+      "Github Url": 99.67,
+      "Github Username": 99.67,
+      "Company Linkedin Url": 48.53,
+      "Company Facebook Url": 78.38,
+      "Company Twitter Url": 74.73,
+      "Company Location Name": 50.7,
+      "Company Location Locality": 57.06,
+      "Company Location Metro": 63.16,
+      "Company Location Region": 54.97,
+      "Company Location Geo": 58.19,
+      "Company Location Street Address": 63.8,
+      "Company Location Address Line 2": 94.3,
+      "Company Location Postal Code": 63.33,
+      "Company Location Country": 50.7,
+      "Company Location Continent": 50.7,
+      "Last Updated": 18.57,
+      "Start Date": 57.83,
+      "Job Summary": 86.79,
+      "Location Country": 0.08,
+      "Location Continent": 0.08,
+      "Street Address": 86.56,
+      "Address Line 2": 98.78,
+      "Postal Code": 88.59,
+      "Location Geo": 4.08,
+      "Last Updated.1": 5.62,
+      "Linkedin Connections": 6.66,
+      "Inferred Salary": 41.11,
+      "Years Experience": 43.15,
+      "Summary": 33.02,
+      "Countries": 0.13,
+      "Interests": 89.73
+    },
+    "data_types": {
+      "Full name": "object",
+      "Industry": "object",
+      "Job title": "object",
+      "Sub Role": "object",
+      "Industry 2": "object",
+      "Emails": "object",
+      "Mobile": "object",
+      "Phone numbers": "object",
+      "Company Name": "object",
+      "Company Industry": "object",
+      "Company Website": "object",
+      "Company Size": "object",
+      "Company Founded": "object",
+      "Location": "object",
+      "Locality": "object",
+      "Metro": "object",
+      "Region": "object",
+      "Skills": "object",
+      "First Name": "object",
+      "Middle Initial": "object",
+      "Middle Name": "object",
+      "Last Name": "object",
+      "Birth Year": "object",
+      "Birth Date": "object",
+      "Gender": "object",
+      "LinkedIn Url": "object",
+      "LinkedIn Username": "object",
+      "Facebook Url": "object",
+      "Facebook Username": "object",
+      "Twitter Url": "object",
+      "Twitter Username": "object",
+      "Github Url": "object",
+      "Github Username": "object",
+      "Company Linkedin Url": "object",
+      "Company Facebook Url": "object",
+      "Company Twitter Url": "object",
+      "Company Location Name": "object",
+      "Company Location Locality": "object",
+      "Company Location Metro": "object",
+      "Company Location Region": "object",
+      "Company Location Geo": "object",
+      "Company Location Street Address": "object",
+      "Company Location Address Line 2": "object",
+      "Company Location Postal Code": "object",
+      "Company Location Country": "object",
+      "Company Location Continent": "object",
+      "Last Updated": "object",
+      "Start Date": "object",
+      "Job Summary": "object",
+      "Location Country": "object",
+      "Location Continent": "object",
+      "Street Address": "object",
+      "Address Line 2": "object",
+      "Postal Code": "object",
+      "Location Geo": "object",
+      "Last Updated.1": "object",
+      "Linkedin Connections": "object",
+      "Inferred Salary": "object",
+      "Years Experience": "object",
+      "Summary": "object",
+      "Countries": "object",
+      "Interests": "object"
+    },
+    "completeness_summary": {
+      "high_quality_fields": [
+        "Full name",
+        "Location",
+        "Locality",
+        "Region",
+        "First Name",
+        "Last Name",
+        "LinkedIn Url",
+        "LinkedIn Username",
+        "Location Country",
+        "Location Continent",
+        "Location Geo",
+        "Countries"
+      ],
+      "medium_quality_fields": [
+        "Industry",
+        "Job title",
+        "Metro",
+        "Gender",
+        "Last Updated",
+        "Last Updated.1",
+        "Linkedin Connections"
+      ],
+      "low_quality_fields": [
+        "Sub Role",
+        "Industry 2",
+        "Emails",
+        "Mobile",
+        "Phone numbers",
+        "Company Name",
+        "Company Industry",
+        "Company Website",
+        "Company Size",
+        "Company Founded",
+        "Skills",
+        "Middle Initial",
+        "Middle Name",
+        "Birth Year",
+        "Birth Date",
+        "Facebook Url",
+        "Facebook Username",
+        "Twitter Url",
+        "Twitter Username",
+        "Github Url",
+        "Github Username",
+        "Company Linkedin Url",
+        "Company Facebook Url",
+        "Company Twitter Url",
+        "Company Location Name",
+        "Company Location Locality",
+        "Company Location Metro",
+        "Company Location Region",
+        "Company Location Geo",
+        "Company Location Street Address",
+        "Company Location Address Line 2",
+        "Company Location Postal Code",
+        "Company Location Country",
+        "Company Location Continent",
+        "Start Date",
+        "Job Summary",
+        "Street Address",
+        "Address Line 2",
+        "Postal Code",
+        "Inferred Salary",
+        "Years Experience",
+        "Summary",
+        "Interests"
+      ]
+    }
+  },
+  "content_analysis": {},
+  "business_logic": {},
+  "processing_recommendations": {
+    "java_fields": {
+      "Full name": {
+        "original_column": "Full name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Full name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.0
+      },
+      "Industry": {
+        "original_column": "Industry",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Industry\", length = 255)",
+        "nullable": true,
+        "null_percentage": 13.79
+      },
+      "Job title": {
+        "original_column": "Job title",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Job title\", length = 255)",
+        "nullable": true,
+        "null_percentage": 17.0
+      },
+      "Sub Role": {
+        "original_column": "Sub Role",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Sub Role\", length = 255)",
+        "nullable": true,
+        "null_percentage": 76.06
+      },
+      "Industry 2": {
+        "original_column": "Industry 2",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Industry 2\", length = 255)",
+        "nullable": true,
+        "null_percentage": 60.81
+      },
+      "Emails": {
+        "original_column": "Emails",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Emails\", length = 255)",
+        "nullable": true,
+        "null_percentage": 54.35
+      },
+      "Mobile": {
+        "original_column": "Mobile",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Mobile\", length = 255)",
+        "nullable": true,
+        "null_percentage": 94.71
+      },
+      "Phone numbers": {
+        "original_column": "Phone numbers",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Phone numbers\", length = 255)",
+        "nullable": true,
+        "null_percentage": 84.59
+      },
+      "Company Name": {
+        "original_column": "Company Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 25.76
+      },
+      "Company Industry": {
+        "original_column": "Company Industry",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Industry\", length = 255)",
+        "nullable": true,
+        "null_percentage": 49.34
+      },
+      "Company Website": {
+        "original_column": "Company Website",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Website\", length = 255)",
+        "nullable": true,
+        "null_percentage": 56.02
+      },
+      "Company Size": {
+        "original_column": "Company Size",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Size\", length = 255)",
+        "nullable": true,
+        "null_percentage": 48.51
+      },
+      "Company Founded": {
+        "original_column": "Company Founded",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Founded\", length = 255)",
+        "nullable": true,
+        "null_percentage": 62.02
+      },
+      "Location": {
+        "original_column": "Location",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Location\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.05
+      },
+      "Locality": {
+        "original_column": "Locality",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Locality\", length = 255)",
+        "nullable": true,
+        "null_percentage": 2.63
+      },
+      "Metro": {
+        "original_column": "Metro",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Metro\", length = 255)",
+        "nullable": true,
+        "null_percentage": 11.16
+      },
+      "Region": {
+        "original_column": "Region",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Region\", length = 255)",
+        "nullable": true,
+        "null_percentage": 2.23
+      },
+      "Skills": {
+        "original_column": "Skills",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Skills\", length = 255)",
+        "nullable": true,
+        "null_percentage": 56.68
+      },
+      "First Name": {
+        "original_column": "First Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"First Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.07
+      },
+      "Middle Initial": {
+        "original_column": "Middle Initial",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Middle Initial\", length = 255)",
+        "nullable": true,
+        "null_percentage": 90.75
+      },
+      "Middle Name": {
+        "original_column": "Middle Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Middle Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 94.59
+      },
+      "Last Name": {
+        "original_column": "Last Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Last Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.06
+      },
+      "Birth Year": {
+        "original_column": "Birth Year",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Birth Year\", length = 255)",
+        "nullable": true,
+        "null_percentage": 95.26
+      },
+      "Birth Date": {
+        "original_column": "Birth Date",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Birth Date\", length = 255)",
+        "nullable": true,
+        "null_percentage": 97.36
+      },
+      "Gender": {
+        "original_column": "Gender",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Gender\", length = 255)",
+        "nullable": true,
+        "null_percentage": 16.13
+      },
+      "LinkedIn Url": {
+        "original_column": "LinkedIn Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"LinkedIn Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.06
+      },
+      "LinkedIn Username": {
+        "original_column": "LinkedIn Username",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"LinkedIn Username\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.06
+      },
+      "Facebook Url": {
+        "original_column": "Facebook Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Facebook Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 88.33
+      },
+      "Facebook Username": {
+        "original_column": "Facebook Username",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Facebook Username\", length = 255)",
+        "nullable": true,
+        "null_percentage": 88.33
+      },
+      "Twitter Url": {
+        "original_column": "Twitter Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Twitter Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 98.21
+      },
+      "Twitter Username": {
+        "original_column": "Twitter Username",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Twitter Username\", length = 255)",
+        "nullable": true,
+        "null_percentage": 98.21
+      },
+      "Github Url": {
+        "original_column": "Github Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Github Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 99.67
+      },
+      "Github Username": {
+        "original_column": "Github Username",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Github Username\", length = 255)",
+        "nullable": true,
+        "null_percentage": 99.67
+      },
+      "Company Linkedin Url": {
+        "original_column": "Company Linkedin Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Linkedin Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 48.53
+      },
+      "Company Facebook Url": {
+        "original_column": "Company Facebook Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Facebook Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 78.38
+      },
+      "Company Twitter Url": {
+        "original_column": "Company Twitter Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Twitter Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 74.73
+      },
+      "Company Location Name": {
+        "original_column": "Company Location Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 50.7
+      },
+      "Company Location Locality": {
+        "original_column": "Company Location Locality",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Locality\", length = 255)",
+        "nullable": true,
+        "null_percentage": 57.06
+      },
+      "Company Location Metro": {
+        "original_column": "Company Location Metro",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Metro\", length = 255)",
+        "nullable": true,
+        "null_percentage": 63.16
+      },
+      "Company Location Region": {
+        "original_column": "Company Location Region",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Region\", length = 255)",
+        "nullable": true,
+        "null_percentage": 54.97
+      },
+      "Company Location Geo": {
+        "original_column": "Company Location Geo",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Geo\", length = 255)",
+        "nullable": true,
+        "null_percentage": 58.19
+      },
+      "Company Location Street Address": {
+        "original_column": "Company Location Street Address",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Street Address\", length = 255)",
+        "nullable": true,
+        "null_percentage": 63.8
+      },
+      "Company Location Address Line 2": {
+        "original_column": "Company Location Address Line 2",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Address Line 2\", length = 255)",
+        "nullable": true,
+        "null_percentage": 94.3
+      },
+      "Company Location Postal Code": {
+        "original_column": "Company Location Postal Code",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Postal Code\", length = 255)",
+        "nullable": true,
+        "null_percentage": 63.33
+      },
+      "Company Location Country": {
+        "original_column": "Company Location Country",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Country\", length = 255)",
+        "nullable": true,
+        "null_percentage": 50.7
+      },
+      "Company Location Continent": {
+        "original_column": "Company Location Continent",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Continent\", length = 255)",
+        "nullable": true,
+        "null_percentage": 50.7
+      },
+      "Last Updated": {
+        "original_column": "Last Updated",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Last Updated\", length = 255)",
+        "nullable": true,
+        "null_percentage": 18.57
+      },
+      "Start Date": {
+        "original_column": "Start Date",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Start Date\", length = 255)",
+        "nullable": true,
+        "null_percentage": 57.83
+      },
+      "Job Summary": {
+        "original_column": "Job Summary",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Job Summary\", length = 255)",
+        "nullable": true,
+        "null_percentage": 86.79
+      },
+      "Location Country": {
+        "original_column": "Location Country",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Location Country\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.08
+      },
+      "Location Continent": {
+        "original_column": "Location Continent",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Location Continent\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.08
+      },
+      "Street Address": {
+        "original_column": "Street Address",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Street Address\", length = 255)",
+        "nullable": true,
+        "null_percentage": 86.56
+      },
+      "Address Line 2": {
+        "original_column": "Address Line 2",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Address Line 2\", length = 255)",
+        "nullable": true,
+        "null_percentage": 98.78
+      },
+      "Postal Code": {
+        "original_column": "Postal Code",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Postal Code\", length = 255)",
+        "nullable": true,
+        "null_percentage": 88.59
+      },
+      "Location Geo": {
+        "original_column": "Location Geo",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Location Geo\", length = 255)",
+        "nullable": true,
+        "null_percentage": 4.08
+      },
+      "Last Updated.1": {
+        "original_column": "Last Updated.1",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Last Updated.1\", length = 255)",
+        "nullable": true,
+        "null_percentage": 5.62
+      },
+      "Linkedin Connections": {
+        "original_column": "Linkedin Connections",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Linkedin Connections\", length = 255)",
+        "nullable": true,
+        "null_percentage": 6.66
+      },
+      "Inferred Salary": {
+        "original_column": "Inferred Salary",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Inferred Salary\", length = 255)",
+        "nullable": true,
+        "null_percentage": 41.11
+      },
+      "Years Experience": {
+        "original_column": "Years Experience",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Years Experience\", length = 255)",
+        "nullable": true,
+        "null_percentage": 43.15
+      },
+      "Summary": {
+        "original_column": "Summary",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Summary\", length = 255)",
+        "nullable": true,
+        "null_percentage": 33.02
+      },
+      "Countries": {
+        "original_column": "Countries",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Countries\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.13
+      },
+      "Interests": {
+        "original_column": "Interests",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Interests\", length = 255)",
+        "nullable": true,
+        "null_percentage": 89.73
+      }
+    },
+    "processing_config": {
+      "recommended_batch_size": 5000,
+      "memory_per_batch_mb": 67.27,
+      "estimated_processing_time_hours": 85.59,
+      "high_priority_fields": [
+        "Full name",
+        "Location",
+        "Locality",
+        "Region",
+        "First Name",
+        "Last Name",
+        "LinkedIn Url",
+        "LinkedIn Username",
+        "Location Country",
+        "Location Continent",
+        "Location Geo",
+        "Countries"
+      ],
+      "validation_required_fields": [
+        "Sub Role",
+        "Industry 2",
+        "Emails",
+        "Mobile",
+        "Phone numbers",
+        "Company Name",
+        "Company Industry",
+        "Company Website",
+        "Company Size",
+        "Company Founded",
+        "Skills",
+        "Middle Initial",
+        "Middle Name",
+        "Birth Year",
+        "Birth Date",
+        "Facebook Url",
+        "Facebook Username",
+        "Twitter Url",
+        "Twitter Username",
+        "Github Url",
+        "Github Username",
+        "Company Linkedin Url",
+        "Company Facebook Url",
+        "Company Twitter Url",
+        "Company Location Name",
+        "Company Location Locality",
+        "Company Location Metro",
+        "Company Location Region",
+        "Company Location Geo",
+        "Company Location Street Address",
+        "Company Location Address Line 2",
+        "Company Location Postal Code",
+        "Company Location Country",
+        "Company Location Continent",
+        "Start Date",
+        "Job Summary",
+        "Street Address",
+        "Address Line 2",
+        "Postal Code",
+        "Inferred Salary",
+        "Years Experience",
+        "Summary",
+        "Interests"
+      ]
+    }
+  },
+  "database_schema": {
+    "create_table_sql": "CREATE TABLE profiles (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    Full name VARCHAR(255) NOT NULL,\n    Industry VARCHAR(255),\n    Job title VARCHAR(255),\n    Sub Role VARCHAR(255),\n    Industry 2 VARCHAR(255),\n    Emails VARCHAR(255),\n    Mobile VARCHAR(255),\n    Phone numbers VARCHAR(255),\n    Company Name VARCHAR(255),\n    Company Industry VARCHAR(255),\n    Company Website VARCHAR(255),\n    Company Size VARCHAR(255),\n    Company Founded VARCHAR(255),\n    Location VARCHAR(255) NOT NULL,\n    Locality VARCHAR(255),\n    Metro VARCHAR(255),\n    Region VARCHAR(255),\n    Skills VARCHAR(255),\n    First Name VARCHAR(255) NOT NULL,\n    Middle Initial VARCHAR(255),\n    Middle Name VARCHAR(255),\n    Last Name VARCHAR(255) NOT NULL,\n    Birth Year VARCHAR(255),\n    Birth Date VARCHAR(255),\n    Gender VARCHAR(255),\n    LinkedIn Url VARCHAR(255) NOT NULL,\n    LinkedIn Username VARCHAR(255) NOT NULL,\n    Facebook Url VARCHAR(255),\n    Facebook Username VARCHAR(255),\n    Twitter Url VARCHAR(255),\n    embedding vector(1536),\n    created_at TIMESTAMP DEFAULT NOW(),\n    updated_at TIMESTAMP DEFAULT NOW()\n);",
+    "indexes_sql": [
+      "CREATE INDEX CONCURRENTLY profiles_embedding_hnsw_idx ON profiles USING hnsw (embedding vector_cosine_ops);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_Full name ON profiles(Full name);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_Location ON profiles(Location);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_Locality ON profiles(Locality);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_Region ON profiles(Region);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_First Name ON profiles(First Name);"
+    ]
+  },
+  "skills_analysis": {
+    "skills_columns": [
+      "Skills"
+    ],
+    "skills_patterns": {},
+    "skills_standardization": {},
+    "top_skills": {
+      "customer service": 84,
+      "microsoft office": 77,
+      "leadership": 64,
+      "microsoft excel": 63,
+      "management": 57,
+      "public speaking": 51,
+      "strategic planning": 47,
+      "sales": 47,
+      "microsoft word": 46,
+      "marketing": 41,
+      "powerpoint": 41,
+      "project management": 40,
+      "research": 38,
+      "team building": 32,
+      "social media": 30,
+      "event planning": 29,
+      "program management": 28,
+      "sales management": 26,
+      "new business development": 22,
+      "budgets": 21,
+      "process improvement": 21,
+      "teaching": 21,
+      "training": 21,
+      "negotiation": 19,
+      "marketing strategy": 19,
+      "social media marketing": 19,
+      "team leadership": 18,
+      "editing": 18,
+      "social networking": 17,
+      "time management": 17,
+      "customer satisfaction": 17,
+      "account management": 16,
+      "strategy": 16,
+      "inventory management": 15,
+      "community outreach": 15,
+      "teamwork": 15,
+      "coaching": 15,
+      "business analysis": 14,
+      "analysis": 14,
+      "business development": 14,
+      "business strategy": 14,
+      "data analysis": 14,
+      "event management": 13,
+      "program development": 13,
+      "nonprofits": 13,
+      "outlook": 13,
+      "operations management": 12,
+      "contract negotiation": 12,
+      "healthcare": 12,
+      "fundraising": 12
+    },
+    "skills_combinations": {},
+    "total_unique_skills": 1871,
+    "total_skill_mentions": 4641,
+    "skills_categories": {
+      "technical_skills": [
+        "javascript",
+        "python",
+        "java",
+        "microsoft sql server",
+        "sql",
+        "node.js",
+        "react.js",
+        "postgresql",
+        "mysql",
+        "docker",
+        "react native",
+        "transact sql",
+        "sql server management studio",
+        "sql server integration services",
+        "sql server reporting services",
+        "polymerase chain reaction",
+        "sql server",
+        "sql server report builder"
+      ],
+      "soft_skills": [
+        "sales and marketing leadership",
+        "risk management",
+        "project management",
+        "operations management",
+        "inventory management",
+        "supply chain management",
+        "software project management",
+        "healthcare management",
+        "diabetes management",
+        "product management",
+        "marketing communications",
+        "marketing management",
+        "account management",
+        "campaign management",
+        "leadership",
+        "management",
+        "sales management",
+        "event management",
+        "time management",
+        "team leadership"
+      ],
+      "tech_percentage": 0.96,
+      "soft_percentage": 7.0
+    }
+  },
+  "text_content_analysis": {
+    "text_fields": [
+      "Industry",
+      "Job title",
+      "Sub Role",
+      "Industry 2",
+      "Company Name",
+      "Company Industry",
+      "Company Website",
+      "Company Size",
+      "Company Founded",
+      "Company Linkedin Url",
+      "Company Facebook Url",
+      "Company Twitter Url",
+      "Company Location Name",
+      "Company Location Locality",
+      "Company Location Metro",
+      "Company Location Region",
+      "Company Location Geo",
+      "Company Location Street Address",
+      "Company Location Address Line 2",
+      "Company Location Postal Code",
+      "Company Location Country",
+      "Company Location Continent",
+      "Job Summary",
+      "Years Experience",
+      "Summary"
+    ],
+    "content_quality": {
+      "Industry": {
+        "avg_length": 17.97,
+        "max_length": 35,
+        "min_length": 6,
+        "sample_count": 60,
+        "sample_text": "consumer services",
+        "information_density": 0.18
+      },
+      "Job title": {
+        "avg_length": 18.95,
+        "max_length": 52,
+        "min_length": 4,
+        "sample_count": 60,
+        "sample_text": "self employeed",
+        "information_density": 0.19
+      },
+      "Sub Role": {
+        "avg_length": 8.4,
+        "max_length": 20,
+        "min_length": 3,
+        "sample_count": 60,
+        "sample_text": "researcher",
+        "information_density": 0.08
+      },
+      "Industry 2": {
+        "avg_length": 8.33,
+        "max_length": 16,
+        "min_length": 5,
+        "sample_count": 60,
+        "sample_text": "finance",
+        "information_density": 0.08
+      },
+      "Company Name": {
+        "avg_length": 18.02,
+        "max_length": 40,
+        "min_length": 3,
+        "sample_count": 60,
+        "sample_text": "personal care",
+        "information_density": 0.18
+      },
+      "Company Industry": {
+        "avg_length": 17.52,
+        "max_length": 35,
+        "min_length": 6,
+        "sample_count": 60,
+        "sample_text": "defense & space",
+        "information_density": 0.18
+      },
+      "Company Website": {
+        "avg_length": 14.1,
+        "max_length": 24,
+        "min_length": 6,
+        "sample_count": 60,
+        "sample_text": "drs.com",
+        "information_density": 0.14
+      },
+      "Company Size": {
+        "avg_length": 6.78,
+        "max_length": 10,
+        "min_length": 4,
+        "sample_count": 60,
+        "sample_text": "1001-5000",
+        "information_density": 0.07
+      },
+      "Company Founded": {
+        "avg_length": 4.0,
+        "max_length": 4,
+        "min_length": 4,
+        "sample_count": 60,
+        "sample_text": "1983",
+        "information_density": 0.04
+      },
+      "Company Linkedin Url": {
+        "avg_length": 38.9,
+        "max_length": 67,
+        "min_length": 25,
+        "sample_count": 60,
+        "sample_text": "linkedin.com/company/drs-defense-solutions-llc",
+        "information_density": 0.39
+      },
+      "Company Facebook Url": {
+        "avg_length": 25.22,
+        "max_length": 40,
+        "min_length": 16,
+        "sample_count": 60,
+        "sample_text": "facebook.com/bankofamerica",
+        "information_density": 0.25
+      },
+      "Company Twitter Url": {
+        "avg_length": 21.68,
+        "max_length": 27,
+        "min_length": 16,
+        "sample_count": 60,
+        "sample_text": "twitter.com/drstechpress",
+        "information_density": 0.22
+      },
+      "Company Location Name": {
+        "avg_length": 31.48,
+        "max_length": 49,
+        "min_length": 11,
+        "sample_count": 60,
+        "sample_text": "arlington, virginia, united states",
+        "information_density": 0.31
+      },
+      "Company Location Locality": {
+        "avg_length": 9.1,
+        "max_length": 18,
+        "min_length": 4,
+        "sample_count": 60,
+        "sample_text": "arlington",
+        "information_density": 0.09
+      },
+      "Company Location Metro": {
+        "avg_length": 19.05,
+        "max_length": 34,
+        "min_length": 12,
+        "sample_count": 60,
+        "sample_text": "district of columbia",
+        "information_density": 0.19
+      }
+    },
+    "embedding_strategy": {
+      "primary_text_fields": [],
+      "secondary_text_fields": [
+        "Company Linkedin Url",
+        "Company Facebook Url",
+        "Company Twitter Url",
+        "Company Location Name"
+      ],
+      "recommended_combination": "",
+      "embedding_length_estimate": 0
+    },
+    "text_combinations": {}
+  },
+  "geographic_analysis": {
+    "location_fields": [
+      "Location",
+      "Locality",
+      "Metro",
+      "Region",
+      "Company Location Name",
+      "Company Location Locality",
+      "Company Location Metro",
+      "Company Location Region",
+      "Company Location Geo",
+      "Company Location Street Address",
+      "Company Location Address Line 2",
+      "Company Location Postal Code",
+      "Company Location Country",
+      "Company Location Continent",
+      "Location Country",
+      "Location Continent",
+      "Location Geo"
+    ],
+    "location_hierarchy": {
+      "primary_location": "Location Geo",
+      "locality": "Company Location Locality",
+      "metro": "Company Location Metro",
+      "region": "Company Location Region",
+      "country": "Location Country",
+      "continent": "Location Continent"
+    },
+    "location_patterns": {
+      "Location": {
+        "top_locations": {
+          "new york, new york, united states": 16,
+          "chicago, illinois, united states": 7,
+          "dallas, texas, united states": 5,
+          "seattle, washington, united states": 5,
+          "boston, massachusetts, united states": 5,
+          "columbus, ohio, united states": 5,
+          "los angeles, california, united states": 5,
+          "san francisco, california, united states": 5,
+          "minneapolis, minnesota, united states": 4,
+          "united states": 4,
+          "arlington, texas, united states": 3,
+          "washington, district of columbia, united states": 3,
+          "philadelphia, pennsylvania, united states": 3,
+          "cincinnati, ohio, united states": 3,
+          "atlanta, georgia, united states": 3,
+          "miami, florida, united states": 3,
+          "saint louis, missouri, united states": 3,
+          "sacramento, california, united states": 3,
+          "austin, texas, united states": 3,
+          "denver, colorado, united states": 3
+        },
+        "unique_count": 213,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 20,
+          "has_state_codes": 0,
+          "has_country": 20,
+          "avg_length": 34.3
+        }
+      },
+      "Locality": {
+        "top_locations": {
+          "new york": 16,
+          "chicago": 7,
+          "dallas": 6,
+          "seattle": 5,
+          "boston": 5,
+          "columbus": 5,
+          "los angeles": 5,
+          "san francisco": 5,
+          "minneapolis": 4,
+          "arlington": 3,
+          "washington": 3,
+          "philadelphia": 3,
+          "cincinnati": 3,
+          "atlanta": 3,
+          "miami": 3,
+          "portland": 3,
+          "saint louis": 3,
+          "sacramento": 3,
+          "austin": 3,
+          "denver": 3
+        },
+        "unique_count": 207,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 8.9
+        }
+      },
+      "Metro": {
+        "top_locations": {
+          "new york, new york": 27,
+          "los angeles, california": 20,
+          "dallas, texas": 16,
+          "chicago, illinois": 16,
+          "san francisco, california": 9,
+          "minneapolis, minnesota": 8,
+          "boston, massachusetts": 7,
+          "atlanta, georgia": 7,
+          "sacramento, california": 7,
+          "columbus, ohio": 6,
+          "seattle, washington": 5,
+          "portland, oregon": 5,
+          "miami, florida": 5,
+          "district of columbia": 4,
+          "cincinnati, ohio": 4,
+          "houston, texas": 4,
+          "san diego, california": 4,
+          "austin, texas": 4,
+          "phoenix, arizona": 3,
+          "virginia beach, virginia": 3
+        },
+        "unique_count": 117,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 19,
+          "has_state_codes": 0,
+          "has_country": 1,
+          "avg_length": 18.25
+        }
+      },
+      "Region": {
+        "top_locations": {
+          "california": 48,
+          "texas": 29,
+          "new york": 29,
+          "ohio": 18,
+          "florida": 15,
+          "illinois": 15,
+          "georgia": 11,
+          "north carolina": 11,
+          "pennsylvania": 9,
+          "washington": 9,
+          "michigan": 9,
+          "minnesota": 8,
+          "missouri": 7,
+          "oregon": 7,
+          "massachusetts": 6,
+          "alabama": 6,
+          "louisiana": 5,
+          "colorado": 5,
+          "south carolina": 4,
+          "tennessee": 4
+        },
+        "unique_count": 41,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 8.4
+        }
+      },
+      "Company Location Name": {
+        "top_locations": {
+          "united states": 19,
+          "new york, new york, united states": 12,
+          "arlington, virginia, united states": 6,
+          "chicago, illinois, united states": 6,
+          "washington, district of columbia, united states": 6,
+          "columbus, ohio, united states": 6,
+          "houston, texas, united states": 6,
+          "dallas, texas, united states": 5,
+          "san francisco, california, united states": 5,
+          "atlanta, georgia, united states": 4,
+          "seattle, washington, united states": 3,
+          "texas, united states": 3,
+          "st. louis, missouri, united states": 3,
+          "irvine, california, united states": 3,
+          "cincinnati, ohio, united states": 3,
+          "minneapolis, minnesota, united states": 3,
+          "scottsdale, arizona, united states": 2,
+          "charlotte, north carolina, united states": 2,
+          "austin, texas, united states": 2,
+          "plano, texas, united states": 2
+        },
+        "unique_count": 199,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 18,
+          "has_state_codes": 0,
+          "has_country": 18,
+          "avg_length": 31.9
+        }
+      },
+      "Company Location Locality": {
+        "top_locations": {
+          "new york": 13,
+          "san francisco": 7,
+          "houston": 7,
+          "arlington": 6,
+          "chicago": 6,
+          "washington": 6,
+          "columbus": 6,
+          "dallas": 5,
+          "atlanta": 5,
+          "irvine": 4,
+          "seattle": 3,
+          "dublin": 3,
+          "st. louis": 3,
+          "cincinnati": 3,
+          "minneapolis": 3,
+          "london": 3,
+          "menlo park": 3,
+          "dayton": 3,
+          "scottsdale": 2,
+          "charlotte": 2
+        },
+        "unique_count": 201,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 1,
+          "avg_length": 8.6
+        }
+      },
+      "Company Location Metro": {
+        "top_locations": {
+          "district of columbia": 21,
+          "new york, new york": 21,
+          "san francisco, california": 20,
+          "dallas, texas": 18,
+          "los angeles, california": 13,
+          "detroit, michigan": 11,
+          "chicago, illinois": 9,
+          "atlanta, georgia": 9,
+          "houston, texas": 9,
+          "minneapolis, minnesota": 7,
+          "seattle, washington": 6,
+          "columbus, ohio": 6,
+          "boston, massachusetts": 6,
+          "phoenix, arizona": 4,
+          "pittsburgh, pennsylvania": 4,
+          "miami, florida": 4,
+          "denver, colorado": 4,
+          "cincinnati, ohio": 4,
+          "san jose, california": 4,
+          "austin, texas": 3
+        },
+        "unique_count": 102,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 17,
+          "has_state_codes": 0,
+          "has_country": 1,
+          "avg_length": 18.05
+        }
+      },
+      "Company Location Region": {
+        "top_locations": {
+          "california": 39,
+          "texas": 35,
+          "new york": 20,
+          "ohio": 15,
+          "virginia": 14,
+          "pennsylvania": 13,
+          "michigan": 12,
+          "georgia": 9,
+          "minnesota": 9,
+          "north carolina": 8,
+          "illinois": 8,
+          "florida": 8,
+          "district of columbia": 6,
+          "new jersey": 6,
+          "colorado": 6,
+          "massachusetts": 6,
+          "wisconsin": 6,
+          "arizona": 5,
+          "missouri": 5,
+          "washington": 5
+        },
+        "unique_count": 67,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 8.75
+        }
+      },
+      "Company Location Geo": {
+        "top_locations": {
+          "40.71,-74.00": 13,
+          "37.77,-122.41": 7,
+          "29.76,-95.36": 7,
+          "38.89,-77.08": 6,
+          "41.85,-87.65": 6,
+          "38.89,-77.03": 6,
+          "39.96,-82.99": 6,
+          "32.78,-96.80": 5,
+          "33.74,-84.38": 5,
+          "33.66,-117.82": 4,
+          "47.60,-122.33": 3,
+          "39.73,-104.98": 3,
+          "38.62,-90.19": 3,
+          "44.98,-93.26": 3,
+          "37.45,-122.18": 3,
+          "39.75,-84.19": 3,
+          "33.50,-111.89": 2,
+          "35.22,-80.84": 2,
+          "30.26,-97.74": 2,
+          "53.33,-6.24": 2
+        },
+        "unique_count": 205,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 20,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 12.05
+        }
+      },
+      "Company Location Street Address": {
+        "top_locations": {
+          "1500 army navy drive": 4,
+          "270 park avenue": 3,
+          "1200 navy pentagon": 3,
+          "700 children south drive": 2,
+          "9601 south meridian boulevard": 2,
+          "1 kaiser plaza": 2,
+          "18100 von karman": 2,
+          "420 montgomery street": 2,
+          "6801 rockledge drive": 2,
+          "6565 fannin street": 2,
+          "1 hacker way": 2,
+          "1 ford place": 2,
+          "16251 dallas parkway": 2,
+          "8737 east viaduct": 1,
+          "100 north tryon street": 1,
+          "1100 north glebe road": 1,
+          "1825 south grant street": 1,
+          "150 north clinton street": 1,
+          "p/o box 8960": 1,
+          "919 east 32nd street": 1
+        },
+        "unique_count": 283,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 1,
+          "avg_length": 20.35
+        }
+      },
+      "Company Location Address Line 2": {
+        "top_locations": {
+          "suite 200": 26,
+          "suite 100": 19,
+          "suite 300": 17,
+          "suite 400": 13,
+          "suite 500": 12,
+          "suite 900": 8,
+          "suite 600": 7,
+          "suite 700": 6,
+          "suite 202": 5,
+          "suite 201": 5,
+          "suite 1200": 5,
+          "suite 1100": 4,
+          "suite 210": 4,
+          "suite 350": 4,
+          "suite 220": 4,
+          "suite c": 3,
+          "suite 101": 3,
+          "suite 1800": 3,
+          "suite 2600": 3,
+          "suite 1000": 3
+        },
+        "unique_count": 141,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 8.8
+        }
+      },
+      "Company Location Postal Code": {
+        "top_locations": {
+          "20350": 4,
+          "10017": 3,
+          "43205": 3,
+          "92612": 3,
+          "94103": 3,
+          "94025": 3,
+          "30328": 3,
+          "85258": 2,
+          "28202": 2,
+          "98134": 2,
+          "87501": 2,
+          "75024": 2,
+          "07054": 2,
+          "12553": 2,
+          "94612": 2,
+          "48084": 2,
+          "94105": 2,
+          "48103": 2,
+          "94080": 2,
+          "10010": 2
+        },
+        "unique_count": 265,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 5.0
+        }
+      },
+      "Company Location Country": {
+        "top_locations": {
+          "united states": 264,
+          "united kingdom": 8,
+          "mexico": 3,
+          "china": 2,
+          "ireland": 2,
+          "hungary": 2,
+          "turkey": 1,
+          "germany": 1,
+          "spain": 1,
+          "canada": 1,
+          "india": 1,
+          "south africa": 1,
+          "romania": 1,
+          "united arab emirates": 1,
+          "netherlands": 1,
+          "liechtenstein": 1,
+          "portugal": 1,
+          "denmark": 1,
+          "belgium": 1,
+          "japan": 1
+        },
+        "unique_count": 25,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 18,
+          "avg_length": 12.25
+        }
+      },
+      "Company Location Continent": {
+        "top_locations": {
+          "north america": 268,
+          "europe": 23,
+          "asia": 6,
+          "africa": 2,
+          "oceania": 1
+        },
+        "unique_count": 5,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 12.1
+        }
+      },
+      "Location Country": {
+        "top_locations": {
+          "united states": 300
+        },
+        "unique_count": 1,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 20,
+          "avg_length": 13.0
+        }
+      },
+      "Location Continent": {
+        "top_locations": {
+          "north america": 300
+        },
+        "unique_count": 1,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 0,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 13.0
+        }
+      },
+      "Location Geo": {
+        "top_locations": {
+          "40.71,-74.00": 16,
+          "41.85,-87.65": 8,
+          "32.78,-96.80": 6,
+          "47.60,-122.33": 5,
+          "42.35,-71.06": 5,
+          "39.96,-82.99": 5,
+          "34.05,-118.24": 5,
+          "37.77,-122.41": 5,
+          "44.98,-93.26": 4,
+          "38.58,-121.49": 4,
+          "32.73,-97.10": 3,
+          "38.89,-77.03": 3,
+          "39.95,-75.16": 3,
+          "33.74,-84.38": 3,
+          "25.77,-80.19": 3,
+          "45.52,-122.67": 3,
+          "38.62,-90.19": 3,
+          "30.26,-97.74": 3,
+          "39.73,-104.98": 3,
+          "31.75,-106.48": 2
+        },
+        "unique_count": 214,
+        "total_entries": 300,
+        "format_patterns": {
+          "comma_separated": 20,
+          "has_state_codes": 0,
+          "has_country": 0,
+          "avg_length": 12.25
+        }
+      }
+    },
+    "geo_standardization": {
+      "primary_location_field": "Location Geo",
+      "hierarchy_fields": [
+        "Location Geo",
+        "Company Location Locality",
+        "Company Location Metro",
+        "Company Location Region",
+        "Location Country",
+        "Location Continent"
+      ],
+      "needs_parsing": true,
+      "standardization_priority": [
+        "Company Location Street Address",
+        "Company Location Postal Code",
+        "Location Geo",
+        "Location",
+        "Locality"
+      ]
+    }
+  },
+  "experience_analysis": {
+    "experience_fields": [
+      "Job title",
+      "Sub Role",
+      "Birth Year",
+      "Years Experience"
+    ],
+    "experience_levels": {},
+    "career_patterns": {},
+    "seniority_indicators": {
+      "Job title": {
+        "entry": 5,
+        "mid": 12,
+        "senior": 12,
+        "management": 35,
+        "executive": 17
+      }
+    }
+  },
+  "industry_company_analysis": {
+    "industry_fields": [
+      "Industry",
+      "Industry 2",
+      "Company Industry"
+    ],
+    "company_fields": [
+      "Company Name",
+      "Company Industry",
+      "Company Website",
+      "Company Size",
+      "Company Founded",
+      "Company Linkedin Url",
+      "Company Facebook Url",
+      "Company Twitter Url",
+      "Company Location Name",
+      "Company Location Locality",
+      "Company Location Metro",
+      "Company Location Region",
+      "Company Location Geo",
+      "Company Location Street Address",
+      "Company Location Address Line 2",
+      "Company Location Postal Code",
+      "Company Location Country",
+      "Company Location Continent"
+    ],
+    "industry_standardization": {
+      "Industry": {
+        "top_industries": {
+          "Hospital & Health Care": 17,
+          "Retail": 11,
+          "Information Technology And Services": 10,
+          "Construction": 9,
+          "Education Management": 9,
+          "Health, Wellness And Fitness": 9,
+          "Financial Services": 9,
+          "Consumer Services": 8,
+          "Higher Education": 8,
+          "Banking": 7,
+          "Food Production": 7,
+          "Mental Health Care": 7,
+          "Real Estate": 6,
+          "Marketing And Advertising": 6,
+          "Automotive": 6,
+          "Medical Practice": 5,
+          "Telecommunications": 5,
+          "Government Administration": 5,
+          "Hospitality": 5,
+          "Accounting": 4,
+          "Cosmetics": 4,
+          "Human Resources": 4,
+          "Fine Art": 4,
+          "Oil & Energy": 4,
+          "Electrical/Electronic Manufacturing": 4,
+          "Security And Investigations": 3,
+          "Non-Profit Organization Management": 3,
+          "Computer Software": 3,
+          "Legal Services": 3,
+          "Religious Institutions": 3
+        },
+        "total_unique": 93,
+        "industry_clusters": {
+          "technology": [
+            "Security And Investigations",
+            "Information Technology And Services",
+            "Computer & Network Security",
+            "Non-Profit Organization Management",
+            "Hospital & Health Care",
+            "Computer Networking",
+            "Furniture",
+            "Utilities",
+            "Computer Software",
+            "Health, Wellness And Fitness"
+          ],
+          "finance": [
+            "Banking",
+            "Financial Services",
+            "Investment Management",
+            "Investment Banking"
+          ],
+          "healthcare": [
+            "Medical Practice",
+            "Hospital & Health Care",
+            "Health, Wellness And Fitness",
+            "Mental Health Care",
+            "Hospitality",
+            "Medical Devices"
+          ]
+        },
+        "standardization_needed": false
+      },
+      "Industry 2": {
+        "top_industries": {
+          "Engineering": 43,
+          "Sales": 38,
+          "Operations": 38,
+          "Finance": 37,
+          "Education": 36,
+          "Health": 34,
+          "Human_Resources": 15,
+          "Customer_Service": 12,
+          "Media": 12,
+          "Design": 9,
+          "Legal": 9,
+          "Trades": 6,
+          "Marketing": 6,
+          "Real_Estate": 3,
+          "Public_Relations": 2
+        },
+        "total_unique": 15,
+        "industry_clusters": {
+          "technology": [],
+          "finance": [
+            "Finance"
+          ],
+          "healthcare": [
+            "Health"
+          ]
+        },
+        "standardization_needed": false
+      },
+      "Company Industry": {
+        "top_industries": {
+          "Hospital & Health Care": 32,
+          "Financial Services": 22,
+          "Information Technology And Services": 11,
+          "Automotive": 10,
+          "Retail": 10,
+          "Higher Education": 10,
+          "Military": 9,
+          "Computer Software": 8,
+          "Education Management": 7,
+          "Hospitality": 7,
+          "Defense & Space": 6,
+          "Banking": 6,
+          "Government Administration": 6,
+          "Real Estate": 6,
+          "Telecommunications": 6,
+          "Oil & Energy": 6,
+          "Health, Wellness And Fitness": 5,
+          "Non-Profit Organization Management": 5,
+          "Insurance": 5,
+          "Construction": 5,
+          "Management Consulting": 5,
+          "Internet": 5,
+          "Mental Health Care": 5,
+          "Transportation/Trucking/Railroad": 4,
+          "Staffing And Recruiting": 4,
+          "Food & Beverages": 4,
+          "Wholesale": 4,
+          "Restaurants": 3,
+          "Mechanical Or Industrial Engineering": 3,
+          "Primary/Secondary Education": 3
+        },
+        "total_unique": 79,
+        "industry_clusters": {
+          "technology": [
+            "Information Technology And Services",
+            "Computer & Network Security",
+            "Hospital & Health Care",
+            "Facilities Services",
+            "Health, Wellness And Fitness",
+            "Security And Investigations",
+            "Non-Profit Organization Management",
+            "Military",
+            "Utilities",
+            "Computer Software"
+          ],
+          "finance": [
+            "Financial Services",
+            "Banking",
+            "Investment Management"
+          ],
+          "healthcare": [
+            "Hospital & Health Care",
+            "Health, Wellness And Fitness",
+            "Hospitality",
+            "Mental Health Care",
+            "Medical Devices",
+            "Pharmaceuticals",
+            "Medical Practice"
+          ]
+        },
+        "standardization_needed": false
+      }
+    },
+    "company_patterns": {
+      "Company Name": {
+        "top_companies": {
+          "us army": 2,
+          "mary kay inc.": 2,
+          "personal care": 1,
+          "the landing at watermere": 1,
+          "drs technologies, inc.": 1,
+          "l&g mortgagebanc": 1,
+          "bank of america": 1,
+          "worthington steel delta": 1,
+          "caci international inc": 1,
+          "sbmi": 1,
+          "jpmorgan chase & co.": 1,
+          "tirsan treyler a.s.": 1,
+          "lastline, inc.": 1,
+          "iri": 1,
+          "k & n electric": 1,
+          "bradford farm properties": 1,
+          "community foundation of the ozarks": 1,
+          "hca central/west texas": 1,
+          "peoria charter coach": 1,
+          "bedford public schools": 1
+        },
+        "total_unique": 148,
+        "large_companies_found": [],
+        "avg_company_name_length": 18.24
+      },
+      "Company Industry": {
+        "top_companies": {
+          "hospital & health care": 14,
+          "financial services": 10,
+          "information technology and services": 7,
+          "automotive": 7,
+          "government administration": 5,
+          "retail": 5,
+          "higher education": 5,
+          "banking": 4,
+          "education management": 4,
+          "oil & energy": 4,
+          "defense & space": 3,
+          "health, wellness and fitness": 3,
+          "non-profit organization management": 3,
+          "military": 3,
+          "insurance": 3,
+          "construction": 3,
+          "computer software": 3,
+          "mental health care": 3,
+          "real estate": 3,
+          "staffing and recruiting": 3
+        },
+        "total_unique": 63,
+        "large_companies_found": [
+          "mining & metals"
+        ],
+        "avg_company_name_length": 17.54
+      },
+      "Company Website": {
+        "top_companies": {
+          "goarmy.com": 3,
+          "airforce.com": 3,
+          "nationwidechildrens.org": 2,
+          "lockheedmartin.com": 2,
+          "drs.com": 1,
+          "lgmortgagebanc.com": 1,
+          "bankofamerica.com": 1,
+          "caci.com": 1,
+          "tirsan.com.tr": 1,
+          "lastline.com": 1,
+          "iriworldwide.com": 1,
+          "cfozarks.org": 1,
+          "peoriacharter.com": 1,
+          "bauerhiteortho.com": 1,
+          "dhs.gov": 1,
+          "starbucks.com": 1,
+          "englishgardens.com": 1,
+          "ensigngroup.net": 1,
+          "asm.net": 1,
+          "koat.com": 1
+        },
+        "total_unique": 144,
+        "large_companies_found": [],
+        "avg_company_name_length": 14.19
+      },
+      "Company Size": {
+        "top_companies": {
+          "10001+": 42,
+          "1001-5000": 24,
+          "51-200": 23,
+          "201-500": 14,
+          "5001-10000": 14,
+          "11-50": 12,
+          "501-1000": 11,
+          "1-10": 10
+        },
+        "total_unique": 8,
+        "large_companies_found": [],
+        "avg_company_name_length": 6.88
+      },
+      "Company Founded": {
+        "top_companies": {
+          "1983": 5,
+          "1995": 5,
+          "1947": 5,
+          "2010": 4,
+          "1982": 4,
+          "1963": 4,
+          "2011": 3,
+          "1971": 3,
+          "1994": 3,
+          "1967": 3,
+          "1912": 3,
+          "1775": 3,
+          "1981": 3,
+          "2014": 3,
+          "1969": 3,
+          "2012": 3,
+          "1998": 2,
+          "1823": 2,
+          "1973": 2,
+          "1999": 2
+        },
+        "total_unique": 89,
+        "large_companies_found": [],
+        "avg_company_name_length": 4.0
+      },
+      "Company Linkedin Url": {
+        "top_companies": {
+          "linkedin.com/company/us-army": 3,
+          "linkedin.com/company/jpmorgan-chase": 2,
+          "linkedin.com/company/nationwide-childrens-hospital": 2,
+          "linkedin.com/company/mary-kay-inc": 2,
+          "linkedin.com/company/drs-defense-solutions-llc": 1,
+          "linkedin.com/company/l&g-mortgagebanc": 1,
+          "linkedin.com/company/bank-of-america": 1,
+          "linkedin.com/company/caci-international-inc": 1,
+          "linkedin.com/company/tirsan-treyler-a-s": 1,
+          "linkedin.com/company/lastlineinc": 1,
+          "linkedin.com/company/iri-": 1,
+          "linkedin.com/company/community-foundation-of-the-ozarks": 1,
+          "linkedin.com/company/hca-central-west-texas": 1,
+          "linkedin.com/company/peoria-charter-coach-company": 1,
+          "linkedin.com/company/bedford-public-schools": 1,
+          "linkedin.com/company/us-department-of-homeland-security": 1,
+          "linkedin.com/company/starbucks": 1,
+          "linkedin.com/company/english-gardens": 1,
+          "linkedin.com/company/ensign-services": 1,
+          "linkedin.com/company/scan-med-of-resonance-innovations": 1
+        },
+        "total_unique": 145,
+        "large_companies_found": [],
+        "avg_company_name_length": 38.11
+      },
+      "Company Facebook Url": {
+        "top_companies": {
+          "facebook.com/goarmy": 4,
+          "facebook.com/usairforce": 3,
+          "facebook.com/nationwidechildrenshospital": 2,
+          "facebook.com/kpthrive": 2,
+          "facebook.com/wellsfargo": 2,
+          "facebook.com/lockheedmartin": 2,
+          "facebook.com/houstonmethodist": 2,
+          "facebook.com/henryfordhealthsystem": 2,
+          "facebook.com/marykay": 2,
+          "facebook.com/bankofamerica": 1,
+          "facebook.com/lastlineinc": 1,
+          "facebook.com/cfozarks": 1,
+          "facebook.com/homelandsecurity": 1,
+          "facebook.com/starbucks": 1,
+          "facebook.com/englishgardens": 1,
+          "facebook.com/koat7": 1,
+          "facebook.com/pacteraus": 1,
+          "facebook.com/accenture": 1,
+          "facebook.com/subway": 1,
+          "facebook.com/herbalife": 1
+        },
+        "total_unique": 138,
+        "large_companies_found": [
+          "facebook.com/bankofamerica",
+          "facebook.com/lastlineinc",
+          "facebook.com/cfozarks",
+          "facebook.com/homelandsecurity",
+          "facebook.com/starbucks",
+          "facebook.com/englishgardens",
+          "facebook.com/koat7",
+          "facebook.com/pacteraus",
+          "facebook.com/accenture",
+          "facebook.com/subway"
+        ],
+        "avg_company_name_length": 25.22
+      },
+      "Company Twitter Url": {
+        "top_companies": {
+          "twitter.com/goarmy": 4,
+          "twitter.com/usairforce": 3,
+          "twitter.com/americasnavy": 3,
+          "twitter.com/jpmorgan": 2,
+          "twitter.com/nationwidekids": 2,
+          "twitter.com/kpthrive": 2,
+          "twitter.com/wellsfargo": 2,
+          "twitter.com/lockheedmartin": 2,
+          "twitter.com/methodisthosp": 2,
+          "twitter.com/facebook": 2,
+          "twitter.com/henryfordnews": 2,
+          "twitter.com/marykay": 2,
+          "twitter.com/drstechpress": 1,
+          "twitter.com/bofa_help": 1,
+          "twitter.com/caciintl": 1,
+          "twitter.com/lastlineinc": 1,
+          "twitter.com/cfozarks": 1,
+          "twitter.com/peoriacharter": 1,
+          "twitter.com/starbucks": 1,
+          "twitter.com/englishgardens": 1
+        },
+        "total_unique": 134,
+        "large_companies_found": [
+          "twitter.com/google",
+          "twitter.com/facebook",
+          "twitter.com/apple",
+          "twitter.com/microsoft",
+          "twitter.com/amazon",
+          "twitter.com/ibm"
+        ],
+        "avg_company_name_length": 22.15
+      },
+      "Company Location Name": {
+        "top_companies": {
+          "united states": 11,
+          "new york, new york, united states": 6,
+          "arlington, virginia, united states": 5,
+          "columbus, ohio, united states": 5,
+          "chicago, illinois, united states": 4,
+          "san francisco, california, united states": 3,
+          "houston, texas, united states": 3,
+          "austin, texas, united states": 2,
+          "washington, district of columbia, united states": 2,
+          "seattle, washington, united states": 2,
+          "plano, texas, united states": 2,
+          "texas, united states": 2,
+          "cincinnati, ohio, united states": 2,
+          "fairfax, virginia, united states": 2,
+          "san jose, california, united states": 2,
+          "dallas, texas, united states": 2,
+          "minneapolis, minnesota, united states": 2,
+          "dayton, ohio, united states": 2,
+          "sacramento, california, united states": 2,
+          "addison, texas, united states": 2
+        },
+        "total_unique": 107,
+        "large_companies_found": [],
+        "avg_company_name_length": 32.29
+      },
+      "Company Location Locality": {
+        "top_companies": {
+          "new york": 8,
+          "arlington": 5,
+          "columbus": 5,
+          "chicago": 4,
+          "san francisco": 4,
+          "houston": 4,
+          "scottsdale": 2,
+          "austin": 2,
+          "washington": 2,
+          "seattle": 2,
+          "plano": 2,
+          "los angeles": 2,
+          "irvine": 2,
+          "cincinnati": 2,
+          "fairfax": 2,
+          "st. louis": 2,
+          "san jose": 2,
+          "chapel hill": 2,
+          "dallas": 2,
+          "minneapolis": 2
+        },
+        "total_unique": 108,
+        "large_companies_found": [],
+        "avg_company_name_length": 8.93
+      },
+      "Company Location Metro": {
+        "top_companies": {
+          "district of columbia": 13,
+          "dallas, texas": 12,
+          "new york, new york": 11,
+          "san francisco, california": 9,
+          "los angeles, california": 8,
+          "houston, texas": 6,
+          "detroit, michigan": 5,
+          "columbus, ohio": 5,
+          "chicago, illinois": 4,
+          "san jose, california": 4,
+          "minneapolis, minnesota": 3,
+          "cincinnati, ohio": 3,
+          "phoenix, arizona": 2,
+          "austin, texas": 2,
+          "seattle, washington": 2,
+          "pittsburgh, pennsylvania": 2,
+          "miami, florida": 2,
+          "denver, colorado": 2,
+          "kansas city, missouri": 2,
+          "st. louis, missouri": 2
+        },
+        "total_unique": 64,
+        "large_companies_found": [],
+        "avg_company_name_length": 19.41
+      },
+      "Company Location Region": {
+        "top_companies": {
+          "texas": 22,
+          "california": 21,
+          "ohio": 10,
+          "virginia": 9,
+          "michigan": 9,
+          "new york": 8,
+          "pennsylvania": 7,
+          "north carolina": 5,
+          "illinois": 5,
+          "minnesota": 4,
+          "florida": 4,
+          "missouri": 3,
+          "arizona": 2,
+          "district of columbia": 2,
+          "washington": 2,
+          "georgia": 2,
+          "new jersey": 2,
+          "oregon": 2,
+          "massachusetts": 2,
+          "south carolina": 2
+        },
+        "total_unique": 47,
+        "large_companies_found": [],
+        "avg_company_name_length": 8.49
+      },
+      "Company Location Geo": {
+        "top_companies": {
+          "40.71,-74.00": 8,
+          "38.89,-77.08": 5,
+          "39.96,-82.99": 5,
+          "41.85,-87.65": 4,
+          "37.77,-122.41": 4,
+          "29.76,-95.36": 4,
+          "33.50,-111.89": 2,
+          "30.26,-97.74": 2,
+          "38.89,-77.03": 2,
+          "47.60,-122.33": 2,
+          "53.33,-6.24": 2,
+          "33.01,-96.69": 2,
+          "34.05,-118.24": 2,
+          "33.66,-117.82": 2,
+          "38.84,-77.30": 2,
+          "38.62,-90.19": 2,
+          "37.33,-121.89": 2,
+          "35.91,-79.05": 2,
+          "32.78,-96.80": 2,
+          "44.98,-93.26": 2
+        },
+        "total_unique": 108,
+        "large_companies_found": [],
+        "avg_company_name_length": 12.18
+      },
+      "Company Location Street Address": {
+        "top_companies": {
+          "1500 army navy drive": 4,
+          "270 park avenue": 3,
+          "700 children south drive": 2,
+          "420 montgomery street": 2,
+          "16251 dallas parkway": 2,
+          "8737 east viaduct": 1,
+          "100 north tryon street": 1,
+          "1100 north glebe road": 1,
+          "1825 south grant street": 1,
+          "150 north clinton street": 1,
+          "p/o box 8960": 1,
+          "919 east 32nd street": 1,
+          "2600 northeast adams street": 1,
+          "1135 smith road": 1,
+          "2707 martin luther king jr avenue southeast": 1,
+          "2401 utah avenue south": 1,
+          "22536 ford r": 1,
+          "328 galisteo street": 1,
+          "260 madison avenue": 1,
+          "5834 bethelview road": 1
+        },
+        "total_unique": 142,
+        "large_companies_found": [],
+        "avg_company_name_length": 19.72
+      },
+      "Company Location Address Line 2": {
+        "top_companies": {
+          "suite 200": 13,
+          "suite 100": 10,
+          "suite 400": 6,
+          "suite 202": 5,
+          "suite 900": 4,
+          "suite 201": 4,
+          "suite 500": 4,
+          "suite 1200": 4,
+          "suite 700": 3,
+          "suite 1100": 3,
+          "suite c": 3,
+          "suite 101": 3,
+          "suite 300": 3,
+          "suite 600": 3,
+          "p/o box 660": 2,
+          "ste 1000": 2,
+          "suite 210": 2,
+          "suite 350": 2,
+          "suite 110": 2,
+          "suite 1000": 2
+        },
+        "total_unique": 88,
+        "large_companies_found": [],
+        "avg_company_name_length": 8.92
+      },
+      "Company Location Postal Code": {
+        "top_companies": {
+          "10017": 3,
+          "43205": 3,
+          "85258": 2,
+          "75024": 2,
+          "94103": 2,
+          "92612": 2,
+          "77030": 2,
+          "28202": 1,
+          "22201": 1,
+          "94402": 1,
+          "60661": 1,
+          "65801": 1,
+          "78705": 1,
+          "61603": 1,
+          "48182": 1,
+          "20528": 1,
+          "98134": 1,
+          "48127": 1,
+          "87501": 1,
+          "10016": 1
+        },
+        "total_unique": 141,
+        "large_companies_found": [],
+        "avg_company_name_length": 5.01
+      },
+      "Company Location Country": {
+        "top_companies": {
+          "united states": 135,
+          "china": 2,
+          "united kingdom": 2,
+          "turkey": 1,
+          "germany": 1,
+          "ireland": 1,
+          "spain": 1,
+          "canada": 1,
+          "netherlands": 1,
+          "mexico": 1,
+          "hungary": 1,
+          "norway": 1,
+          "australia": 1,
+          "poland": 1
+        },
+        "total_unique": 14,
+        "large_companies_found": [],
+        "avg_company_name_length": 7.71
+      },
+      "Company Location Continent": {
+        "top_companies": {
+          "north america": 137,
+          "europe": 9,
+          "asia": 3,
+          "oceania": 1
+        },
+        "total_unique": 4,
+        "large_companies_found": [],
+        "avg_company_name_length": 7.5
+      }
+    },
+    "business_intelligence": {
+      "dominant_industries": {
+        "Hospital & Health Care": 49,
+        "Engineering": 43,
+        "Sales": 38,
+        "Operations": 38,
+        "Finance": 37,
+        "Education": 36,
+        "Health": 34,
+        "Financial Services": 31,
+        "Information Technology And Services": 21,
+        "Retail": 21,
+        "Higher Education": 18,
+        "Education Management": 16,
+        "Automotive": 16,
+        "Human_Resources": 15,
+        "Construction": 14
+      },
+      "company_size_indicators": [],
+      "market_insights": {}
+    }
+  },
+  "enhanced_database_schema": {
+    "create_table_sql": "-- Semantic Talent Finder - Production Database Schema\\n-- Generated from LinkedIn dataset analysis\\n-- Optimized for vector similarity search and AI-powered matching\\n\\n-- Enable required PostgreSQL extensions\\nCREATE EXTENSION IF NOT EXISTS vector;\\nCREATE EXTENSION IF NOT EXISTS pg_trgm;\\nCREATE EXTENSION IF NOT EXISTS btree_gin;\\n\\n-- Main profiles table with semantic search optimization\\nCREATE TABLE profiles (\\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\\n    \\n    -- Core Identity Fields (High Quality - Low Null %)\\n    full_name VARCHAR(500) NOT NULL,\\n    first_name VARCHAR(100) NOT NULL,\\n    last_name VARCHAR(100) NOT NULL,\\n    linkedin_url VARCHAR(500) NOT NULL,\\n    linkedin_username VARCHAR(100) NOT NULL,\\n    \\n    -- Professional Information\\n    job_title VARCHAR(300),\\n    industry VARCHAR(200),\\n    company_name VARCHAR(300),\\n    company_industry VARCHAR(200),\\n    \\n    -- Geographic Information (Hierarchical)\\n    location VARCHAR(500) NOT NULL, -- Primary location string\\n    \\n    -- Skills and Expertise (Optimized for Search)\\n    skills TEXT[], -- Array of skills for efficient querying\\n    skills_text TEXT, -- Concatenated skills for full-text search\\n    technical_skills TEXT[], -- Technical skills subset\\n    soft_skills TEXT[], -- Soft skills subset\\n    \\n    -- Experience and Seniority\\n    years_experience INTEGER, -- Calculated years of experience\\n    experience_level VARCHAR(50), -- entry, mid, senior, management, executive\\n    seniority_score INTEGER, -- Computed seniority score (0-100)\\n    \\n    -- Computed Text Fields for Semantic Search\\n    headline VARCHAR(500), -- Professional headline/summary\\n    professional_summary TEXT, -- Combined professional description\\n    searchable_content TEXT, -- Optimized content for embedding generation\\n    \\n    -- Contact Information (Optional)\\n    email VARCHAR(320), -- RFC 5322 compliant length\\n    phone VARCHAR(50),\\n    mobile VARCHAR(50),\\n    \\n    -- Social Media\\n    facebook_url VARCHAR(500),\\n    twitter_url VARCHAR(500),\\n    \\n    -- Company Details\\n    company_website VARCHAR(500),\\n    company_size VARCHAR(100),\\n    company_founded VARCHAR(20),\\n    \\n    -- AI/ML Fields\\n    embedding vector(1536) NOT NULL, -- OpenAI text-embedding-3-small\\n    embedding_version VARCHAR(20) DEFAULT 'v1.0', -- Track embedding model version\\n    content_hash VARCHAR(64), -- SHA-256 hash for detecting changes\\n    \\n    -- Metadata\\n    data_source VARCHAR(100) DEFAULT 'linkedin',\\n    data_quality_score DECIMAL(3,2), -- 0.00 to 1.00\\n    last_profile_update TIMESTAMP,\\n    created_at TIMESTAMPTZ DEFAULT NOW(),\\n    updated_at TIMESTAMPTZ DEFAULT NOW()\\n);\\n\\n-- Vector Similarity Index (HNSW for fast approximate search)\\nCREATE INDEX profiles_embedding_hnsw_idx ON profiles USING hnsw (embedding vector_cosine_ops)\\n    WITH (m = 16, ef_construction = 64);\\n\\n-- Core Identity Indexes\\nCREATE UNIQUE INDEX profiles_linkedin_username_idx ON profiles(linkedin_username);\\nCREATE INDEX profiles_full_name_idx ON profiles(full_name);\\nCREATE INDEX profiles_name_trgm_idx ON profiles USING gin (full_name gin_trgm_ops);\\n\\n-- Professional Search Indexes\\nCREATE INDEX profiles_job_title_idx ON profiles(job_title);\\nCREATE INDEX profiles_industry_idx ON profiles(industry);\\nCREATE INDEX profiles_company_idx ON profiles(company_name);\\nCREATE INDEX profiles_experience_level_idx ON profiles(experience_level);\\n\\n-- Geographic Search Indexes\\nCREATE INDEX profiles_location_idx ON profiles(location);\\nCREATE INDEX profiles_region_idx ON profiles(region);\\nCREATE INDEX profiles_country_idx ON profiles(country);\\nCREATE INDEX profiles_geo_hierarchy_idx ON profiles(country, region, locality);\\n\\n-- Skills Search Indexes\\nCREATE INDEX profiles_skills_gin_idx ON profiles USING gin (skills);\\nCREATE INDEX profiles_technical_skills_gin_idx ON profiles USING gin (technical_skills);\\nCREATE INDEX profiles_skills_text_trgm_idx ON profiles USING gin (skills_text gin_trgm_ops);\\n\\n-- Full-Text Search Index\\nCREATE INDEX profiles_searchable_content_fts_idx ON profiles USING gin (to_tsvector('english', searchable_content));\\n\\n-- Performance Indexes\\nCREATE INDEX profiles_quality_score_idx ON profiles(data_quality_score) WHERE data_quality_score >= 0.7;\\nCREATE INDEX profiles_updated_at_idx ON profiles(updated_at);\\nCREATE INDEX profiles_compound_search_idx ON profiles(industry, experience_level, country) WHERE data_quality_score >= 0.7;\\n\\n-- Skills lookup table for standardization\\nCREATE TABLE skills_dictionary (\\n    id SERIAL PRIMARY KEY,\\n    skill_name VARCHAR(200) NOT NULL UNIQUE,\\n    skill_category VARCHAR(100), -- technical, soft, industry\\n    skill_type VARCHAR(50), -- programming, framework, tool, etc.\\n    synonyms TEXT[], -- Alternative names\\n    popularity_score INTEGER DEFAULT 0,\\n    created_at TIMESTAMPTZ DEFAULT NOW()\\n);\\n\\nCREATE INDEX skills_dictionary_name_idx ON skills_dictionary(skill_name);\\nCREATE INDEX skills_dictionary_category_idx ON skills_dictionary(skill_category);\\n\\n-- Search analytics table\\nCREATE TABLE search_queries (\\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\\n    query_text TEXT NOT NULL,\\n    query_embedding vector(1536),\\n    user_session VARCHAR(100),\\n    results_count INTEGER,\\n    execution_time_ms INTEGER,\\n    filters_applied JSONB,\\n    created_at TIMESTAMPTZ DEFAULT NOW()\\n);\\n\\nCREATE INDEX search_queries_created_at_idx ON search_queries(created_at);\\nCREATE INDEX search_queries_embedding_idx ON search_queries USING hnsw (query_embedding vector_cosine_ops);",
+    "processing_recommendations": {
+      "embedding_generation": {
+        "primary_fields": [],
+        "content_template": "Professional: {job_title} at {company_name} | Industry: {industry} | Location: {location} | Skills: {skills_text}",
+        "max_content_length": 8000,
+        "preprocessing_steps": [
+          "Remove HTML tags and special characters",
+          "Normalize whitespace",
+          "Handle null values with defaults",
+          "Truncate if exceeds max length"
+        ]
+      },
+      "data_quality_rules": {
+        "minimum_quality_score": 0.7,
+        "required_fields": [
+          "full_name",
+          "linkedin_username"
+        ],
+        "embedding_generation_threshold": 0.5,
+        "content_validation": [
+          "full_name must not be empty",
+          "linkedin_username must be unique",
+          "at least one of job_title or industry must be present"
+        ]
+      },
+      "batch_processing": {
+        "recommended_batch_size": 5000,
+        "parallel_embedding_batch_size": 100,
+        "error_handling": "skip_and_log",
+        "retry_logic": "exponential_backoff"
+      }
+    },
+    "schema_optimizations": {
+      "vector_index_type": "HNSW",
+      "text_search_method": "pg_trgm + GIN",
+      "skills_storage": "TEXT[] arrays",
+      "geographic_hierarchy": "normalized fields",
+      "full_text_search": "tsvector with english config"
+    }
+  }
+}
