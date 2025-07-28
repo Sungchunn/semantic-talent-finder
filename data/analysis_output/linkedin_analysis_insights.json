@@ -1,0 +1,1164 @@
+{
+  "schema_analysis": {
+    "total_columns": 62,
+    "total_rows": 51352619,
+    "file_size_gb": 15.15,
+    "columns": {
+      "Full name": {
+        "type": "string",
+        "nullable": true,
+        "index": 0
+      },
+      "Industry": {
+        "type": "string",
+        "nullable": true,
+        "index": 1
+      },
+      "Job title": {
+        "type": "string",
+        "nullable": true,
+        "index": 2
+      },
+      "Sub Role": {
+        "type": "string",
+        "nullable": true,
+        "index": 3
+      },
+      "Industry 2": {
+        "type": "string",
+        "nullable": true,
+        "index": 4
+      },
+      "Emails": {
+        "type": "string",
+        "nullable": true,
+        "index": 5
+      },
+      "Mobile": {
+        "type": "string",
+        "nullable": true,
+        "index": 6
+      },
+      "Phone numbers": {
+        "type": "string",
+        "nullable": true,
+        "index": 7
+      },
+      "Company Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 8
+      },
+      "Company Industry": {
+        "type": "string",
+        "nullable": true,
+        "index": 9
+      },
+      "Company Website": {
+        "type": "string",
+        "nullable": true,
+        "index": 10
+      },
+      "Company Size": {
+        "type": "string",
+        "nullable": true,
+        "index": 11
+      },
+      "Company Founded": {
+        "type": "string",
+        "nullable": true,
+        "index": 12
+      },
+      "Location": {
+        "type": "string",
+        "nullable": true,
+        "index": 13
+      },
+      "Locality": {
+        "type": "string",
+        "nullable": true,
+        "index": 14
+      },
+      "Metro": {
+        "type": "string",
+        "nullable": true,
+        "index": 15
+      },
+      "Region": {
+        "type": "string",
+        "nullable": true,
+        "index": 16
+      },
+      "Skills": {
+        "type": "string",
+        "nullable": true,
+        "index": 17
+      },
+      "First Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 18
+      },
+      "Middle Initial": {
+        "type": "string",
+        "nullable": true,
+        "index": 19
+      },
+      "Middle Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 20
+      },
+      "Last Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 21
+      },
+      "Birth Year": {
+        "type": "string",
+        "nullable": true,
+        "index": 22
+      },
+      "Birth Date": {
+        "type": "string",
+        "nullable": true,
+        "index": 23
+      },
+      "Gender": {
+        "type": "string",
+        "nullable": true,
+        "index": 24
+      },
+      "LinkedIn Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 25
+      },
+      "LinkedIn Username": {
+        "type": "string",
+        "nullable": true,
+        "index": 26
+      },
+      "Facebook Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 27
+      },
+      "Facebook Username": {
+        "type": "string",
+        "nullable": true,
+        "index": 28
+      },
+      "Twitter Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 29
+      },
+      "Twitter Username": {
+        "type": "string",
+        "nullable": true,
+        "index": 30
+      },
+      "Github Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 31
+      },
+      "Github Username": {
+        "type": "string",
+        "nullable": true,
+        "index": 32
+      },
+      "Company Linkedin Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 33
+      },
+      "Company Facebook Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 34
+      },
+      "Company Twitter Url": {
+        "type": "string",
+        "nullable": true,
+        "index": 35
+      },
+      "Company Location Name": {
+        "type": "string",
+        "nullable": true,
+        "index": 36
+      },
+      "Company Location Locality": {
+        "type": "string",
+        "nullable": true,
+        "index": 37
+      },
+      "Company Location Metro": {
+        "type": "string",
+        "nullable": true,
+        "index": 38
+      },
+      "Company Location Region": {
+        "type": "string",
+        "nullable": true,
+        "index": 39
+      },
+      "Company Location Geo": {
+        "type": "string",
+        "nullable": true,
+        "index": 40
+      },
+      "Company Location Street Address": {
+        "type": "string",
+        "nullable": true,
+        "index": 41
+      },
+      "Company Location Address Line 2": {
+        "type": "string",
+        "nullable": true,
+        "index": 42
+      },
+      "Company Location Postal Code": {
+        "type": "string",
+        "nullable": true,
+        "index": 43
+      },
+      "Company Location Country": {
+        "type": "string",
+        "nullable": true,
+        "index": 44
+      },
+      "Company Location Continent": {
+        "type": "string",
+        "nullable": true,
+        "index": 45
+      },
+      "Last Updated": {
+        "type": "string",
+        "nullable": true,
+        "index": 46
+      },
+      "Start Date": {
+        "type": "string",
+        "nullable": true,
+        "index": 47
+      },
+      "Job Summary": {
+        "type": "string",
+        "nullable": true,
+        "index": 48
+      },
+      "Location Country": {
+        "type": "string",
+        "nullable": true,
+        "index": 49
+      },
+      "Location Continent": {
+        "type": "string",
+        "nullable": true,
+        "index": 50
+      },
+      "Street Address": {
+        "type": "string",
+        "nullable": true,
+        "index": 51
+      },
+      "Address Line 2": {
+        "type": "string",
+        "nullable": true,
+        "index": 52
+      },
+      "Postal Code": {
+        "type": "string",
+        "nullable": true,
+        "index": 53
+      },
+      "Location Geo": {
+        "type": "string",
+        "nullable": true,
+        "index": 54
+      },
+      "Last Updated.1": {
+        "type": "string",
+        "nullable": true,
+        "index": 55
+      },
+      "Linkedin Connections": {
+        "type": "string",
+        "nullable": true,
+        "index": 56
+      },
+      "Inferred Salary": {
+        "type": "string",
+        "nullable": true,
+        "index": 57
+      },
+      "Years Experience": {
+        "type": "string",
+        "nullable": true,
+        "index": 58
+      },
+      "Summary": {
+        "type": "string",
+        "nullable": true,
+        "index": 59
+      },
+      "Countries": {
+        "type": "string",
+        "nullable": true,
+        "index": 60
+      },
+      "Interests": {
+        "type": "string",
+        "nullable": true,
+        "index": 61
+      }
+    },
+    "column_names": [
+      "Full name",
+      "Industry",
+      "Job title",
+      "Sub Role",
+      "Industry 2",
+      "Emails",
+      "Mobile",
+      "Phone numbers",
+      "Company Name",
+      "Company Industry",
+      "Company Website",
+      "Company Size",
+      "Company Founded",
+      "Location",
+      "Locality",
+      "Metro",
+      "Region",
+      "Skills",
+      "First Name",
+      "Middle Initial",
+      "Middle Name",
+      "Last Name",
+      "Birth Year",
+      "Birth Date",
+      "Gender",
+      "LinkedIn Url",
+      "LinkedIn Username",
+      "Facebook Url",
+      "Facebook Username",
+      "Twitter Url",
+      "Twitter Username",
+      "Github Url",
+      "Github Username",
+      "Company Linkedin Url",
+      "Company Facebook Url",
+      "Company Twitter Url",
+      "Company Location Name",
+      "Company Location Locality",
+      "Company Location Metro",
+      "Company Location Region",
+      "Company Location Geo",
+      "Company Location Street Address",
+      "Company Location Address Line 2",
+      "Company Location Postal Code",
+      "Company Location Country",
+      "Company Location Continent",
+      "Last Updated",
+      "Start Date",
+      "Job Summary",
+      "Location Country",
+      "Location Continent",
+      "Street Address",
+      "Address Line 2",
+      "Postal Code",
+      "Location Geo",
+      "Last Updated.1",
+      "Linkedin Connections",
+      "Inferred Salary",
+      "Years Experience",
+      "Summary",
+      "Countries",
+      "Interests"
+    ]
+  },
+  "data_quality": {
+    "total_rows_analyzed": 200000,
+    "chunks_processed": 4,
+    "null_counts": {
+      "Full name": "0",
+      "Industry": "27576",
+      "Job title": "33995",
+      "Sub Role": "152129",
+      "Industry 2": "121621",
+      "Emails": "108698",
+      "Mobile": "189411",
+      "Phone numbers": "169186",
+      "Company Name": "51511",
+      "Company Industry": "98678",
+      "Company Website": "112035",
+      "Company Size": "97024",
+      "Company Founded": "124050",
+      "Location": "95",
+      "Locality": "5265",
+      "Metro": "22315",
+      "Region": "4455",
+      "Skills": "113356",
+      "First Name": "132",
+      "Middle Initial": "181497",
+      "Middle Name": "189172",
+      "Last Name": "116",
+      "Birth Year": "190526",
+      "Birth Date": "194723",
+      "Gender": "32270",
+      "LinkedIn Url": "116",
+      "LinkedIn Username": "121",
+      "Facebook Url": "176660",
+      "Facebook Username": "176660",
+      "Twitter Url": "196423",
+      "Twitter Username": "196423",
+      "Github Url": "199334",
+      "Github Username": "199334",
+      "Company Linkedin Url": "97059",
+      "Company Facebook Url": "156761",
+      "Company Twitter Url": "149465",
+      "Company Location Name": "101397",
+      "Company Location Locality": "114122",
+      "Company Location Metro": "126325",
+      "Company Location Region": "109947",
+      "Company Location Geo": "116383",
+      "Company Location Street Address": "127590",
+      "Company Location Address Line 2": "188607",
+      "Company Location Postal Code": "126670",
+      "Company Location Country": "101398",
+      "Company Location Continent": "101398",
+      "Last Updated": "37143",
+      "Start Date": "115669",
+      "Job Summary": "173587",
+      "Location Country": "152",
+      "Location Continent": "160",
+      "Street Address": "173125",
+      "Address Line 2": "197566",
+      "Postal Code": "177179",
+      "Location Geo": "8160",
+      "Last Updated.1": "11231",
+      "Linkedin Connections": "13327",
+      "Inferred Salary": "82228",
+      "Years Experience": "86293",
+      "Summary": "66037",
+      "Countries": "251",
+      "Interests": "179452"
+    },
+    "null_percentages": {
+      "Full name": 0.0,
+      "Industry": 13.79,
+      "Job title": 17.0,
+      "Sub Role": 76.06,
+      "Industry 2": 60.81,
+      "Emails": 54.35,
+      "Mobile": 94.71,
+      "Phone numbers": 84.59,
+      "Company Name": 25.76,
+      "Company Industry": 49.34,
+      "Company Website": 56.02,
+      "Company Size": 48.51,
+      "Company Founded": 62.02,
+      "Location": 0.05,
+      "Locality": 2.63,
+      "Metro": 11.16,
+      "Region": 2.23,
+      "Skills": 56.68,
+      "First Name": 0.07,
+      "Middle Initial": 90.75,
+      "Middle Name": 94.59,
+      "Last Name": 0.06,
+      "Birth Year": 95.26,
+      "Birth Date": 97.36,
+      "Gender": 16.13,
+      "LinkedIn Url": 0.06,
+      "LinkedIn Username": 0.06,
+      "Facebook Url": 88.33,
+      "Facebook Username": 88.33,
+      "Twitter Url": 98.21,
+      "Twitter Username": 98.21,
+      "Github Url": 99.67,
+      "Github Username": 99.67,
+      "Company Linkedin Url": 48.53,
+      "Company Facebook Url": 78.38,
+      "Company Twitter Url": 74.73,
+      "Company Location Name": 50.7,
+      "Company Location Locality": 57.06,
+      "Company Location Metro": 63.16,
+      "Company Location Region": 54.97,
+      "Company Location Geo": 58.19,
+      "Company Location Street Address": 63.8,
+      "Company Location Address Line 2": 94.3,
+      "Company Location Postal Code": 63.33,
+      "Company Location Country": 50.7,
+      "Company Location Continent": 50.7,
+      "Last Updated": 18.57,
+      "Start Date": 57.83,
+      "Job Summary": 86.79,
+      "Location Country": 0.08,
+      "Location Continent": 0.08,
+      "Street Address": 86.56,
+      "Address Line 2": 98.78,
+      "Postal Code": 88.59,
+      "Location Geo": 4.08,
+      "Last Updated.1": 5.62,
+      "Linkedin Connections": 6.66,
+      "Inferred Salary": 41.11,
+      "Years Experience": 43.15,
+      "Summary": 33.02,
+      "Countries": 0.13,
+      "Interests": 89.73
+    },
+    "data_types": {
+      "Full name": "object",
+      "Industry": "object",
+      "Job title": "object",
+      "Sub Role": "object",
+      "Industry 2": "object",
+      "Emails": "object",
+      "Mobile": "object",
+      "Phone numbers": "object",
+      "Company Name": "object",
+      "Company Industry": "object",
+      "Company Website": "object",
+      "Company Size": "object",
+      "Company Founded": "object",
+      "Location": "object",
+      "Locality": "object",
+      "Metro": "object",
+      "Region": "object",
+      "Skills": "object",
+      "First Name": "object",
+      "Middle Initial": "object",
+      "Middle Name": "object",
+      "Last Name": "object",
+      "Birth Year": "object",
+      "Birth Date": "object",
+      "Gender": "object",
+      "LinkedIn Url": "object",
+      "LinkedIn Username": "object",
+      "Facebook Url": "object",
+      "Facebook Username": "object",
+      "Twitter Url": "object",
+      "Twitter Username": "object",
+      "Github Url": "object",
+      "Github Username": "object",
+      "Company Linkedin Url": "object",
+      "Company Facebook Url": "object",
+      "Company Twitter Url": "object",
+      "Company Location Name": "object",
+      "Company Location Locality": "object",
+      "Company Location Metro": "object",
+      "Company Location Region": "object",
+      "Company Location Geo": "object",
+      "Company Location Street Address": "object",
+      "Company Location Address Line 2": "object",
+      "Company Location Postal Code": "object",
+      "Company Location Country": "object",
+      "Company Location Continent": "object",
+      "Last Updated": "object",
+      "Start Date": "object",
+      "Job Summary": "object",
+      "Location Country": "object",
+      "Location Continent": "object",
+      "Street Address": "object",
+      "Address Line 2": "object",
+      "Postal Code": "object",
+      "Location Geo": "object",
+      "Last Updated.1": "object",
+      "Linkedin Connections": "object",
+      "Inferred Salary": "object",
+      "Years Experience": "object",
+      "Summary": "object",
+      "Countries": "object",
+      "Interests": "object"
+    },
+    "completeness_summary": {
+      "high_quality_fields": [
+        "Full name",
+        "Location",
+        "Locality",
+        "Region",
+        "First Name",
+        "Last Name",
+        "LinkedIn Url",
+        "LinkedIn Username",
+        "Location Country",
+        "Location Continent",
+        "Location Geo",
+        "Countries"
+      ],
+      "medium_quality_fields": [
+        "Industry",
+        "Job title",
+        "Metro",
+        "Gender",
+        "Last Updated",
+        "Last Updated.1",
+        "Linkedin Connections"
+      ],
+      "low_quality_fields": [
+        "Sub Role",
+        "Industry 2",
+        "Emails",
+        "Mobile",
+        "Phone numbers",
+        "Company Name",
+        "Company Industry",
+        "Company Website",
+        "Company Size",
+        "Company Founded",
+        "Skills",
+        "Middle Initial",
+        "Middle Name",
+        "Birth Year",
+        "Birth Date",
+        "Facebook Url",
+        "Facebook Username",
+        "Twitter Url",
+        "Twitter Username",
+        "Github Url",
+        "Github Username",
+        "Company Linkedin Url",
+        "Company Facebook Url",
+        "Company Twitter Url",
+        "Company Location Name",
+        "Company Location Locality",
+        "Company Location Metro",
+        "Company Location Region",
+        "Company Location Geo",
+        "Company Location Street Address",
+        "Company Location Address Line 2",
+        "Company Location Postal Code",
+        "Company Location Country",
+        "Company Location Continent",
+        "Start Date",
+        "Job Summary",
+        "Street Address",
+        "Address Line 2",
+        "Postal Code",
+        "Inferred Salary",
+        "Years Experience",
+        "Summary",
+        "Interests"
+      ]
+    }
+  },
+  "content_analysis": {},
+  "business_logic": {},
+  "processing_recommendations": {
+    "java_fields": {
+      "Full name": {
+        "original_column": "Full name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Full name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.0
+      },
+      "Industry": {
+        "original_column": "Industry",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Industry\", length = 255)",
+        "nullable": true,
+        "null_percentage": 13.79
+      },
+      "Job title": {
+        "original_column": "Job title",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Job title\", length = 255)",
+        "nullable": true,
+        "null_percentage": 17.0
+      },
+      "Sub Role": {
+        "original_column": "Sub Role",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Sub Role\", length = 255)",
+        "nullable": true,
+        "null_percentage": 76.06
+      },
+      "Industry 2": {
+        "original_column": "Industry 2",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Industry 2\", length = 255)",
+        "nullable": true,
+        "null_percentage": 60.81
+      },
+      "Emails": {
+        "original_column": "Emails",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Emails\", length = 255)",
+        "nullable": true,
+        "null_percentage": 54.35
+      },
+      "Mobile": {
+        "original_column": "Mobile",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Mobile\", length = 255)",
+        "nullable": true,
+        "null_percentage": 94.71
+      },
+      "Phone numbers": {
+        "original_column": "Phone numbers",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Phone numbers\", length = 255)",
+        "nullable": true,
+        "null_percentage": 84.59
+      },
+      "Company Name": {
+        "original_column": "Company Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 25.76
+      },
+      "Company Industry": {
+        "original_column": "Company Industry",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Industry\", length = 255)",
+        "nullable": true,
+        "null_percentage": 49.34
+      },
+      "Company Website": {
+        "original_column": "Company Website",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Website\", length = 255)",
+        "nullable": true,
+        "null_percentage": 56.02
+      },
+      "Company Size": {
+        "original_column": "Company Size",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Size\", length = 255)",
+        "nullable": true,
+        "null_percentage": 48.51
+      },
+      "Company Founded": {
+        "original_column": "Company Founded",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Founded\", length = 255)",
+        "nullable": true,
+        "null_percentage": 62.02
+      },
+      "Location": {
+        "original_column": "Location",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Location\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.05
+      },
+      "Locality": {
+        "original_column": "Locality",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Locality\", length = 255)",
+        "nullable": true,
+        "null_percentage": 2.63
+      },
+      "Metro": {
+        "original_column": "Metro",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Metro\", length = 255)",
+        "nullable": true,
+        "null_percentage": 11.16
+      },
+      "Region": {
+        "original_column": "Region",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Region\", length = 255)",
+        "nullable": true,
+        "null_percentage": 2.23
+      },
+      "Skills": {
+        "original_column": "Skills",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Skills\", length = 255)",
+        "nullable": true,
+        "null_percentage": 56.68
+      },
+      "First Name": {
+        "original_column": "First Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"First Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.07
+      },
+      "Middle Initial": {
+        "original_column": "Middle Initial",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Middle Initial\", length = 255)",
+        "nullable": true,
+        "null_percentage": 90.75
+      },
+      "Middle Name": {
+        "original_column": "Middle Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Middle Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 94.59
+      },
+      "Last Name": {
+        "original_column": "Last Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Last Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.06
+      },
+      "Birth Year": {
+        "original_column": "Birth Year",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Birth Year\", length = 255)",
+        "nullable": true,
+        "null_percentage": 95.26
+      },
+      "Birth Date": {
+        "original_column": "Birth Date",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Birth Date\", length = 255)",
+        "nullable": true,
+        "null_percentage": 97.36
+      },
+      "Gender": {
+        "original_column": "Gender",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Gender\", length = 255)",
+        "nullable": true,
+        "null_percentage": 16.13
+      },
+      "LinkedIn Url": {
+        "original_column": "LinkedIn Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"LinkedIn Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.06
+      },
+      "LinkedIn Username": {
+        "original_column": "LinkedIn Username",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"LinkedIn Username\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.06
+      },
+      "Facebook Url": {
+        "original_column": "Facebook Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Facebook Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 88.33
+      },
+      "Facebook Username": {
+        "original_column": "Facebook Username",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Facebook Username\", length = 255)",
+        "nullable": true,
+        "null_percentage": 88.33
+      },
+      "Twitter Url": {
+        "original_column": "Twitter Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Twitter Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 98.21
+      },
+      "Twitter Username": {
+        "original_column": "Twitter Username",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Twitter Username\", length = 255)",
+        "nullable": true,
+        "null_percentage": 98.21
+      },
+      "Github Url": {
+        "original_column": "Github Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Github Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 99.67
+      },
+      "Github Username": {
+        "original_column": "Github Username",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Github Username\", length = 255)",
+        "nullable": true,
+        "null_percentage": 99.67
+      },
+      "Company Linkedin Url": {
+        "original_column": "Company Linkedin Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Linkedin Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 48.53
+      },
+      "Company Facebook Url": {
+        "original_column": "Company Facebook Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Facebook Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 78.38
+      },
+      "Company Twitter Url": {
+        "original_column": "Company Twitter Url",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Twitter Url\", length = 255)",
+        "nullable": true,
+        "null_percentage": 74.73
+      },
+      "Company Location Name": {
+        "original_column": "Company Location Name",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Name\", length = 255)",
+        "nullable": true,
+        "null_percentage": 50.7
+      },
+      "Company Location Locality": {
+        "original_column": "Company Location Locality",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Locality\", length = 255)",
+        "nullable": true,
+        "null_percentage": 57.06
+      },
+      "Company Location Metro": {
+        "original_column": "Company Location Metro",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Metro\", length = 255)",
+        "nullable": true,
+        "null_percentage": 63.16
+      },
+      "Company Location Region": {
+        "original_column": "Company Location Region",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Region\", length = 255)",
+        "nullable": true,
+        "null_percentage": 54.97
+      },
+      "Company Location Geo": {
+        "original_column": "Company Location Geo",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Geo\", length = 255)",
+        "nullable": true,
+        "null_percentage": 58.19
+      },
+      "Company Location Street Address": {
+        "original_column": "Company Location Street Address",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Street Address\", length = 255)",
+        "nullable": true,
+        "null_percentage": 63.8
+      },
+      "Company Location Address Line 2": {
+        "original_column": "Company Location Address Line 2",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Address Line 2\", length = 255)",
+        "nullable": true,
+        "null_percentage": 94.3
+      },
+      "Company Location Postal Code": {
+        "original_column": "Company Location Postal Code",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Postal Code\", length = 255)",
+        "nullable": true,
+        "null_percentage": 63.33
+      },
+      "Company Location Country": {
+        "original_column": "Company Location Country",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Country\", length = 255)",
+        "nullable": true,
+        "null_percentage": 50.7
+      },
+      "Company Location Continent": {
+        "original_column": "Company Location Continent",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Company Location Continent\", length = 255)",
+        "nullable": true,
+        "null_percentage": 50.7
+      },
+      "Last Updated": {
+        "original_column": "Last Updated",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Last Updated\", length = 255)",
+        "nullable": true,
+        "null_percentage": 18.57
+      },
+      "Start Date": {
+        "original_column": "Start Date",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Start Date\", length = 255)",
+        "nullable": true,
+        "null_percentage": 57.83
+      },
+      "Job Summary": {
+        "original_column": "Job Summary",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Job Summary\", length = 255)",
+        "nullable": true,
+        "null_percentage": 86.79
+      },
+      "Location Country": {
+        "original_column": "Location Country",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Location Country\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.08
+      },
+      "Location Continent": {
+        "original_column": "Location Continent",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Location Continent\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.08
+      },
+      "Street Address": {
+        "original_column": "Street Address",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Street Address\", length = 255)",
+        "nullable": true,
+        "null_percentage": 86.56
+      },
+      "Address Line 2": {
+        "original_column": "Address Line 2",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Address Line 2\", length = 255)",
+        "nullable": true,
+        "null_percentage": 98.78
+      },
+      "Postal Code": {
+        "original_column": "Postal Code",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Postal Code\", length = 255)",
+        "nullable": true,
+        "null_percentage": 88.59
+      },
+      "Location Geo": {
+        "original_column": "Location Geo",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Location Geo\", length = 255)",
+        "nullable": true,
+        "null_percentage": 4.08
+      },
+      "Last Updated.1": {
+        "original_column": "Last Updated.1",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Last Updated.1\", length = 255)",
+        "nullable": true,
+        "null_percentage": 5.62
+      },
+      "Linkedin Connections": {
+        "original_column": "Linkedin Connections",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Linkedin Connections\", length = 255)",
+        "nullable": true,
+        "null_percentage": 6.66
+      },
+      "Inferred Salary": {
+        "original_column": "Inferred Salary",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Inferred Salary\", length = 255)",
+        "nullable": true,
+        "null_percentage": 41.11
+      },
+      "Years Experience": {
+        "original_column": "Years Experience",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Years Experience\", length = 255)",
+        "nullable": true,
+        "null_percentage": 43.15
+      },
+      "Summary": {
+        "original_column": "Summary",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Summary\", length = 255)",
+        "nullable": true,
+        "null_percentage": 33.02
+      },
+      "Countries": {
+        "original_column": "Countries",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Countries\", length = 255)",
+        "nullable": true,
+        "null_percentage": 0.13
+      },
+      "Interests": {
+        "original_column": "Interests",
+        "java_type": "String",
+        "jpa_annotation": "@Column(name = \"Interests\", length = 255)",
+        "nullable": true,
+        "null_percentage": 89.73
+      }
+    },
+    "processing_config": {
+      "recommended_batch_size": 5000,
+      "memory_per_batch_mb": 5.69,
+      "estimated_processing_time_hours": 85.59,
+      "high_priority_fields": [
+        "Full name",
+        "Location",
+        "Locality",
+        "Region",
+        "First Name",
+        "Last Name",
+        "LinkedIn Url",
+        "LinkedIn Username",
+        "Location Country",
+        "Location Continent",
+        "Location Geo",
+        "Countries"
+      ],
+      "validation_required_fields": [
+        "Sub Role",
+        "Industry 2",
+        "Emails",
+        "Mobile",
+        "Phone numbers",
+        "Company Name",
+        "Company Industry",
+        "Company Website",
+        "Company Size",
+        "Company Founded",
+        "Skills",
+        "Middle Initial",
+        "Middle Name",
+        "Birth Year",
+        "Birth Date",
+        "Facebook Url",
+        "Facebook Username",
+        "Twitter Url",
+        "Twitter Username",
+        "Github Url",
+        "Github Username",
+        "Company Linkedin Url",
+        "Company Facebook Url",
+        "Company Twitter Url",
+        "Company Location Name",
+        "Company Location Locality",
+        "Company Location Metro",
+        "Company Location Region",
+        "Company Location Geo",
+        "Company Location Street Address",
+        "Company Location Address Line 2",
+        "Company Location Postal Code",
+        "Company Location Country",
+        "Company Location Continent",
+        "Start Date",
+        "Job Summary",
+        "Street Address",
+        "Address Line 2",
+        "Postal Code",
+        "Inferred Salary",
+        "Years Experience",
+        "Summary",
+        "Interests"
+      ]
+    }
+  },
+  "database_schema": {
+    "create_table_sql": "CREATE TABLE profiles (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    Full name VARCHAR(255) NOT NULL,\n    Industry VARCHAR(255),\n    Job title VARCHAR(255),\n    Sub Role VARCHAR(255),\n    Industry 2 VARCHAR(255),\n    Emails VARCHAR(255),\n    Mobile VARCHAR(255),\n    Phone numbers VARCHAR(255),\n    Company Name VARCHAR(255),\n    Company Industry VARCHAR(255),\n    Company Website VARCHAR(255),\n    Company Size VARCHAR(255),\n    Company Founded VARCHAR(255),\n    Location VARCHAR(255) NOT NULL,\n    Locality VARCHAR(255),\n    Metro VARCHAR(255),\n    Region VARCHAR(255),\n    Skills VARCHAR(255),\n    First Name VARCHAR(255) NOT NULL,\n    Middle Initial VARCHAR(255),\n    Middle Name VARCHAR(255),\n    Last Name VARCHAR(255) NOT NULL,\n    Birth Year VARCHAR(255),\n    Birth Date VARCHAR(255),\n    Gender VARCHAR(255),\n    LinkedIn Url VARCHAR(255) NOT NULL,\n    LinkedIn Username VARCHAR(255) NOT NULL,\n    Facebook Url VARCHAR(255),\n    Facebook Username VARCHAR(255),\n    Twitter Url VARCHAR(255),\n    embedding vector(1536),\n    created_at TIMESTAMP DEFAULT NOW(),\n    updated_at TIMESTAMP DEFAULT NOW()\n);",
+    "indexes_sql": [
+      "CREATE INDEX CONCURRENTLY profiles_embedding_hnsw_idx ON profiles USING hnsw (embedding vector_cosine_ops);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_Full name ON profiles(Full name);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_Location ON profiles(Location);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_Locality ON profiles(Locality);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_Region ON profiles(Region);",
+      "CREATE INDEX CONCURRENTLY idx_profiles_First Name ON profiles(First Name);"
+    ]
+  }
+}
