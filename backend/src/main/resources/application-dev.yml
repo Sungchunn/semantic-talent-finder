@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/semantic_talent_finder_dev
+    username: postgres
+    password: postgres
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+
+logging:
+  level:
+    com.semantictalent.finder: DEBUG
+    org.springframework.ai: DEBUG
+    org.hibernate.SQL: DEBUG
+    root: INFO
