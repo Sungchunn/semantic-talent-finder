@@ -1,6 +1,6 @@
 package com.semantictalent.finder.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;

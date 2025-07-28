@@ -1,6 +1,6 @@
 package com.semantictalent.finder.service;
 
-import org.springframework.ai.embedding.EmbeddingClient;
+import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.embedding.EmbeddingRequest;
 import org.springframework.ai.embedding.EmbeddingResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +13,15 @@ import lombok.extern.slf4j.Slf4j;
 public class EmbeddingService {
     
     @Autowired
-    private EmbeddingClient embeddingClient;
+    private EmbeddingModel embeddingModel;
     
     public PGvector generateEmbedding(String text) {
         try {
             log.debug("Generating embedding for text: {}", text.substring(0, Math.min(text.length(), 100)));
             
-            EmbeddingRequest request = EmbeddingRequest.builder()
-                    .input(text)
-                    .build();
+            EmbeddingRequest request = new EmbeddingRequest(java.util.List.of(text), null);
             
-            EmbeddingResponse response = embeddingClient.call(request);
+            EmbeddingResponse response = embeddingModel.call(request);
             float[] embedding = response.getResults().get(0).getOutput();
             
             return new PGvector(embedding);

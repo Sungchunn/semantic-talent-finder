@@ -1,7 +1,7 @@
 package com.semantictalent.finder.config;
 
-import org.springframework.ai.embedding.EmbeddingClient;
-import org.springframework.ai.openai.OpenAiEmbeddingClient;
+import org.springframework.ai.embedding.EmbeddingModel;
+import org.springframework.ai.openai.OpenAiEmbeddingModel;
 import org.springframework.ai.openai.OpenAiEmbeddingOptions;
 import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,11 +23,11 @@ public class OpenAIConfig {
     }
     
     @Bean
-    public EmbeddingClient embeddingClient(OpenAiApi openAiApi) {
+    public EmbeddingModel embeddingModel(OpenAiApi openAiApi) {
         OpenAiEmbeddingOptions options = OpenAiEmbeddingOptions.builder()
                 .withModel(embeddingModel)
                 .build();
         
-        return new OpenAiEmbeddingClient(openAiApi, options);
+        return new OpenAiEmbeddingModel(openAiApi, null, options);
     }
 }
