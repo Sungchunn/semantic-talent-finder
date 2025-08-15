@@ -385,7 +385,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-**Chris Matthews** - [@chromatrical](https://github.com/chromatrical)
+**SungChun Huang** - [@sungchunn](https://github.com/sungchunn)
 
 **Project Link**: [https://github.com/chromatrical/semantic-talent-finder](https://github.com/chromatrical/semantic-talent-finder)
 
