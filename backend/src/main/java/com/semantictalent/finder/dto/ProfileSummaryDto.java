@@ -5,13 +5,14 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProfileSummaryDto {
-    private String id;
+    private UUID id;
     private String fullName;
     private String headline;
     private String location;

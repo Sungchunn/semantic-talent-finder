@@ -18,6 +18,20 @@
 - Never use `git push --force` or `git push -f`
 - Respect the existing commit history
 
+**🔐 SECURITY REQUIREMENTS**
+- **NEVER commit API keys or secrets** to the repository
+- **ALWAYS ensure .gitignore covers sensitive files**
+- **OpenAI API Key**: Always use environment variables (OPENAI_API_KEY)
+- **Database credentials**: Use environment variables in production
+- **Before each commit**: Verify no sensitive data is included
+
+**📝 GIT WORKFLOW - MANDATORY**
+- **ALWAYS make a git commit after completing any substantial changes**
+- **Use descriptive commit messages** that explain what was changed and why
+- **Push to remote repository**: git@github.com:Sungchunn/semantic-talent-finder.git
+- **Commit frequency**: After each feature, bug fix, or configuration change
+- **Include co-author attribution**: Co-Authored-By: Claude <noreply@anthropic.com>
+
 ---
 
 ## 🎯 Project Overview
@@ -1615,6 +1629,24 @@ dashboard:
 - 📋 Multi-region deployment
 - 📋 Real-time data streaming
 - 📋 Advanced ML features (ranking, personalization)
+
+---
+
+## 🐛 Known Issues & Fixes
+
+### TailwindCSS v4 Compatibility Issue (Fixed)
+- **Issue**: TailwindCSS v4 PostCSS plugin incompatibility causing frontend build errors
+- **Error**: "It looks like you're trying to use `tailwindcss` directly as a PostCSS plugin"
+- **Fix Applied**: Temporarily disabled TailwindCSS in postcss.config.js and removed tailwind.config.js
+- **Status**: Frontend now compiles successfully at http://localhost:3000
+- **Future**: Need to implement TailwindCSS v4 proper configuration or downgrade to v3
+
+### Current Working State (2025-08-15)
+- ✅ **Backend**: Running on http://localhost:8080 with full OpenAI integration
+- ✅ **Frontend**: Running on http://localhost:3000 (styling without TailwindCSS)
+- ✅ **Database**: PostgreSQL + pgvector on port 5433
+- ✅ **API**: Health endpoint working, ready for parquet data import
+- 🔧 **Styling**: Basic CSS only (TailwindCSS disabled temporarily)
 
 ---
 

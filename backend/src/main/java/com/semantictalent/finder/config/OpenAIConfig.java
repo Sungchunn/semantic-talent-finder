@@ -4,6 +4,7 @@ import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.openai.OpenAiEmbeddingModel;
 import org.springframework.ai.openai.OpenAiEmbeddingOptions;
 import org.springframework.ai.openai.api.OpenAiApi;
+import org.springframework.ai.document.MetadataMode;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +29,6 @@ public class OpenAIConfig {
                 .withModel(embeddingModel)
                 .build();
         
-        return new OpenAiEmbeddingModel(openAiApi, null, options);
+        return new OpenAiEmbeddingModel(openAiApi, MetadataMode.EMBED, options);
     }
 }

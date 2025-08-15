@@ -40,3 +40,33 @@ build/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+### Security - API Keys and Secrets ###
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+secrets.yml
+api-keys.txt
+.secrets
+
+### Frontend ###
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# production
+build/
+dist/
+
+# misc
+.eslintcache
+
+### Data Files ###
+*.parquet
+data/*.parquet
+large-datasets/

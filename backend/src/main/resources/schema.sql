@@ -155,12 +155,14 @@ END;
 $$ language 'plpgsql';
 
 -- Triggers to automatically update updated_at
-CREATE TRIGGER IF NOT EXISTS update_profiles_updated_at 
+DROP TRIGGER IF EXISTS update_profiles_updated_at ON profiles;
+CREATE TRIGGER update_profiles_updated_at 
     BEFORE UPDATE ON profiles 
     FOR EACH ROW 
     EXECUTE FUNCTION update_updated_at_column();
 
-CREATE TRIGGER IF NOT EXISTS update_skills_updated_at 
+DROP TRIGGER IF EXISTS update_skills_updated_at ON skills;
+CREATE TRIGGER update_skills_updated_at 
     BEFORE UPDATE ON skills 
     FOR EACH ROW 
     EXECUTE FUNCTION update_updated_at_column();

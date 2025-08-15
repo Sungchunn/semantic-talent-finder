@@ -43,6 +43,6 @@ public interface SkillsRepository extends JpaRepository<Skill, Long> {
     Long getTotalSkillFrequency();
     
     // Find skills with aliases
-    @Query("SELECT s FROM Skill s WHERE s.aliases IS NOT NULL AND array_length(s.aliases, 1) > 0")
+    @Query("SELECT s FROM Skill s WHERE s.aliases IS NOT NULL AND size(s.aliases) > 0")
     List<Skill> findSkillsWithAliases();
 }

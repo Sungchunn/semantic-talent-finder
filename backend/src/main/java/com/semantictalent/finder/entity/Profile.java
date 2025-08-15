@@ -8,6 +8,7 @@ import com.pgvector.PGvector;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "profiles", indexes = {
@@ -23,7 +24,8 @@ import java.util.Date;
 public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @Column(columnDefinition = "uuid")
+    private UUID id;
     
     // High-quality fields (0-3% null - based on dataset analysis)
     @Column(name = "full_name", nullable = false, length = 500)

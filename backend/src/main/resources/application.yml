@@ -3,7 +3,7 @@ spring:
     name: semantic-talent-finder
   
   datasource:
-    url: jdbc:postgresql://localhost:5432/semantic_talent_finder
+    url: jdbc:postgresql://localhost:5433/semantic_talent_finder
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -16,7 +16,7 @@ spring:
   
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
