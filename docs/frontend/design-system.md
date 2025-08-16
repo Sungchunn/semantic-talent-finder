@@ -1,4 +1,4 @@
-# Minimal AI Search Interface Design System
+# Minimal AI Search Interface with Advanced Animations Design System
 
 ## 🖥️ Design Philosophy
 
@@ -9,20 +9,21 @@ The Semantic Talent Finder uses a **minimal, AI-focused interface** with an anim
 ### Core Aesthetic
 - **Clean, centered search interface** as the primary interaction
 - **Animated LetterGlitch background** creating depth and movement
+- **Advanced typewriter animation** for the main title
+- **Shiny text effects** for interactive elements
 - **Monospace typography** throughout the application
-- **Green/blue color scheme** evoking AI and matrix aesthetics
+- **White/gray color scheme** for clean, professional look
 - **Single-purpose interface** focused purely on search
 - **Real-time backend connectivity status** indication
 
 ## 🌈 Color Palette
 
-### Primary Colors (AI/Matrix Theme)
+### Primary Colors (Clean Modern Theme)
 ```css
 /* Main Interface Colors */
---color-primary-green: #61dca3;     /* Primary green for titles and input focus */
---color-secondary-blue: #61b3dc;    /* Secondary blue for job titles and accents */
---color-tertiary-dark: #0a4a3a;     /* Dark green for background elements */
---color-deep-green: #1a5a4a;        /* Deeper green for highlights */
+--color-primary-white: #ffffff;     /* Primary white for titles and input */
+--color-secondary-gray: #cccccc;    /* Secondary gray for subtitles */
+--color-muted-gray: #888888;        /* Muted gray for disabled text */
 
 /* Background and Structure */
 --color-bg-black: #000000;          /* Pure black background */
@@ -30,8 +31,8 @@ The Semantic Talent Finder uses a **minimal, AI-focused interface** with an anim
 --color-bg-blur: rgba(0, 0, 0, 0.8); /* Blurred background for cards */
 
 /* Text Colors */
---color-text-primary: #61dca3;      /* Primary text (titles, input) */
---color-text-secondary: #61b3dc;    /* Secondary text (subtitles, job titles) */
+--color-text-primary: #ffffff;      /* Primary text (titles, input) */
+--color-text-secondary: #cccccc;    /* Secondary text (subtitles) */
 --color-text-muted: #ccc;           /* Muted text (descriptions) */
 --color-text-disabled: #888;        /* Disabled text */
 
@@ -69,12 +70,13 @@ The Semantic Talent Finder uses a **minimal, AI-focused interface** with an anim
 ```
 
 ### Typography Hierarchy
-- **Main Title**: 3.5rem, bright green, glowing text-shadow
-- **Subtitle**: 1.25rem, blue, medium opacity
-- **Search Input**: 1.1rem, green, medium weight
-- **Profile Names**: 1.25rem, green, bold
-- **Job Titles**: 1.05rem, blue, semibold
-- **Company/Location**: Base/small, muted colors
+- **Main Title**: 3.5rem, white, typewriter animation, glowing text-shadow
+- **Subtitle**: 1.25rem, light gray, medium opacity
+- **Search Input**: 1.1rem, white, medium weight
+- **Search Placeholder**: 1.1rem, shiny animated text
+- **Profile Names**: 1.25rem, white, bold
+- **Job Titles**: 1.05rem, gray, semibold
+- **Company/Location**: Base/small, muted gray colors
 
 ## 🖥️ Component Design System
 
@@ -279,6 +281,83 @@ The Semantic Talent Finder uses a **minimal, AI-focused interface** with an anim
   font-weight: 500;
   border: 1px solid rgba(97, 179, 220, 0.3);
   transition: all 0.2s ease;
+}
+```
+
+## 🎬 Advanced Animation Components
+
+### AdvancedTextType Component
+Advanced typewriter animation with GSAP integration:
+
+```typescript
+interface AdvancedTextTypeProps {
+  text: string | string[];
+  as?: keyof JSX.IntrinsicElements;
+  typingSpeed?: number;
+  initialDelay?: number;
+  pauseDuration?: number;
+  deletingSpeed?: number;
+  loop?: boolean;
+  className?: string;
+  showCursor?: boolean;
+  hideCursorWhileTyping?: boolean;
+  cursorCharacter?: string;
+  cursorClassName?: string;
+  cursorBlinkDuration?: number;
+  textColors?: string[];
+  variableSpeed?: { min: number; max: number };
+  onSentenceComplete?: (sentence: string, index: number) => void;
+  startOnVisible?: boolean;
+  reverseMode?: boolean;
+}
+```
+
+**Usage Example:**
+```jsx
+<AdvancedTextType
+  text="Semantic Talent Finder"
+  as="h1"
+  className="title"
+  typingSpeed={100}
+  showCursor={false}
+  loop={false}
+/>
+```
+
+### ShinyText Component
+Animated shimmering text effect:
+
+```typescript
+interface ShinyTextProps {
+  text: string;
+  disabled?: boolean;
+  speed?: number;
+  className?: string;
+}
+```
+
+**Usage Example:**
+```jsx
+<ShinyText 
+  text="Search for talent... (e.g., senior Java developer with AWS experience)"
+  speed={3}
+/>
+```
+
+**CSS Animation:**
+```css
+@keyframes shiny-sweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shiny-text {
+  background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 100%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shiny-sweep 5s ease-in-out infinite;
 }
 ```
 

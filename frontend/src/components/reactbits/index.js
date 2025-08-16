@@ -14,3 +14,5 @@ export { default as TextType } from './TextType';
 export { default as DecryptedText } from './DecryptedText';
 export { default as ASCIIArt } from './ASCIIArt';
 export { default as LetterGlitch } from './LetterGlitch';
+export { default as AdvancedTextType } from './AdvancedTextType';
+export { default as ShinyText } from './ShinyText';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
-import { LetterGlitch } from './components/reactbits';
+import { LetterGlitch, AdvancedTextType, ShinyText } from './components/reactbits';
 import { searchService, ProfileSummary, SearchRequest } from './services/searchService';
 
 const App: React.FC = () => {
@@ -14,8 +14,13 @@ const App: React.FC = () => {
   useEffect(() => {
     const checkConnection = async () => {
       try {
-        await searchService.searchProfiles({ query: '', limit: 1 });
-        setIsConnected(true);
+        // Use a simple health check instead of search
+        const response = await fetch('http://localhost:8080/actuator/health');
+        if (response.ok) {
+          setIsConnected(true);
+        } else {
+          setIsConnected(false);
+        }
       } catch (err) {
         console.error('Backend connection failed:', err);
         setIsConnected(false);
@@ -76,7 +81,14 @@ const App: React.FC = () => {
       <div className="content-layer">
         <div className="search-container">
           <div className="header">
-            <h1 className="title">Semantic Talent Finder</h1>
+            <AdvancedTextType
+              text="Semantic Talent Finder"
+              as="h1"
+              className="title"
+              typingSpeed={100}
+              showCursor={false}
+              loop={false}
+            />
             <p className="subtitle">
               AI-powered semantic search across 51M+ professional profiles
             </p>
@@ -90,20 +102,28 @@ const App: React.FC = () => {
 
           <form onSubmit={handleSearch} className="search-form">
             <div className="search-input-container">
+              {!query && (
+                <div className="search-placeholder">
+                  <ShinyText 
+                    text="Search for talent... (e.g., senior Java developer with AWS experience)"
+                    speed={3}
+                  />
+                </div>
+              )}
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 className="search-input"
-                placeholder="Search for talent... (e.g., senior Java developer with AWS experience)"
-                disabled={!isConnected || isSearching}
+                placeholder=""
+                disabled={isSearching}
                 autoFocus
               />
               <button 
                 type="submit" 
                 className="search-button"
-                disabled={!isConnected || isSearching || !query.trim()}
+                disabled={isSearching || !query.trim()}
               >
                 {isSearching ? (
                   <div className="spinner"></div>
