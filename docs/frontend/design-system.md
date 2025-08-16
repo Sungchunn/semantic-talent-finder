@@ -1,467 +1,403 @@
-# Terminal Design System
+# Minimal AI Search Interface Design System
 
 ## 🖥️ Design Philosophy
 
-The Semantic Talent Finder uses a **retro terminal interface** that simulates an authentic command-line experience for AI-powered talent search. This design emphasizes the technical sophistication of our 51M+ profile search system while providing a focused, developer-friendly interface without distractions.
+The Semantic Talent Finder uses a **minimal, AI-focused interface** with an animated matrix-style background that emphasizes the technical sophistication of our 51M+ profile search system. This design provides a clean, distraction-free experience while maintaining a futuristic aesthetic that reflects the AI-powered nature of the platform.
 
-## 🎨 Terminal Theme: Retro Computing
+## 🎨 Visual Theme: Minimal AI Interface
 
 ### Core Aesthetic
-- **Authentic terminal emulator interface** with CRT effects
+- **Clean, centered search interface** as the primary interaction
+- **Animated LetterGlitch background** creating depth and movement
 - **Monospace typography** throughout the application
-- **Green-on-black or amber-on-black** color schemes
-- **Scanlines and subtle glow effects** for retro computing feel
-- **Single-page terminal session** workflow
+- **Green/blue color scheme** evoking AI and matrix aesthetics
+- **Single-purpose interface** focused purely on search
+- **Real-time backend connectivity status** indication
 
-## 🌈 Terminal Color Palette
+## 🌈 Color Palette
 
-### Primary Terminal Colors (Green Theme)
+### Primary Colors (AI/Matrix Theme)
 ```css
---color-terminal-bg: #0a0a0a;        /* Deep black terminal background */
---color-terminal-primary: #00ff00;   /* Bright green terminal text */
---color-terminal-secondary: #00aa00; /* Dim green for less important content */
---color-terminal-cursor: #00ff00;    /* Blinking green cursor */
+/* Main Interface Colors */
+--color-primary-green: #61dca3;     /* Primary green for titles and input focus */
+--color-secondary-blue: #61b3dc;    /* Secondary blue for job titles and accents */
+--color-tertiary-dark: #0a4a3a;     /* Dark green for background elements */
+--color-deep-green: #1a5a4a;        /* Deeper green for highlights */
+
+/* Background and Structure */
+--color-bg-black: #000000;          /* Pure black background */
+--color-bg-overlay: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay for content */
+--color-bg-blur: rgba(0, 0, 0, 0.8); /* Blurred background for cards */
+
+/* Text Colors */
+--color-text-primary: #61dca3;      /* Primary text (titles, input) */
+--color-text-secondary: #61b3dc;    /* Secondary text (subtitles, job titles) */
+--color-text-muted: #ccc;           /* Muted text (descriptions) */
+--color-text-disabled: #888;        /* Disabled text */
+
+/* System Status Colors */
+--color-success: #44ff44;           /* Connected status */
+--color-error: #ff4444;             /* Disconnected/error status */
+--color-warning: #ffff44;           /* Warning states */
+--color-info: #4488ff;              /* Information states */
 ```
 
-### Alternative Amber Theme
+### LetterGlitch Background Colors
 ```css
---color-terminal-bg: #0a0a0a;        /* Deep black terminal background */
---color-terminal-primary: #ffb000;   /* Bright amber terminal text */
---color-terminal-secondary: #cc8800; /* Dim amber for secondary content */
---color-terminal-cursor: #ffb000;    /* Blinking amber cursor */
-```
-
-### System Status Colors
-```css
---color-success: #44ff44;      /* Bright green for successful operations */
---color-error: #ff4444;        /* Red for errors and failures */
---color-warning: #ffff44;      /* Yellow for warnings and cautions */
---color-info: #4488ff;         /* Blue for system information and prompts */
---color-processing: #ff8844;   /* Orange for loading and processing states */
---color-comment: #888888;      /* Gray for comments and metadata */
-```
-
-### CRT Visual Effects
-```css
---terminal-glow: 0 0 10px currentColor;           /* Text glow effect */
---terminal-screen-glow: 0 0 20px var(--color-terminal-primary); /* Screen outer glow */
---terminal-scanline: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%); /* Scanlines */
+/* Animated background matrix colors */
+--glitch-primary: #2b4539;          /* Dark base green */
+--glitch-bright: #61dca3;           /* Bright highlight green */
+--glitch-accent: #61b3dc;           /* Blue accent */
+--glitch-deep: #1a5a4a;             /* Deep background green */
 ```
 
 ## 📝 Typography System
 
 ### Font Stack
 ```css
---font-family-terminal: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Courier New', monospace;
+--font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Courier New', monospace;
 ```
 
-### Font Sizes (Terminal Scale)
+### Font Sizes (Minimal Scale)
 ```css
---text-terminal-xs: 12px;       /* Small system messages */
---text-terminal-sm: 14px;       /* Standard terminal text */
---text-terminal-base: 16px;     /* Primary terminal text */
---text-terminal-lg: 18px;       /* Headers and emphasis */
---text-terminal-xl: 20px;       /* ASCII art and titles */
---text-terminal-2xl: 24px;      /* Large ASCII headers */
+--text-3xl: 3.5rem;        /* Main title */
+--text-xl: 1.25rem;        /* Subtitle */
+--text-lg: 1.1rem;         /* Search input */
+--text-base: 1rem;         /* Base text */
+--text-sm: 0.9rem;         /* Small text, hints */
+--text-xs: 0.8rem;         /* Skill tags, metadata */
 ```
 
-### Line Height & Spacing
-```css
---line-height-terminal: 1.4;    /* Readable terminal spacing */
---letter-spacing-terminal: 0.02em; /* Slight letter spacing for monospace */
-```
+### Typography Hierarchy
+- **Main Title**: 3.5rem, bright green, glowing text-shadow
+- **Subtitle**: 1.25rem, blue, medium opacity
+- **Search Input**: 1.1rem, green, medium weight
+- **Profile Names**: 1.25rem, green, bold
+- **Job Titles**: 1.05rem, blue, semibold
+- **Company/Location**: Base/small, muted colors
 
-## 🖥️ Terminal Interface Components
+## 🖥️ Component Design System
 
-### Terminal Window Structure
+### App Container Structure
 ```css
-.terminal-window {
-  background: var(--color-terminal-bg);
-  color: var(--color-terminal-primary);
-  font-family: var(--font-family-terminal);
-  font-size: var(--text-terminal-base);
-  line-height: var(--line-height-terminal);
-  letter-spacing: var(--letter-spacing-terminal);
-  padding: 20px;
-  min-height: 100vh;
+.app-container {
   position: relative;
-  overflow-x: auto;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.terminal-window::before {
-  content: '';
+.background-layer {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--terminal-scanline);
-  pointer-events: none;
-  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
 }
 
-.terminal-content {
+.content-layer {
   position: relative;
-  z-index: 2;
-  text-shadow: var(--terminal-glow);
-}
-```
-
-### Terminal Header
-```css
-.terminal-header {
-  border: 1px solid var(--color-terminal-primary);
-  padding: 10px;
-  margin-bottom: 20px;
-  font-size: var(--text-terminal-sm);
-}
-
-.terminal-title {
-  font-size: var(--text-terminal-lg);
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.terminal-status {
-  color: var(--color-terminal-secondary);
-  font-size: var(--text-terminal-xs);
-}
-```
-
-### ASCII Art Styling
-```css
-.ascii-art {
-  font-size: var(--text-terminal-sm);
-  line-height: 1;
-  white-space: pre;
-  color: var(--color-terminal-primary);
-  margin: 20px 0;
-  text-align: center;
-}
-
-.ascii-logo {
-  font-size: var(--text-terminal-xs);
-  font-weight: bold;
-}
-```
-
-### Command Interface
-```css
-.command-prompt {
+  z-index: 1;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  margin: 10px 0;
-  font-family: var(--font-family-terminal);
+  justify-content: center;
+  padding: 2rem;
+}
+```
+
+### Header Section
+```css
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.prompt-prefix {
-  color: var(--color-terminal-primary);
-  margin-right: 8px;
-  flex-shrink: 0;
+.title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-primary-green);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(97, 220, 163, 0.5);
+  font-family: var(--font-family-mono);
+  letter-spacing: -0.02em;
 }
 
-.command-input {
+.subtitle {
+  font-size: var(--text-xl);
+  color: var(--color-secondary-blue);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+```
+
+### Status Indicator
+```css
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse-status 2s infinite;
+}
+
+.status-dot.connected {
+  background-color: var(--color-success);
+  box-shadow: 0 0 10px rgba(68, 255, 68, 0.7);
+}
+
+.status-dot.disconnected {
+  background-color: var(--color-error);
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.7);
+}
+
+@keyframes pulse-status {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+```
+
+### Search Interface
+```css
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-overlay);
+  border: 2px solid rgba(97, 220, 163, 0.3);
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.search-input-container:focus-within {
+  border-color: var(--color-primary-green);
+  box-shadow: 0 0 30px rgba(97, 220, 163, 0.4);
+}
+
+.search-input {
+  flex: 1;
   background: transparent;
   border: none;
   outline: none;
-  color: var(--color-terminal-primary);
-  font-family: inherit;
-  font-size: inherit;
-  flex: 1;
-  caret-color: var(--color-terminal-cursor);
+  padding: 1.25rem 1.5rem;
+  font-size: var(--text-lg);
+  color: var(--color-primary-green);
+  font-family: var(--font-family-mono);
+  font-weight: 500;
 }
 
-.terminal-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 16px;
-  background: var(--color-terminal-cursor);
-  animation: blink 1s infinite;
+.search-input::placeholder {
+  color: rgba(97, 220, 163, 0.5);
+  font-weight: 400;
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+.search-button {
+  background: transparent;
+  border: none;
+  color: var(--color-primary-green);
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 1px solid rgba(97, 220, 163, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover:not(:disabled) {
+  background: rgba(97, 220, 163, 0.1);
+  color: #fff;
 }
 ```
 
 ### Results Display
 ```css
-.search-results {
-  margin: 20px 0;
+.result-card {
+  background: var(--color-bg-blur);
+  border: 1px solid rgba(97, 220, 163, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
-.result-header {
-  color: var(--color-info);
-  margin-bottom: 10px;
-  font-size: var(--text-terminal-sm);
+.result-card:hover {
+  border-color: rgba(97, 220, 163, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.result-item {
-  border: 1px solid var(--color-terminal-secondary);
-  margin: 5px 0;
-  padding: 10px;
-  background: rgba(0, 255, 0, 0.02);
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary-green);
+  margin: 0;
+  line-height: 1.3;
 }
 
-.result-item:hover {
-  background: rgba(0, 255, 0, 0.05);
-  border-color: var(--color-terminal-primary);
+.job-title {
+  font-weight: 600;
+  color: var(--color-secondary-blue);
+  font-size: 1.05rem;
 }
 
-.result-id {
-  color: var(--color-terminal-primary);
-  font-weight: bold;
-}
-
-.result-match {
-  color: var(--color-success);
-  float: right;
-}
-
-.result-title {
-  color: var(--color-terminal-primary);
-  font-weight: bold;
-  margin: 2px 0;
-}
-
-.result-company {
-  color: var(--color-terminal-secondary);
-  font-size: var(--text-terminal-sm);
-}
-
-.result-details {
-  color: var(--color-comment);
-  font-size: var(--text-terminal-xs);
-  margin-top: 5px;
-}
-```
-
-### System Messages
-```css
-.system-message {
-  color: var(--color-info);
-  font-style: italic;
-  margin: 5px 0;
-}
-
-.success-message {
-  color: var(--color-success);
-  margin: 5px 0;
-}
-
-.error-message {
-  color: var(--color-error);
-  margin: 5px 0;
-}
-
-.warning-message {
-  color: var(--color-warning);
-  margin: 5px 0;
-}
-
-.processing-message {
-  color: var(--color-processing);
-  margin: 5px 0;
-}
-```
-
-### Help and Commands
-```css
-.help-section {
-  margin: 20px 0;
-  border: 1px solid var(--color-terminal-secondary);
-  padding: 15px;
-}
-
-.help-title {
-  color: var(--color-terminal-primary);
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.command-list {
-  list-style: none;
-  padding: 0;
-}
-
-.command-item {
-  margin: 3px 0;
-  display: flex;
-}
-
-.command-name {
-  color: var(--color-terminal-primary);
-  font-weight: bold;
-  width: 120px;
-  flex-shrink: 0;
-}
-
-.command-description {
-  color: var(--color-terminal-secondary);
-  flex: 1;
-}
-```
-
-## 🎬 Terminal Animations
-
-### Typewriter Effect
-```css
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.typewriter {
-  overflow: hidden;
+.similarity-score {
+  background: rgba(97, 220, 163, 0.2);
+  color: var(--color-primary-green);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
   white-space: nowrap;
-  border-right: 2px solid var(--color-terminal-cursor);
-  animation: typewriter 2s steps(40) forwards,
-             blink 1s infinite 2s;
+}
+
+.skill-tag {
+  background: rgba(97, 179, 220, 0.2);
+  color: var(--color-secondary-blue);
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(97, 179, 220, 0.3);
+  transition: all 0.2s ease;
 }
 ```
 
-### Text Reveal
+## 🎬 LetterGlitch Animation System
+
+### Configuration
+```typescript
+interface LetterGlitchProps {
+  glitchColors: string[];      // Matrix color palette
+  glitchSpeed: number;         // Animation speed (ms)
+  centerVignette: boolean;     // Center darkening effect
+  outerVignette: boolean;      // Edge darkening effect
+  smooth: boolean;             // Smooth color transitions
+}
+```
+
+### Implementation
+```typescript
+// Background component usage
+<LetterGlitch 
+  glitchColors={['#0a4a3a', '#61dca3', '#61b3dc', '#1a5a4a']}
+  glitchSpeed={75}
+  outerVignette={true}
+  centerVignette={false}
+  smooth={true}
+/>
+```
+
+### Visual Effects
+- **Character Matrix**: Random letters, numbers, and symbols
+- **Color Transitions**: Smooth interpolation between glitch colors
+- **Vignette Effects**: Optional center/edge darkening
+- **Performance Optimized**: Canvas-based rendering for smooth animation
+
+## 📱 Responsive Design
+
+### Mobile (320px-767px)
 ```css
-@keyframes textReveal {
-  0% { 
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% { 
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.text-reveal {
-  animation: textReveal 0.5s ease-out forwards;
-}
-```
-
-### Processing Animation
-```css
-@keyframes processing {
-  0%, 20% { content: '|'; }
-  21%, 40% { content: '/'; }
-  41%, 60% { content: '─'; }
-  61%, 80% { content: '\\'; }
-  81%, 100% { content: '|'; }
-}
-
-.processing-spinner::after {
-  content: '|';
-  animation: processing 1s infinite;
-  color: var(--color-processing);
-}
-```
-
-## 📱 Responsive Terminal Design
-
-### Mobile Terminal (320px-767px)
-```css
-@media (max-width: 767px) {
-  .terminal-window {
-    padding: 10px;
-    font-size: var(--text-terminal-sm);
+@media (max-width: 768px) {
+  .content-layer {
+    padding: 1rem;
   }
   
-  .ascii-art {
-    font-size: 10px;
+  .title {
+    font-size: 2.5rem;
   }
   
-  .result-item {
-    padding: 8px;
+  .subtitle {
+    font-size: 1.1rem;
   }
   
-  .command-name {
-    width: 100px;
+  .search-input {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+  }
+  
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 ```
 
-### Tablet Terminal (768px-1023px)
-```css
-@media (min-width: 768px) and (max-width: 1023px) {
-  .terminal-window {
-    padding: 15px;
-  }
-  
-  .result-item {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 10px;
-    align-items: center;
-  }
-}
-```
-
-### Desktop Terminal (1024px+)
-```css
-@media (min-width: 1024px) {
-  .terminal-window {
-    padding: 20px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .result-item {
-    display: grid;
-    grid-template-columns: 60px 1fr auto;
-    gap: 15px;
-    align-items: center;
-  }
-  
-  .terminal-window::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: radial-gradient(circle, rgba(0, 255, 0, 0.1) 0%, transparent 70%);
-    border-radius: 10px;
-    z-index: 0;
-  }
-}
-```
+### Tablet & Desktop (768px+)
+- Full-sized interface with centered 800px max-width
+- Larger typography for improved readability
+- Enhanced hover effects and transitions
+- Grid-based results layout with optimal spacing
 
 ## ⚡ Performance Considerations
 
 ### Animation Optimization
-- Use `transform` and `opacity` for animations
-- Limit simultaneous animations to maintain 60fps
-- Implement `will-change` property for animated elements
-- Use `requestAnimationFrame` for smooth custom animations
+- Canvas-based LetterGlitch for optimal performance
+- Smooth 60fps animations with requestAnimationFrame
+- Minimal DOM manipulation during search
+- Efficient backdrop-filter usage
 
-### Terminal Text Rendering
-- Optimize for monospace font rendering
-- Use text shadows sparingly to maintain performance
-- Implement virtual scrolling for large result sets
-- Cache rendered terminal content when possible
+### Search UX
+- Real-time backend connectivity check
+- Immediate search feedback with loading states
+- Error handling with clear user messaging
+- ESC key for quick clearing/reset
 
-## 🎯 Implementation Priority
+## 🎯 Implementation Phases
 
-### Phase 1: Core Terminal Interface
-1. Basic terminal window with CRT effects
-2. Command prompt with blinking cursor
-3. System messages and status display
-4. ASCII art logo and headers
+### Phase 1: Minimal Search Interface ✅
+1. LetterGlitch animated background
+2. Centered search form with AI styling
+3. Backend connectivity indication
+4. Basic search functionality
 
-### Phase 2: Search Integration
-1. Natural language search input
-2. Results display in terminal format
-3. Command history navigation
-4. Auto-complete functionality
+### Phase 2: Enhanced Results Display ✅
+1. Clean result cards with profile information
+2. Skill tags and similarity scoring
+3. Smooth hover interactions
+4. Mobile responsive design
 
-### Phase 3: Advanced Features
-1. CSV/JSON export commands
-2. Profile detail views
-3. Search statistics and analytics
-4. Terminal customization options
+### Phase 3: Advanced Features (Future)
+1. Search suggestions and autocomplete
+2. Advanced filtering options
+3. Export functionality
+4. Search history and saved searches
 
-### Phase 4: Polish & Effects
-1. Enhanced CRT visual effects
-2. Sound effects (optional)
-3. Terminal themes (green/amber)
-4. Accessibility improvements
+### Phase 4: Performance & Polish (Future)
+1. Virtual scrolling for large result sets
+2. Advanced loading states
+3. Accessibility improvements
+4. Progressive web app features
+
+## 🔗 Backend Integration
+
+### API Endpoints
+- **POST /api/search/semantic**: Main search functionality
+- **GET /api/search/suggestions**: Query suggestions
+- **GET /api/search/filters**: Available filter options
+- **GET /actuator/health**: Backend health check
+
+### Data Flow
+1. Real-time connectivity check on app load
+2. Search requests with proper error handling
+3. Structured result display with ProfileSummary interface
+4. Loading states and user feedback throughout

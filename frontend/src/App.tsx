@@ -1,336 +1,187 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
-import { 
-  FaultyTerminal,
-  TextType,
-  DecryptedText,
-  ASCIIArt
-} from './components/reactbits';
-
-const semanticTalentFinderLogo = `
- ███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗
- ██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝
- ███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║     
- ╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║     
- ███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗
- ╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝
-
-████████╗ █████╗ ██╗     ███████╗███╗   ██╗████████╗    ███████╗██╗███╗   ██╗██████╗ ███████╗██████╗ 
-╚══██╔══╝██╔══██╗██║     ██╔════╝████╗  ██║╚══██╔══╝    ██╔════╝██║████╗  ██║██╔══██╗██╔════╝██╔══██╗
-   ██║   ███████║██║     █████╗  ██╔██╗ ██║   ██║       █████╗  ██║██╔██╗ ██║██║  ██║█████╗  ██████╔╝
-   ██║   ██╔══██║██║     ██╔══╝  ██║╚██╗██║   ██║       ██╔══╝  ██║██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗
-   ██║   ██║  ██║███████╗███████╗██║ ╚████║   ██║       ██║     ██║██║ ╚████║██████╔╝███████╗██║  ██║
-   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚═╝     ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
-`;
-
-interface SearchResult {
-  id: string;
-  name: string;
-  title: string;
-  company: string;
-  location: string;
-  skills: string[];
-  similarityScore: number;
-  dataQualityScore: number;
-}
+import { LetterGlitch } from './components/reactbits';
+import { searchService, ProfileSummary, SearchRequest } from './services/searchService';
 
 const App: React.FC = () => {
-  const [bootStage, setBootStage] = useState(0);
-  const [systemReady, setSystemReady] = useState(false);
   const [query, setQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [searchResults, setSearchResults] = useState<ProfileSummary[]>([]);
   const [isSearching, setIsSearching] = useState(false);
-  const [commandHistory, setCommandHistory] = useState<string[]>([]);
-  const [historyIndex, setHistoryIndex] = useState(-1);
-  const [showHelp, setShowHelp] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // Sample search results for demo
-  const sampleResults: SearchResult[] = [
-    {
-      id: '1',
-      name: 'John Smith',
-      title: 'Senior Java Developer',
-      company: 'Goldman Sachs',
-      location: 'New York, NY',
-      skills: ['Java', 'Spring Boot', 'Microservices', 'AWS'],
-      similarityScore: 94,
-      dataQualityScore: 0.87
-    },
-    {
-      id: '2',
-      name: 'Sarah Johnson',
-      title: 'Java Tech Lead',
-      company: 'JPMorgan Chase',
-      location: 'London, UK',
-      skills: ['Java', 'Kubernetes', 'PostgreSQL', 'React'],
-      similarityScore: 91,
-      dataQualityScore: 0.92
-    },
-    {
-      id: '3',
-      name: 'Michael Rodriguez',
-      title: 'Principal Software Engineer',
-      company: 'Barclays',
-      location: 'Singapore',
-      skills: ['Java', 'Spring', 'Docker', 'Jenkins'],
-      similarityScore: 88,
-      dataQualityScore: 0.85
-    }
-  ];
+  // Check backend connection on mount
+  useEffect(() => {
+    const checkConnection = async () => {
+      try {
+        await searchService.searchProfiles({ query: '', limit: 1 });
+        setIsConnected(true);
+      } catch (err) {
+        console.error('Backend connection failed:', err);
+        setIsConnected(false);
+      }
+    };
 
-  // Handle search
-  const handleSearch = async (searchQuery: string) => {
-    if (!searchQuery.trim()) return;
+    checkConnection();
+  }, []);
 
+  const handleSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!query.trim()) return;
+    
     setIsSearching(true);
-    setCommandHistory(prev => [searchQuery, ...prev.slice(0, 19)]); // Keep last 20 commands
+    setError(null);
     
-    // Simulate API call
-    setTimeout(() => {
-      setSearchResults(sampleResults);
-      setIsSearching(false);
-    }, 2000);
-  };
-
-  // Handle command input
-  const handleCommand = (command: string) => {
-    const cmd = command.toLowerCase().trim();
-    
-    if (cmd === 'help') {
-      setShowHelp(true);
-      return;
-    }
-    
-    if (cmd === 'clear') {
+    try {
+      const searchRequest: SearchRequest = {
+        query: query.trim(),
+        limit: 50,
+        threshold: 0.7
+      };
+      
+      const result = await searchService.searchProfiles(searchRequest);
+      setSearchResults(result.profiles);
+    } catch (err: any) {
+      console.error('Search failed:', err);
+      setError(err.message || 'Search failed. Please try again.');
       setSearchResults([]);
-      setShowHelp(false);
-      return;
+    } finally {
+      setIsSearching(false);
     }
-    
-    if (cmd.startsWith('export csv')) {
-      exportToCsv();
-      return;
-    }
-    
-    // Default: treat as search query
-    handleSearch(command);
   };
 
-  // Export functionality
-  const exportToCsv = () => {
-    if (searchResults.length === 0) {
-      console.log('No search results to export');
-      return;
-    }
-
-    const csvContent = [
-      'Name,Title,Company,Location,Skills,Similarity Score,Data Quality Score',
-      ...searchResults.map(result => 
-        `"${result.name}","${result.title}","${result.company}","${result.location}","${result.skills.join('; ')}","${result.similarityScore}%","${Math.round(result.dataQualityScore * 100)}%"`
-      )
-    ].join('\n');
-
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'semantic_search_results.csv';
-    link.click();
-    window.URL.revokeObjectURL(url);
-  };
-
-  // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleCommand(query);
+    if (e.key === 'Escape') {
       setQuery('');
-      setHistoryIndex(-1);
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      if (historyIndex < commandHistory.length - 1) {
-        const newIndex = historyIndex + 1;
-        setHistoryIndex(newIndex);
-        setQuery(commandHistory[newIndex]);
-      }
-    } else if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      if (historyIndex > 0) {
-        const newIndex = historyIndex - 1;
-        setHistoryIndex(newIndex);
-        setQuery(commandHistory[newIndex]);
-      } else if (historyIndex === 0) {
-        setHistoryIndex(-1);
-        setQuery('');
-      }
+      setSearchResults([]);
+      setError(null);
     }
   };
 
   return (
-    <div className="terminal-app">
-      <FaultyTerminal 
-        theme="green"
-        scanlines={true}
-        glow={true}
-        flicker={false}
-      />
-      
-      <div className="terminal-window">
-        {/* Boot Sequence */}
-        {!systemReady && (
-          <>
-            {bootStage >= 0 && (
-              <div className="terminal-header">
-                <TextType 
-                  text="Semantic Talent Finder v2.5.1 - AI Search Terminal"
-                  className="terminal-title"
-                  speed={50}
-                  onComplete={() => setBootStage(1)}
-                />
-              </div>
-            )}
-            
-            {bootStage >= 1 && (
-              <TextType 
-                text="Connected to database: 51,352,619 profiles loaded"
-                className="terminal-status"
-                speed={30}
-                delay={500}
-                onComplete={() => setBootStage(2)}
-              />
-            )}
-            
-            {bootStage >= 2 && (
-              <DecryptedText 
-                text="Vector index: ONLINE | Search latency: <500ms"
-                className="terminal-status"
-                delay={300}
-                onComplete={() => setBootStage(3)}
-              />
-            )}
-            
-            {bootStage >= 3 && (
-              <ASCIIArt 
-                art={semanticTalentFinderLogo}
-                className="ascii-art"
-                animate={true}
-                speed={20}
-                onComplete={() => setBootStage(4)}
-              />
-            )}
-            
-            {bootStage >= 4 && (
-              <TextType 
-                text="System initialized. Ready for natural language talent queries.
-Type 'help' for commands or enter search query directly."
-                className="system-message"
-                speed={40}
-                delay={500}
-                onComplete={() => setSystemReady(true)}
-              />
-            )}
-          </>
-        )}
+    <div className="app-container">
+      {/* Animated Background */}
+      <div className="background-layer">
+        <LetterGlitch 
+          glitchColors={['#0a4a3a', '#61dca3', '#61b3dc', '#1a5a4a']}
+          glitchSpeed={75}
+          outerVignette={true}
+          centerVignette={false}
+          smooth={true}
+        />
+      </div>
 
-        {/* Main Terminal Interface */}
-        {systemReady && (
-          <>
-            {/* Help Section */}
-            {showHelp && (
-              <div className="help-section">
-                <div className="help-title">Commands:</div>
-                <div className="command-list">
-                  <div className="command-item">
-                    <span className="command-name">search &lt;query&gt;</span>
-                    <span className="command-description">Natural language talent search</span>
-                  </div>
-                  <div className="command-item">
-                    <span className="command-name">export csv</span>
-                    <span className="command-description">Export current results to CSV</span>
-                  </div>
-                  <div className="command-item">
-                    <span className="command-name">clear</span>
-                    <span className="command-description">Clear terminal</span>
-                  </div>
-                  <div className="command-item">
-                    <span className="command-name">help</span>
-                    <span className="command-description">Show this help menu</span>
-                  </div>
-                </div>
-              </div>
-            )}
+      {/* Main Content */}
+      <div className="content-layer">
+        <div className="search-container">
+          <div className="header">
+            <h1 className="title">Semantic Talent Finder</h1>
+            <p className="subtitle">
+              AI-powered semantic search across 51M+ professional profiles
+            </p>
+            <div className="status-indicator">
+              <div className={`status-dot ${isConnected ? 'connected' : 'disconnected'}`}></div>
+              <span className="status-text">
+                {isConnected ? 'Connected to database' : 'Backend disconnected'}
+              </span>
+            </div>
+          </div>
 
-            {/* Search Processing */}
-            {isSearching && (
-              <div className="processing-section">
-                <TextType 
-                  text={`> Searching for: "${commandHistory[0]}"`}
-                  className="result-header"
-                  speed={30}
-                />
-                <DecryptedText 
-                  text="Processing query through AI semantic matching..."
-                  className="processing-message"
-                  delay={500}
-                />
-                <DecryptedText 
-                  text="Vector similarity search completed in 342ms"
-                  className="processing-message"
-                  delay={1500}
-                />
-              </div>
-            )}
-
-            {/* Search Results */}
-            {searchResults.length > 0 && !isSearching && (
-              <div className="search-results">
-                <TextType 
-                  text={`> Found ${searchResults.length} matching profiles`}
-                  className="result-header"
-                  speed={20}
-                />
-                
-                <div className="results-container">
-                  {searchResults.map((result, index) => (
-                    <div key={result.id} className="result-item">
-                      <div className="result-line">
-                        <span className="result-id">[{index + 1}]</span>
-                        <span className="result-title"> {result.name}</span>
-                        <span className="result-match">Match: {result.similarityScore}%</span>
-                      </div>
-                      <div className="result-line">
-                        <span className="result-company">     {result.title} @ {result.company}</span>
-                      </div>
-                      <div className="result-line">
-                        <span className="result-details">     Location: {result.location} | Experience: Senior level</span>
-                      </div>
-                      <div className="result-line">
-                        <span className="result-details">     Skills: {result.skills.join(', ')}</span>
-                      </div>
-                      <div className="result-line">
-                        <span className="result-details">     Quality Score: {Math.round(result.dataQualityScore * 100)}% | LinkedIn: /in/{result.name.toLowerCase().replace(' ', '')}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Command Input */}
-            <div className="command-prompt">
-              <span className="prompt-prefix">stf@ai-search:~$</span>
+          <form onSubmit={handleSearch} className="search-form">
+            <div className="search-input-container">
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="command-input"
-                placeholder="Enter search query or command..."
+                className="search-input"
+                placeholder="Search for talent... (e.g., senior Java developer with AWS experience)"
+                disabled={!isConnected || isSearching}
                 autoFocus
               />
-              <span className="terminal-cursor"></span>
+              <button 
+                type="submit" 
+                className="search-button"
+                disabled={!isConnected || isSearching || !query.trim()}
+              >
+                {isSearching ? (
+                  <div className="spinner"></div>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path 
+                      d="M21 21L16.514 16.506M19 10.5A8.5 8.5 0 1 1 10.5 2A8.5 8.5 0 0 1 19 10.5Z" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+              </button>
             </div>
-          </>
-        )}
+            
+            <div className="search-hints">
+              <span>Press Enter to search • ESC to clear</span>
+            </div>
+          </form>
+
+          {/* Error Message */}
+          {error && (
+            <div className="error-message">
+              <div className="error-icon">⚠</div>
+              <span>{error}</span>
+            </div>
+          )}
+
+          {/* Search Results */}
+          {searchResults.length > 0 && (
+            <div className="results-container">
+              <div className="results-header">
+                <h2 className="results-title">
+                  Found {searchResults.length} matching profiles
+                </h2>
+              </div>
+              
+              <div className="results-list">
+                {searchResults.map((profile, index) => (
+                  <div key={profile.id} className="result-card">
+                    <div className="result-header">
+                      <h3 className="profile-name">{profile.fullName}</h3>
+                      <div className="similarity-score">
+                        {Math.round(profile.similarityScore * 100)}% match
+                      </div>
+                    </div>
+                    
+                    <div className="profile-details">
+                      <p className="job-title">{profile.headline}</p>
+                      <p className="company">{profile.companyName}</p>
+                      <p className="location">{profile.location}</p>
+                    </div>
+                    
+                    {profile.matchingSkills.length > 0 && (
+                      <div className="skills-section">
+                        <span className="skills-label">Matching Skills:</span>
+                        <div className="skills-list">
+                          {profile.matchingSkills.slice(0, 6).map((skill, skillIndex) => (
+                            <span key={skillIndex} className="skill-tag">
+                              {skill}
+                            </span>
+                          ))}
+                          {profile.matchingSkills.length > 6 && (
+                            <span className="skill-tag more">
+                              +{profile.matchingSkills.length - 6} more
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

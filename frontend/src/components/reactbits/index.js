@@ -13,3 +13,4 @@ export { default as FaultyTerminal } from './FaultyTerminal';
 export { default as TextType } from './TextType';
 export { default as DecryptedText } from './DecryptedText';
 export { default as ASCIIArt } from './ASCIIArt';
+export { default as LetterGlitch } from './LetterGlitch';
