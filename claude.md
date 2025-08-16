@@ -11,8 +11,10 @@
 ### Security & Git Requirements
 - **🚫 NEVER force push** (`git push --force` or `git push -f`)
 - **🔐 NEVER commit API keys or secrets** to the repository
-- **📝 ALWAYS commit after substantial changes** with descriptive messages
+- **📝 MANDATORY: ALL changes must be committed and pushed** - Every modification requires `git commit` and `git push`
+- **🔄 IMMEDIATE COMMIT RULE**: After making ANY changes to files, you MUST immediately commit and push
 - **✅ Include co-author attribution**: `Co-Authored-By: Claude <noreply@anthropic.com>`
+- **⚡ NO EXCEPTIONS**: Whether fixing bugs, adding features, or making documentation changes - ALWAYS commit and push
 
 ### Environment Variables Required
 ```bash
