@@ -1,6 +1,9 @@
 spring:
   application:
     name: semantic-talent-finder
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration
   
   datasource:
     url: jdbc:postgresql://localhost:5433/semantic_talent_finder
@@ -29,7 +32,7 @@ spring:
   
   ai:
     openai:
-      api-key: ${OPENAI_API_KEY}
+      api-key: ${OPENAI_API_KEY:}
       chat:
         options:
           model: gpt-3.5-turbo

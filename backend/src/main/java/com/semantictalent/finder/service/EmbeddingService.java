@@ -12,10 +12,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EmbeddingService {
     
-    @Autowired
+    @Autowired(required = false)
     private EmbeddingModel embeddingModel;
     
     public PGvector generateEmbedding(String text) {
+        if (embeddingModel == null) {
+            log.warn("EmbeddingModel not available - OpenAI API key not configured");
+            throw new RuntimeException("OpenAI API key not configured. Please set OPENAI_API_KEY environment variable.");
+        }
+        
         try {
             log.debug("Generating embedding for text: {}", text.substring(0, Math.min(text.length(), 100)));
             

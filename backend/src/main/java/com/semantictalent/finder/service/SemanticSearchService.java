@@ -30,8 +30,21 @@ public class SemanticSearchService {
         try {
             log.info("Performing semantic search for query: {}", request.getQuery());
             
+            // Check if we have any profiles in the database first
+            long profileCount = profileRepository.count();
+            if (profileCount == 0) {
+                log.warn("No profiles found in database. Returning empty results.");
+                return createEmptySearchResult(request, startTime);
+            }
+            
             // 1. Generate embedding for search query
-            PGvector queryEmbedding = embeddingService.generateEmbedding(request.getQuery());
+            PGvector queryEmbedding;
+            try {
+                queryEmbedding = embeddingService.generateEmbedding(request.getQuery());
+            } catch (Exception e) {
+                log.error("Failed to generate embedding for query. This may be due to missing API key or service unavailability.", e);
+                return createEmptySearchResult(request, startTime);
+            }
             
             // 2. Perform vector similarity search
             List<Profile> similarProfiles = profileRepository.findSimilarProfiles(
@@ -60,8 +73,20 @@ public class SemanticSearchService {
             
         } catch (Exception e) {
             log.error("Error performing semantic search", e);
-            throw new RuntimeException("Search failed", e);
+            return createEmptySearchResult(request, startTime);
         }
+    }
+    
+    private SearchResultDto createEmptySearchResult(SearchRequestDto request, long startTime) {
+        SearchResultDto response = new SearchResultDto();
+        response.setProfiles(new ArrayList<>());
+        response.setTotalResults(0);
+        response.setProcessedQuery(request.getQuery());
+        response.setExecutionTimeMs((double) (System.currentTimeMillis() - startTime));
+        response.setSuggestions(generateSuggestions(request.getQuery()));
+        
+        log.info("Returning empty search results for query: {}", request.getQuery());
+        return response;
     }
     
     public List<String> generateSuggestions(String query) {
