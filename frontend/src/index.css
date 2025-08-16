@@ -9,14 +9,14 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Courier New', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  color: #1e293b;
-  line-height: 1.6;
+  background: #0a0a0a;
+  color: #00ff00;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  overflow-x: hidden;
 }
 
 code {
@@ -24,27 +24,26 @@ code {
     monospace;
 }
 
-/* CSS Variables for Design System */
+/* Terminal CSS Variables */
 :root {
-  /* Primary Colors */
-  --color-primary-900: #1E3A8A;
-  --color-primary-500: #3B82F6;
-  --color-primary-300: #60A5FA;
-  --color-primary-100: #DBEAFE;
+  /* Terminal Colors */
+  --color-terminal-bg: #0a0a0a;
+  --color-terminal-primary: #00ff00;
+  --color-terminal-secondary: #00aa00;
+  --color-terminal-cursor: #00ff00;
   
-  /* Accent Colors */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
-  --color-info: #06B6D4;
+  /* System Status Colors */
+  --color-success: #44ff44;
+  --color-error: #ff4444;
+  --color-warning: #ffff44;
+  --color-info: #4488ff;
+  --color-processing: #ff8844;
+  --color-comment: #888888;
   
-  /* Neutral Colors */
-  --color-neutral-900: #111827;
-  --color-neutral-700: #374151;
-  --color-neutral-500: #6B7280;
-  --color-neutral-300: #D1D5DB;
-  --color-neutral-100: #F3F4F6;
-  --color-neutral-50: #F9FAFB;
+  /* CRT Effects */
+  --terminal-glow: 0 0 10px currentColor;
+  --terminal-screen-glow: 0 0 20px var(--color-terminal-primary);
+  --terminal-scanline: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%);
   
   /* Typography */
   --text-xs: 0.75rem;
@@ -340,20 +339,210 @@ code {
   }
 }
 
-/* Scrollbar Styling */
+/* Terminal-Specific Styles */
+.terminal-window {
+  background: var(--color-terminal-bg);
+  color: var(--color-terminal-primary);
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: auto;
+  text-shadow: var(--terminal-glow);
+}
+
+.terminal-header {
+  border: 1px solid var(--color-terminal-primary);
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.terminal-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.terminal-status {
+  color: var(--color-terminal-secondary);
+  font-size: 12px;
+}
+
+.ascii-art {
+  font-size: 14px;
+  line-height: 1;
+  white-space: pre;
+  color: var(--color-terminal-primary);
+  margin: 20px 0;
+  text-align: center;
+}
+
+.command-prompt {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-family: inherit;
+}
+
+.prompt-prefix {
+  color: var(--color-terminal-primary);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.command-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-terminal-primary);
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+  caret-color: var(--color-terminal-cursor);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--color-terminal-cursor);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.search-results {
+  margin: 20px 0;
+}
+
+.result-header {
+  color: var(--color-info);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.result-item {
+  border: 1px solid var(--color-terminal-secondary);
+  margin: 5px 0;
+  padding: 10px;
+  background: rgba(0, 255, 0, 0.02);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.result-item:hover {
+  background: rgba(0, 255, 0, 0.05);
+  border-color: var(--color-terminal-primary);
+}
+
+.result-id {
+  color: var(--color-terminal-primary);
+  font-weight: bold;
+}
+
+.result-match {
+  color: var(--color-success);
+  float: right;
+}
+
+.result-title {
+  color: var(--color-terminal-primary);
+  font-weight: bold;
+  margin: 2px 0;
+}
+
+.result-company {
+  color: var(--color-terminal-secondary);
+  font-size: 14px;
+}
+
+.result-details {
+  color: var(--color-comment);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.system-message {
+  color: var(--color-info);
+  font-style: italic;
+  margin: 5px 0;
+}
+
+.success-message {
+  color: var(--color-success);
+  margin: 5px 0;
+}
+
+.error-message {
+  color: var(--color-error);
+  margin: 5px 0;
+}
+
+.warning-message {
+  color: var(--color-warning);
+  margin: 5px 0;
+}
+
+.processing-message {
+  color: var(--color-processing);
+  margin: 5px 0;
+}
+
+.help-section {
+  margin: 20px 0;
+  border: 1px solid var(--color-terminal-secondary);
+  padding: 15px;
+}
+
+.help-title {
+  color: var(--color-terminal-primary);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.command-list {
+  list-style: none;
+  padding: 0;
+}
+
+.command-item {
+  margin: 3px 0;
+  display: flex;
+}
+
+.command-name {
+  color: var(--color-terminal-primary);
+  font-weight: bold;
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.command-description {
+  color: var(--color-terminal-secondary);
+  flex: 1;
+}
+
+/* Scrollbar Styling for Terminal */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-neutral-100);
+  background: var(--color-terminal-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-neutral-300);
+  background: var(--color-terminal-secondary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-300);
+  background: var(--color-terminal-primary);
 }

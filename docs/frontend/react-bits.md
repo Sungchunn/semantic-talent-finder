@@ -1,366 +1,392 @@
-# React Bits Component Specifications
+# React Bits Components for Terminal Interface
 
-## 🎭 React Bits Component Library
+## 🖥️ Terminal Component Library Overview
 
-React Bits provides premium animated components that will elevate the Semantic Talent Finder interface to enterprise-grade quality. Each component serves specific purposes in our AI-powered talent search platform.
+React Bits components have been adapted for the Semantic Talent Finder terminal interface to create an authentic command-line experience. These components simulate retro computing aesthetics while providing modern functionality for AI-powered talent search.
 
-## 📝 Component Usage Guide
+## 🎬 Terminal Animation Components
 
-### **SplitText Applications**
+### **TextType Component**
+**Purpose**: Creates authentic typewriter effects that simulate terminal text output character by character.
 
-#### Primary Usage
-- **Hero titles**: Main page headings with dramatic word-by-word reveals
-- **Section headings**: Category titles that animate on scroll
-- **Search announcements**: "Found 1,247 matching profiles" with character animations
-- **Loading messages**: "Processing your search..." with staggered reveals
+**Usage in Terminal Interface**:
+- System startup messages
+- Search processing status
+- Command responses and results
+- Help text and instructions
 
-#### Implementation Examples
+**Example Implementation**:
 ```jsx
-// Hero title on landing page
-<SplitText 
-  text="Transform Talent Discovery with AI-Powered Search"
-  className="text-6xl font-bold text-primary-900"
-  delay={100}
-  stagger={100}
-/>
-
-// Search results announcement
-<SplitText 
-  text={`Found ${resultCount} matching profiles`}
-  className="text-2xl font-semibold text-primary-700"
-  delay={0}
-  stagger={50}
-/>
-
-// Section heading
-<SplitText 
-  text="Dataset Analytics & Quality Metrics"
-  className="text-4xl font-bold text-gradient"
-  delay={200}
-  stagger={80}
+<TextType 
+  text="Semantic Talent Finder v2.5.1 - AI Search Terminal"
+  className="terminal-header"
+  speed={50}
+  delay={500}
+  showCursor={true}
+  onComplete={() => setSystemReady(true)}
 />
 ```
 
-### **BlurText Applications**
+**Props**:
+- `text` (string): The text content to type out
+- `className` (string): CSS classes for terminal styling
+- `speed` (number): Typing speed in ms per character (default: 50)
+- `delay` (number): Initial delay before typing starts (ms)
+- `showCursor` (boolean): Whether to show blinking cursor during typing
+- `onComplete` (function): Callback when typing animation completes
+- `preserveWhitespace` (boolean): Maintain original spacing and line breaks
 
-#### Primary Usage
-- **Subtitles and descriptions**: Supporting text that reveals elegantly
-- **Metric explanations**: Context for statistics and data points
-- **Profile details**: Information that appears as users scroll
-- **Search suggestions**: Dropdown options with smooth reveals
+### **DecryptedText Component**
+**Purpose**: Creates matrix-style decryption effects for loading states and data processing animations.
 
-#### Implementation Examples
+**Usage in Terminal Interface**:
+- AI processing indicators
+- Database connection status
+- Search query analysis
+- Data loading states
+
+**Example Implementation**:
 ```jsx
-// Hero subtitle
-<BlurText 
-  text="Search 51,352,619 professional profiles using natural language"
-  className="text-xl text-neutral-600 max-w-3xl mx-auto"
-  delay={800}
-/>
-
-// Metric description
-<BlurText 
-  text="Average response time for semantic search queries"
-  className="text-sm text-neutral-500"
-  delay={1200}
-/>
-
-// Profile description
-<BlurText 
-  text={profile.summary}
-  className="text-base text-neutral-700 leading-relaxed"
-  delay={300}
+<DecryptedText 
+  text="Processing query through AI semantic matching..."
+  className="processing-message"
+  scrambleChars="01"
+  iterations={3}
+  interval={100}
+  onComplete={() => setProcessingComplete(true)}
 />
 ```
 
-### **Counter Applications**
+**Props**:
+- `text` (string): Final decrypted text to display
+- `className` (string): CSS classes for styling
+- `scrambleChars` (string): Characters to use for scrambling effect (default: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()')
+- `iterations` (number): Number of scramble iterations before revealing
+- `interval` (number): Speed of character changes (ms)
+- `onComplete` (function): Callback when decryption completes
 
-#### Primary Usage
-- **Statistics and metrics**: All numerical data with dramatic count-up effects
-- **Similarity scores**: Profile matching percentages (0-100%)
-- **Real-time data**: Live user counts, search metrics
-- **Processing statistics**: Data import progress, batch processing
+### **FaultyTerminal Component**
+**Purpose**: Creates authentic CRT terminal background with scanlines, glow effects, and retro aesthetics.
 
-#### Implementation Examples
+**Usage in Terminal Interface**:
+- Main application background
+- Terminal window container
+- CRT visual effects overlay
+- Retro computing atmosphere
+
+**Example Implementation**:
 ```jsx
-// Main statistics on homepage
-<Counter 
-  target={51352619}
-  className="text-5xl font-bold text-primary-600"
-  duration={2000}
-  format="number"
-/>
-
-// Similarity score on profile cards
-<Counter 
-  target={profile.similarityScore}
-  className="text-lg font-semibold text-success"
-  duration={1000}
-  format="percentage"
-  suffix="%"
-/>
-
-// Processing progress
-<Counter 
-  target={processedRecords}
-  className="text-2xl font-mono text-primary-700"
-  duration={1500}
-  format="number"
-  prefix="Processed: "
+<FaultyTerminal 
+  className="app-background"
+  scanlines={true}
+  glow={true}
+  flicker={false}
+  theme="green"
+  curvature={0.1}
 />
 ```
 
-### **ProfileCard Applications**
+**Props**:
+- `className` (string): CSS classes for styling
+- `scanlines` (boolean): Enable horizontal scanline effect (default: true)
+- `glow` (boolean): Enable screen glow effect (default: true)
+- `flicker` (boolean): Enable subtle screen flicker (default: false)
+- `theme` (string): Color theme ('green', 'amber', 'blue') (default: 'green')
+- `curvature` (number): Screen curvature amount 0-1 (default: 0.05)
+- `noise` (boolean): Add CRT noise texture (default: false)
 
-#### Primary Usage
-- **Talent profiles**: Search result displays with comprehensive information
-- **Featured profiles**: Homepage showcases of platform capabilities
-- **Team members**: About page staff information
-- **Testimonials**: User success stories and case studies
+### **LetterGlitch Component**
+**Purpose**: Creates subtle matrix-style background effects with falling characters.
 
-#### Enhanced ProfileCard Design
+**Usage in Terminal Interface**:
+- Background ambient effects
+- Loading screen overlays
+- Transition animations
+- Subtle motion graphics
+
+**Example Implementation**:
 ```jsx
-// Search result profile card
-<ProfileCard
-  profile={{
-    name: profile.fullName,
-    title: profile.jobTitle,
-    company: profile.companyName,
-    location: profile.location,
-    avatar: profile.avatarUrl || '/placeholder-avatar.png',
-    skills: profile.skills,
-    similarityScore: profile.similarityScore,
-    dataQualityScore: profile.dataQualityScore
-  }}
-  className="glass-card hover:scale-105 transition-transform"
-  showSimilarity={true}
-  showSkills={true}
-  onClick={() => navigateToProfile(profile.id)}
-/>
-
-// Featured profile on homepage
-<ProfileCard
-  profile={featuredProfile}
-  className="glass-card-dark text-white"
-  variant="featured"
-  showMetrics={true}
-/>
-```
-
-### **MagicBento Applications**
-
-#### Primary Usage
-- **Feature showcases**: Homepage grid displaying platform capabilities
-- **Data quality sections**: Analytics dashboard breakdowns
-- **Service offerings**: Different search modes and features
-- **Navigation grids**: Dashboard quick-access tiles
-
-#### Implementation Examples
-```jsx
-// Homepage features grid
-<MagicBento
-  items={[
-    {
-      title: "Natural Language Search",
-      description: "Search using everyday language",
-      icon: <GlassIcon name="search" />,
-      gradient: "from-blue-500 to-blue-700"
-    },
-    {
-      title: "AI-Powered Matching", 
-      description: "Advanced semantic similarity",
-      icon: <GlassIcon name="brain" />,
-      gradient: "from-purple-500 to-purple-700"
-    },
-    {
-      title: "Real-time Analytics",
-      description: "Live search performance metrics", 
-      icon: <GlassIcon name="chart" />,
-      gradient: "from-green-500 to-green-700"
-    }
-  ]}
-  className="max-w-6xl mx-auto"
-  columns={3}
-  gap={6}
-/>
-
-// Data quality dashboard
-<MagicBento
-  items={qualityMetrics}
-  className="grid-cols-1 md:grid-cols-3"
-  variant="analytics"
-/>
-```
-
-### **GradientText Applications**
-
-#### Primary Usage
-- **Call-to-action headings**: Important messages and prompts
-- **Skill tags and categories**: Dynamic content highlighting
-- **Status indicators**: Success, warning, error states
-- **Brand messaging**: Key value propositions
-
-#### Implementation Examples
-```jsx
-// CTA heading
-<GradientText 
-  text="Start Your Search Today"
-  gradient="from-primary-500 to-primary-700"
-  className="text-4xl font-bold"
-/>
-
-// Skill tags
-{profile.skills.map(skill => (
-  <GradientText 
-    key={skill}
-    text={skill}
-    gradient="from-success to-primary-400"
-    className="text-sm font-medium px-3 py-1 rounded-full bg-white/10"
-  />
-))}
-
-// Status indicator
-<GradientText 
-  text="High Quality Data"
-  gradient="from-success to-green-600"
-  className="text-sm font-semibold"
-/>
-```
-
-### **GlassIcons Applications**
-
-#### Primary Usage
-- **Navigation icons**: Menu items with glassmorphism effects
-- **Filter buttons**: Search and sorting controls
-- **Social media links**: Footer and contact sections
-- **Action buttons**: Search, save, share functionality
-
-#### Implementation Examples
-```jsx
-// Navigation menu
-<GlassIcon 
-  name="home"
-  size="md"
-  className="glass-hover"
-  variant="primary"
-/>
-
-// Filter buttons
-<GlassIcon 
-  name="filter"
-  size="sm"
-  className="mr-2"
-  active={isFilterActive}
-/>
-
-// Social links
-<GlassIcon 
-  name="linkedin"
-  size="lg"
-  className="text-primary-500 hover:text-primary-700"
-  href="https://linkedin.com/company/semantic-talent-finder"
-/>
-```
-
-### **Aurora Applications**
-
-#### Primary Usage
-- **Hero backgrounds**: Homepage main section with animated gradients
-- **Section dividers**: Smooth transitions between page areas
-- **Loading screens**: Elegant loading states with flowing colors
-- **Modal overlays**: Dialog backgrounds with subtle movement
-
-#### Implementation Examples
-```jsx
-// Homepage hero background
-<Aurora
-  colors={['#1E3A8A', '#3B82F6', '#60A5FA']}
-  className="absolute inset-0 -z-10"
-  animate={true}
+<LetterGlitch 
+  className="background-effect"
+  characters="01"
+  density={0.1}
   speed="slow"
-/>
-
-// Section divider
-<Aurora
-  colors={['#10B981', '#3B82F6']}
-  className="h-px w-full"
-  variant="line"
-/>
-
-// Loading overlay
-<Aurora
-  colors={['#3B82F6', '#60A5FA', '#93C5FD']}
-  className="fixed inset-0 z-50"
-  variant="loading"
+  color="rgba(0, 255, 0, 0.1)"
 />
 ```
 
-## 🎬 Animation Coordination
+**Props**:
+- `className` (string): CSS classes for styling
+- `characters` (string): Characters to use in effect (default: '01')
+- `density` (number): Number of falling characters 0-1 (default: 0.05)
+- `speed` (string): Animation speed ('slow', 'medium', 'fast') (default: 'medium')
+- `color` (string): Color of the characters (default: 'rgba(0, 255, 0, 0.1)')
+- `direction` (string): Direction of movement ('down', 'up', 'random') (default: 'down')
 
-### **Page Load Sequence**
-1. **Aurora** (0s): Background fades in smoothly
-2. **SplitText** (0.3s): Hero title animates word-by-word
-3. **BlurText** (1.5s): Subtitle reveals after title completes
-4. **Counter** (2s): Statistics animate sequentially with 200ms stagger
-5. **MagicBento** (2.5s): Feature tiles activate with 100ms stagger
-6. **ProfileCard** (3s): Cards fade in with subtle slide-up
+## 🎮 Terminal-Specific Components
 
-### **Scroll-Triggered Animations**
-- Use Intersection Observer for performance
-- **BlurText**: Trigger when 50% visible, 0.6s duration
-- **Counter**: Start when entering viewport, complete in 1s
-- **MagicBento**: Stagger activation based on grid position
-- **ProfileCard**: Subtle entrance when 30% visible
+### **TerminalCursor Component**
+**Purpose**: Provides authentic terminal cursor with customizable blinking behavior.
 
-### **Interaction Feedback**
-- **Hover**: 0.3s transition for all React Bits components
-- **Click**: 0.15s scale for interactive elements
-- **Focus**: 0.2s glow effect for focusable components
-- **Loading**: Shimmer effects during data fetching
+**Example Implementation**:
+```jsx
+<TerminalCursor 
+  className="command-cursor"
+  style="block"
+  blinkSpeed={1000}
+  color="#00ff00"
+/>
+```
 
-## 📱 Responsive Behavior
+**Props**:
+- `className` (string): CSS classes for styling
+- `style` (string): Cursor style ('block', 'underscore', 'pipe') (default: 'block')
+- `blinkSpeed` (number): Blink interval in ms (default: 1000)
+- `color` (string): Cursor color (default: currentColor)
+- `show` (boolean): Whether cursor is visible (default: true)
 
-### **Mobile Optimizations**
-- **SplitText**: Faster animations, shorter delays
-- **Counter**: Reduced duration (500ms instead of 1000ms)
-- **Aurora**: Simplified effects, lower frame rate
-- **MagicBento**: Single column layout, larger touch targets
+### **ASCIIArt Component**
+**Purpose**: Displays ASCII art with typewriter animation support.
 
-### **Performance Considerations**
-- **Reduced Motion**: Respect `prefers-reduced-motion` setting
-- **GPU Acceleration**: Use `transform` properties for animations
-- **Intersection Observer**: Only animate visible elements
-- **Memory Management**: Cleanup animation references properly
+**Example Implementation**:
+```jsx
+<ASCIIArt 
+  art={semanticTalentFinderLogo}
+  className="terminal-logo"
+  animate={true}
+  speed={20}
+  centered={true}
+/>
+```
+
+**Props**:
+- `art` (string): ASCII art content (multiline string)
+- `className` (string): CSS classes for styling
+- `animate` (boolean): Whether to animate the reveal (default: false)
+- `speed` (number): Animation speed in ms per character (default: 50)
+- `centered` (boolean): Center the ASCII art (default: true)
+- `preserveSpacing` (boolean): Maintain exact spacing (default: true)
+
+### **CommandHistory Component**
+**Purpose**: Manages and displays terminal command history with navigation.
+
+**Example Implementation**:
+```jsx
+<CommandHistory 
+  commands={commandHistory}
+  maxVisible={100}
+  className="command-history"
+  onCommandSelect={(cmd) => setCurrentCommand(cmd)}
+/>
+```
+
+**Props**:
+- `commands` (array): Array of command objects with text and timestamp
+- `maxVisible` (number): Maximum commands to display (default: 50)
+- `className` (string): CSS classes for styling
+- `onCommandSelect` (function): Callback when command is selected from history
+- `showTimestamps` (boolean): Display command timestamps (default: false)
+
+## 📋 Terminal Application Patterns
+
+### **System Boot Sequence**
+```jsx
+const BootSequence = () => {
+  const [stage, setStage] = useState(0);
+  
+  return (
+    <div className="terminal-window">
+      <FaultyTerminal theme="green" scanlines={true} />
+      
+      {stage >= 0 && (
+        <TextType 
+          text="Initializing Semantic Talent Finder..."
+          onComplete={() => setStage(1)}
+        />
+      )}
+      
+      {stage >= 1 && (
+        <TextType 
+          text="Loading 51,352,619 professional profiles..."
+          delay={500}
+          onComplete={() => setStage(2)}
+        />
+      )}
+      
+      {stage >= 2 && (
+        <DecryptedText 
+          text="Vector index: ONLINE"
+          delay={300}
+          onComplete={() => setStage(3)}
+        />
+      )}
+      
+      {stage >= 3 && (
+        <ASCIIArt 
+          art={logoArt}
+          animate={true}
+          onComplete={() => setSystemReady(true)}
+        />
+      )}
+    </div>
+  );
+};
+```
+
+### **Search Interface Pattern**
+```jsx
+const SearchInterface = () => {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  const [processing, setProcessing] = useState(false);
+  
+  return (
+    <div className="search-interface">
+      <div className="command-prompt">
+        <span className="prompt-prefix">stf@ai-search:~$</span>
+        <input 
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="command-input"
+          onKeyPress={handleSearch}
+        />
+        <TerminalCursor show={!processing} />
+      </div>
+      
+      {processing && (
+        <DecryptedText 
+          text="Analyzing query through AI semantic engine..."
+          className="processing-message"
+        />
+      )}
+      
+      {results.length > 0 && (
+        <SearchResults 
+          results={results}
+          className="search-results"
+        />
+      )}
+    </div>
+  );
+};
+```
+
+### **Results Display Pattern**
+```jsx
+const SearchResults = ({ results }) => {
+  return (
+    <div className="search-results">
+      <TextType 
+        text={`> Found ${results.length} matching profiles`}
+        className="result-header"
+        speed={30}
+      />
+      
+      <div className="results-container">
+        {results.map((result, index) => (
+          <div key={result.id} className="result-item">
+            <TextType 
+              text={`[${index + 1}] ${result.name}`}
+              className="result-title"
+              delay={index * 100}
+              speed={20}
+            />
+            <div className="result-details">
+              <span className="result-company">{result.company}</span>
+              <span className="result-match">Match: {result.similarity}%</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+```
+
+## 🎬 Terminal Animation Coordination
+
+### **System Startup Sequence**
+1. **FaultyTerminal** (0s): Background and CRT effects appear
+2. **TextType** (0.5s): System initialization messages
+3. **DecryptedText** (2s): Database connection status
+4. **ASCIIArt** (3s): Logo reveals with animation
+5. **TextType** (5s): System ready message and prompt
+
+### **Search Flow Animation**
+1. **TextType** (0s): User query appears in terminal
+2. **DecryptedText** (0.5s): Processing status updates
+3. **TextType** (2s): Results header with count
+4. **Staggered TextType** (2.5s): Individual results appear
+5. **TerminalCursor** (continuous): Returns to command prompt
+
+### **Command Processing**
+- **Input**: Real-time character appearance
+- **Processing**: Matrix-style decryption effects
+- **Output**: Typewriter-style result display
+- **Feedback**: Immediate visual confirmation
+
+## 📱 Terminal Responsive Behavior
+
+### **Mobile Terminal (320px-767px)**
+- **Smaller font sizes**: Maintain readability
+- **Simplified effects**: Reduce CRT effects for performance
+- **Touch-friendly**: Larger input areas
+- **Scrollable history**: Vertical command history
+
+### **Tablet Terminal (768px-1023px)**
+- **Medium effects**: Balanced performance and aesthetics
+- **Grid layouts**: Two-column result displays
+- **Touch interactions**: Tap to select commands
+- **Landscape optimization**: Full-width terminal
+
+### **Desktop Terminal (1024px+)**
+- **Full effects**: Complete CRT and glow effects
+- **Keyboard shortcuts**: Full terminal navigation
+- **Multiple columns**: Side-by-side result display
+- **Advanced features**: Command completion and history search
+
+## ⚡ Performance Optimization
+
+### **Animation Management**
+- **RAF optimization**: Use requestAnimationFrame for smooth animations
+- **Intersection Observer**: Only animate visible components
+- **Text chunking**: Process large text blocks efficiently
+- **Memory cleanup**: Dispose of animation references
+
+### **Terminal Rendering**
+- **Virtual scrolling**: Handle large command histories
+- **Canvas optimization**: Efficient CRT effect rendering
+- **Text caching**: Cache rendered terminal content
+- **GPU acceleration**: Hardware-accelerated effects when available
 
 ## 🎯 Best Practices
 
 ### **Component Composition**
 ```jsx
-// Good: Composing multiple React Bits components
-<div className="hero-section">
-  <Aurora className="hero-background" />
-  <SplitText text="Hero Title" className="hero-title" />
-  <BlurText text="Subtitle" className="hero-subtitle" />
-  <div className="stats-grid">
-    {stats.map((stat, index) => (
-      <div key={stat.label} className="stat-card">
-        <Counter target={stat.value} delay={index * 200} />
-        <GradientText text={stat.label} />
-      </div>
-    ))}
+// Recommended terminal layout structure
+<div className="terminal-app">
+  <FaultyTerminal className="terminal-background" />
+  <LetterGlitch className="ambient-effects" />
+  
+  <div className="terminal-content">
+    <ASCIIArt art={headerArt} className="terminal-header" />
+    <CommandHistory commands={history} />
+    <SearchInterface />
+    <TerminalCursor />
   </div>
 </div>
 ```
 
-### **Performance Guidelines**
-- Limit concurrent animations to 5-7 elements
-- Use CSS transforms instead of layout properties
-- Implement animation queues for complex sequences
-- Cache heavy computations (Aurora gradients)
-- Progressive enhancement for older browsers
+### **Animation Guidelines**
+- **Stagger delays**: 50-100ms between elements
+- **Consistent timing**: Use standard durations (50ms typing speed)
+- **Performance limits**: Maximum 5 concurrent animations
+- **Fallback support**: Graceful degradation for older browsers
 
-### **Accessibility**
-- Provide fallback text for screen readers
-- Respect reduced motion preferences
-- Ensure color contrast meets WCAG standards
-- Add proper ARIA labels for interactive components
+### **Accessibility Considerations**
+- **Screen reader support**: Provide text alternatives
+- **Keyboard navigation**: Full keyboard accessibility
+- **Motion preferences**: Respect reduced motion settings
+- **Color contrast**: Ensure terminal colors meet WCAG standards
+- **Focus indicators**: Clear visual focus states

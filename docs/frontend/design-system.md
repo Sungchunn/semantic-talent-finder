@@ -1,305 +1,467 @@
-# Design System - AI-Powered Enterprise Intelligence
+# Terminal Design System
 
-## 🎯 Design Brief
+## 🖥️ Design Philosophy
 
-Transform the Semantic Talent Finder frontend into a cutting-edge, AI-powered talent search platform that reflects its sophisticated backend processing 51,352,619 LinkedIn profiles. The design should convey enterprise-grade professionalism while showcasing the platform's AI capabilities and massive scale.
+The Semantic Talent Finder uses a **retro terminal interface** that simulates an authentic command-line experience for AI-powered talent search. This design emphasizes the technical sophistication of our 51M+ profile search system while providing a focused, developer-friendly interface without distractions.
 
-## 🎨 Visual Identity
+## 🎨 Terminal Theme: Retro Computing
 
-### **Theme: "AI-Powered Enterprise Intelligence"**
-- **Primary Colors**: Deep enterprise blues (#1E3A8A, #3B82F6, #60A5FA)
-- **Accent Colors**: Success green (#10B981), warning amber (#F59E0B), error red (#EF4444)
-- **Design Language**: Glassmorphism + subtle gradients + smooth animations
-- **Typography**: Modern, clean fonts with animated text reveals
-- **Overall Feel**: Professional, sophisticated, data-driven, performance-focused
+### Core Aesthetic
+- **Authentic terminal emulator interface** with CRT effects
+- **Monospace typography** throughout the application
+- **Green-on-black or amber-on-black** color schemes
+- **Scanlines and subtle glow effects** for retro computing feel
+- **Single-page terminal session** workflow
 
-### **Color Palette**
+## 🌈 Terminal Color Palette
 
-#### Primary Colors
+### Primary Terminal Colors (Green Theme)
 ```css
---color-primary-900: #1E3A8A;  /* Deep Enterprise Blue */
---color-primary-500: #3B82F6;  /* Corporate Blue */
---color-primary-300: #60A5FA;  /* Light Blue */
---color-primary-100: #DBEAFE;  /* Very Light Blue */
+--color-terminal-bg: #0a0a0a;        /* Deep black terminal background */
+--color-terminal-primary: #00ff00;   /* Bright green terminal text */
+--color-terminal-secondary: #00aa00; /* Dim green for less important content */
+--color-terminal-cursor: #00ff00;    /* Blinking green cursor */
 ```
 
-#### Accent Colors
+### Alternative Amber Theme
 ```css
---color-success: #10B981;      /* Success Green */
---color-warning: #F59E0B;      /* Warning Amber */
---color-error: #EF4444;        /* Error Red */
---color-info: #06B6D4;         /* Info Cyan */
+--color-terminal-bg: #0a0a0a;        /* Deep black terminal background */
+--color-terminal-primary: #ffb000;   /* Bright amber terminal text */
+--color-terminal-secondary: #cc8800; /* Dim amber for secondary content */
+--color-terminal-cursor: #ffb000;    /* Blinking amber cursor */
 ```
 
-#### Neutral Colors
+### System Status Colors
 ```css
---color-neutral-900: #111827;  /* Dark Text */
---color-neutral-700: #374151;  /* Medium Text */
---color-neutral-500: #6B7280;  /* Light Text */
---color-neutral-300: #D1D5DB;  /* Border */
---color-neutral-100: #F3F4F6;  /* Background */
---color-neutral-50: #F9FAFB;   /* Light Background */
+--color-success: #44ff44;      /* Bright green for successful operations */
+--color-error: #ff4444;        /* Red for errors and failures */
+--color-warning: #ffff44;      /* Yellow for warnings and cautions */
+--color-info: #4488ff;         /* Blue for system information and prompts */
+--color-processing: #ff8844;   /* Orange for loading and processing states */
+--color-comment: #888888;      /* Gray for comments and metadata */
 ```
 
-### **Typography Scale**
-
-#### Font Stack
+### CRT Visual Effects
 ```css
---font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
---font-family-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+--terminal-glow: 0 0 10px currentColor;           /* Text glow effect */
+--terminal-screen-glow: 0 0 20px var(--color-terminal-primary); /* Screen outer glow */
+--terminal-scanline: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%); /* Scanlines */
 ```
 
-#### Scale
+## 📝 Typography System
+
+### Font Stack
 ```css
---text-xs: 0.75rem;     /* 12px */
---text-sm: 0.875rem;    /* 14px */
---text-base: 1rem;      /* 16px */
---text-lg: 1.125rem;    /* 18px */
---text-xl: 1.25rem;     /* 20px */
---text-2xl: 1.5rem;     /* 24px */
---text-3xl: 1.875rem;   /* 30px */
---text-4xl: 2.25rem;    /* 36px */
---text-5xl: 3rem;       /* 48px */
---text-6xl: 3.75rem;    /* 60px */
+--font-family-terminal: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Courier New', monospace;
 ```
 
-### **Spacing System**
-
-#### 8px Grid System
+### Font Sizes (Terminal Scale)
 ```css
---space-1: 0.25rem;     /* 4px */
---space-2: 0.5rem;      /* 8px */
---space-3: 0.75rem;     /* 12px */
---space-4: 1rem;        /* 16px */
---space-5: 1.25rem;     /* 20px */
---space-6: 1.5rem;      /* 24px */
---space-8: 2rem;        /* 32px */
---space-10: 2.5rem;     /* 40px */
---space-12: 3rem;       /* 48px */
---space-16: 4rem;       /* 64px */
---space-20: 5rem;       /* 80px */
---space-24: 6rem;       /* 96px */
+--text-terminal-xs: 12px;       /* Small system messages */
+--text-terminal-sm: 14px;       /* Standard terminal text */
+--text-terminal-base: 16px;     /* Primary terminal text */
+--text-terminal-lg: 18px;       /* Headers and emphasis */
+--text-terminal-xl: 20px;       /* ASCII art and titles */
+--text-terminal-2xl: 24px;      /* Large ASCII headers */
 ```
 
-## 🏗️ Component Design Specifications
-
-### **Glassmorphism Effects**
-
-#### Glass Card Base
+### Line Height & Spacing
 ```css
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-}
-
-.glass-card-dark {
-  background: rgba(30, 58, 138, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(30, 58, 138, 0.37);
-}
+--line-height-terminal: 1.4;    /* Readable terminal spacing */
+--letter-spacing-terminal: 0.02em; /* Slight letter spacing for monospace */
 ```
 
-#### Hover Effects
+## 🖥️ Terminal Interface Components
+
+### Terminal Window Structure
 ```css
-.glass-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(31, 38, 135, 0.5);
-  border-color: rgba(59, 130, 246, 0.4);
-}
-```
-
-### **Button Styles**
-
-#### Primary Button
-```css
-.btn-primary {
-  background: linear-gradient(135deg, #3B82F6 0%, #1E3A8A 100%);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+.terminal-window {
+  background: var(--color-terminal-bg);
+  color: var(--color-terminal-primary);
+  font-family: var(--font-family-terminal);
+  font-size: var(--text-terminal-base);
+  line-height: var(--line-height-terminal);
+  letter-spacing: var(--letter-spacing-terminal);
+  padding: 20px;
+  min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: auto;
 }
 
-.btn-primary::before {
+.terminal-window::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--terminal-scanline);
+  pointer-events: none;
+  z-index: 1;
 }
 
-.btn-primary:hover::before {
-  left: 100%;
+.terminal-content {
+  position: relative;
+  z-index: 2;
+  text-shadow: var(--terminal-glow);
 }
 ```
 
-#### Glass Button
+### Terminal Header
 ```css
-.btn-glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #1E3A8A;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+.terminal-header {
+  border: 1px solid var(--color-terminal-primary);
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: var(--text-terminal-sm);
 }
 
-.btn-glass:hover {
-  background: rgba(59, 130, 246, 0.1);
-  border-color: rgba(59, 130, 246, 0.3);
-  transform: translateY(-1px);
+.terminal-title {
+  font-size: var(--text-terminal-lg);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.terminal-status {
+  color: var(--color-terminal-secondary);
+  font-size: var(--text-terminal-xs);
 }
 ```
 
-## 📱 Page-Specific Design Guidelines
+### ASCII Art Styling
+```css
+.ascii-art {
+  font-size: var(--text-terminal-sm);
+  line-height: 1;
+  white-space: pre;
+  color: var(--color-terminal-primary);
+  margin: 20px 0;
+  text-align: center;
+}
 
-### **1. Landing/Home Page**
+.ascii-logo {
+  font-size: var(--text-terminal-xs);
+  font-weight: bold;
+}
+```
 
-#### Hero Section Design
-- **Background**: Aurora effect with blue gradients
-- **Title**: SplitText animation, 5xl on desktop, 3xl on mobile
-- **Subtitle**: BlurText reveal with key metrics
-- **Search Bar**: Glassmorphism with animated suggestions
-- **CTA Buttons**: Primary gradient with hover shine effects
+### Command Interface
+```css
+.command-prompt {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-family: var(--font-family-terminal);
+}
 
-#### Statistics Showcase
-- **Layout**: 4-column grid (responsive to 2x2 on tablet, 1 column on mobile)
-- **Cards**: Glass cards with Counter animations
-- **Metrics**: 
-  - 51,352,619 Total Profiles
-  - 1,871 Unique Skills
-  - <500ms Search Response Time
-  - 85%+ Result Accuracy
+.prompt-prefix {
+  color: var(--color-terminal-primary);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
 
-#### Features Preview
-- **Layout**: MagicBento grid with 6 tiles
-- **Content**: Core platform features with GradientText headings
-- **Animations**: Hover tilts and glow effects
+.command-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-terminal-primary);
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+  caret-color: var(--color-terminal-cursor);
+}
 
-### **2. Search Results Page**
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--color-terminal-cursor);
+  animation: blink 1s infinite;
+}
 
-#### Enhanced Search Interface
-- **Search Bar**: Refined with real-time suggestions
-- **Filters**: Glass buttons with GlassIcons
-- **Results Count**: Animated Counter with result metrics
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+```
 
-#### Profile Cards Grid
-- **Layout**: 3-column grid (responsive to 2-column on tablet, 1-column on mobile)
-- **Card Design**: 
-  - Professional photo placeholder
-  - Name with GradientText treatment
-  - Company and location in secondary text
-  - Similarity score badge (0-100%)
-  - Data quality indicator
-  - Skills as animated tags
-- **Interactions**: 3D tilt on hover, smooth loading animations
+### Results Display
+```css
+.search-results {
+  margin: 20px 0;
+}
 
-### **3. Analytics Dashboard**
+.result-header {
+  color: var(--color-info);
+  margin-bottom: 10px;
+  font-size: var(--text-terminal-sm);
+}
 
-#### Data Quality Overview
-- **Hero**: SplitText title with dataset metrics
-- **Layout**: Three-column quality breakdown
-- **Color Coding**: Green (high quality), Amber (medium), Red (low)
-- **Animations**: Counter components for all numerical data
+.result-item {
+  border: 1px solid var(--color-terminal-secondary);
+  margin: 5px 0;
+  padding: 10px;
+  background: rgba(0, 255, 0, 0.02);
+}
 
-#### Performance Metrics
-- **Charts**: Real-time performance visualization
-- **Meters**: Database utilization with animated progress
-- **Trends**: API response time graphs with smooth updates
+.result-item:hover {
+  background: rgba(0, 255, 0, 0.05);
+  border-color: var(--color-terminal-primary);
+}
 
-### **4. Profile Detail Page**
+.result-id {
+  color: var(--color-terminal-primary);
+  font-weight: bold;
+}
 
-#### Enhanced Profile View
-- **Header**: Large ProfileCard with comprehensive info
-- **Skills**: Interactive visualization with GradientText tags
-- **Timeline**: Experience with BlurText animations
-- **Similar Profiles**: Carousel with ProfileCard components
+.result-match {
+  color: var(--color-success);
+  float: right;
+}
 
-## 🎬 Animation Guidelines
+.result-title {
+  color: var(--color-terminal-primary);
+  font-weight: bold;
+  margin: 2px 0;
+}
 
-### **Page Load Sequence**
-1. Aurora background: 0.5s fade-in
-2. SplitText hero: 1.2s word-by-word (stagger: 100ms)
-3. BlurText subtitle: 0.8s reveal after title
-4. Search bar: 0.6s slide-up with glass effect
-5. Statistics: 1.0s Counter animations (stagger: 200ms)
-6. Secondary elements: 0.4s fade-in
+.result-company {
+  color: var(--color-terminal-secondary);
+  font-size: var(--text-terminal-sm);
+}
 
-### **Scroll Animations**
-- **Trigger**: Elements entering viewport (Intersection Observer)
-- **BlurText**: 0.6s reveal animation
-- **Counters**: 1.0s count-up when visible
-- **MagicBento**: Staggered tile activation (100ms delay)
-- **ProfileCards**: Subtle slide-up on scroll
+.result-details {
+  color: var(--color-comment);
+  font-size: var(--text-terminal-xs);
+  margin-top: 5px;
+}
+```
 
-### **Interaction Feedback**
-- **Hover**: 0.3s transition for all interactive elements
-- **Click**: 0.15s scale effect for buttons
-- **Focus**: 0.2s glow effect for form inputs
-- **Loading**: Skeleton screens with shimmer effect
+### System Messages
+```css
+.system-message {
+  color: var(--color-info);
+  font-style: italic;
+  margin: 5px 0;
+}
 
-## 📐 Responsive Breakpoints
+.success-message {
+  color: var(--color-success);
+  margin: 5px 0;
+}
 
-### **Mobile (320px-767px)**
-- Simplified animations (reduce motion)
-- Single-column layouts
-- Larger touch targets (44px minimum)
-- Disabled 3D effects for performance
-- Optimized font sizes and spacing
+.error-message {
+  color: var(--color-error);
+  margin: 5px 0;
+}
 
-### **Tablet (768px-1023px)**
-- Condensed layouts (2-column grids)
-- Reduced animation complexity
-- Touch-friendly interactions
-- Moderate glassmorphism effects
+.warning-message {
+  color: var(--color-warning);
+  margin: 5px 0;
+}
 
-### **Desktop (1024px+)**
-- Full design system implementation
-- Complete animation sequences
-- 3D hover effects enabled
-- Multi-column complex layouts
-- Maximum glassmorphism detail
+.processing-message {
+  color: var(--color-processing);
+  margin: 5px 0;
+}
+```
+
+### Help and Commands
+```css
+.help-section {
+  margin: 20px 0;
+  border: 1px solid var(--color-terminal-secondary);
+  padding: 15px;
+}
+
+.help-title {
+  color: var(--color-terminal-primary);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.command-list {
+  list-style: none;
+  padding: 0;
+}
+
+.command-item {
+  margin: 3px 0;
+  display: flex;
+}
+
+.command-name {
+  color: var(--color-terminal-primary);
+  font-weight: bold;
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.command-description {
+  color: var(--color-terminal-secondary);
+  flex: 1;
+}
+```
+
+## 🎬 Terminal Animations
+
+### Typewriter Effect
+```css
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--color-terminal-cursor);
+  animation: typewriter 2s steps(40) forwards,
+             blink 1s infinite 2s;
+}
+```
+
+### Text Reveal
+```css
+@keyframes textReveal {
+  0% { 
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-reveal {
+  animation: textReveal 0.5s ease-out forwards;
+}
+```
+
+### Processing Animation
+```css
+@keyframes processing {
+  0%, 20% { content: '|'; }
+  21%, 40% { content: '/'; }
+  41%, 60% { content: '─'; }
+  61%, 80% { content: '\\'; }
+  81%, 100% { content: '|'; }
+}
+
+.processing-spinner::after {
+  content: '|';
+  animation: processing 1s infinite;
+  color: var(--color-processing);
+}
+```
+
+## 📱 Responsive Terminal Design
+
+### Mobile Terminal (320px-767px)
+```css
+@media (max-width: 767px) {
+  .terminal-window {
+    padding: 10px;
+    font-size: var(--text-terminal-sm);
+  }
+  
+  .ascii-art {
+    font-size: 10px;
+  }
+  
+  .result-item {
+    padding: 8px;
+  }
+  
+  .command-name {
+    width: 100px;
+  }
+}
+```
+
+### Tablet Terminal (768px-1023px)
+```css
+@media (min-width: 768px) and (max-width: 1023px) {
+  .terminal-window {
+    padding: 15px;
+  }
+  
+  .result-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: center;
+  }
+}
+```
+
+### Desktop Terminal (1024px+)
+```css
+@media (min-width: 1024px) {
+  .terminal-window {
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .result-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .terminal-window::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.1) 0%, transparent 70%);
+    border-radius: 10px;
+    z-index: 0;
+  }
+}
+```
+
+## ⚡ Performance Considerations
+
+### Animation Optimization
+- Use `transform` and `opacity` for animations
+- Limit simultaneous animations to maintain 60fps
+- Implement `will-change` property for animated elements
+- Use `requestAnimationFrame` for smooth custom animations
+
+### Terminal Text Rendering
+- Optimize for monospace font rendering
+- Use text shadows sparingly to maintain performance
+- Implement virtual scrolling for large result sets
+- Cache rendered terminal content when possible
 
 ## 🎯 Implementation Priority
 
-### **Phase 1: Core Components**
-1. Basic layout components (Header, Footer, Layout)
-2. Primary search functionality
-3. Essential ProfileCard design
-4. Responsive grid system
+### Phase 1: Core Terminal Interface
+1. Basic terminal window with CRT effects
+2. Command prompt with blinking cursor
+3. System messages and status display
+4. ASCII art logo and headers
 
-### **Phase 2: React Bits Integration**
-1. SplitText for hero titles
-2. Counter for statistics
-3. BlurText for descriptions
-4. Basic MagicBento layouts
+### Phase 2: Search Integration
+1. Natural language search input
+2. Results display in terminal format
+3. Command history navigation
+4. Auto-complete functionality
 
-### **Phase 3: Advanced Features**
-1. Aurora background effects
-2. Complex glassmorphism
-3. 3D hover interactions
-4. Advanced animations
+### Phase 3: Advanced Features
+1. CSV/JSON export commands
+2. Profile detail views
+3. Search statistics and analytics
+4. Terminal customization options
 
-### **Phase 4: Polish & Optimization**
-1. Performance optimization
-2. Accessibility improvements
-3. Animation refinements
-4. Cross-browser testing
+### Phase 4: Polish & Effects
+1. Enhanced CRT visual effects
+2. Sound effects (optional)
+3. Terminal themes (green/amber)
+4. Accessibility improvements

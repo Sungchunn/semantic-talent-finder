@@ -6,8 +6,8 @@ const GlassIcon = ({
   className = '',
   variant = 'default',
   active = false,
-  href,
-  onClick
+  href = null,
+  onClick = null
 }) => {
   const sizes = {
     sm: 'w-4 h-4',

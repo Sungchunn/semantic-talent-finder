@@ -9,7 +9,7 @@ const ProfileCard = ({
   showSimilarity = false,
   showSkills = false,
   showMetrics = false,
-  onClick
+  onClick = null
 }) => {
   const {
     name,
