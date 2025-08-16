@@ -14,8 +14,8 @@ const App: React.FC = () => {
   useEffect(() => {
     const checkConnection = async () => {
       try {
-        // Use a simple health check instead of search
-        const response = await fetch('http://localhost:8080/actuator/health');
+        // Use the profiles stats endpoint which has CORS enabled
+        const response = await fetch('http://localhost:8080/api/profiles/stats');
         if (response.ok) {
           setIsConnected(true);
         } else {
