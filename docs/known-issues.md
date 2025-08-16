@@ -2,6 +2,35 @@
 
 ## 🐛 Current Issues
 
+### ✅ Frontend-Backend Connectivity Issue (RESOLVED)
+- **Issue**: Frontend "Failed to fetch" error when checking backend connectivity
+- **Root Cause**: Frontend was calling `/actuator/health` endpoint which doesn't have CORS enabled
+- **Error**: `TypeError: Failed to fetch` in browser console on React app startup
+- **Fix Applied**: Changed health check endpoint from `/actuator/health` to `/api/profiles/stats`
+- **Technical Details**: 
+  - Actuator endpoints don't inherit Spring Security CORS configuration
+  - API endpoints (`/api/*`) have proper CORS headers for `http://localhost:3000`
+  - Changed in `frontend/src/App.tsx:18`
+- **Status**: ✅ Frontend now successfully connects to backend
+- **Files Modified**: `frontend/src/App.tsx`
+
+### ✅ Backend Startup Issue (RESOLVED)  
+- **Issue**: Backend failing to start due to missing OpenAI API key configuration
+- **Root Cause**: Required `OPENAI_API_KEY` environment variable not set
+- **Error**: `Could not resolve placeholder 'OPENAI_API_KEY'` causing startup failure
+- **Fix Applied**: Made OpenAI configuration conditional with custom `@Conditional` annotation
+- **Technical Details**:
+  - Created `OpenAIApiKeyPresentCondition` to check for API key presence
+  - Updated `EmbeddingService` to handle missing EmbeddingModel gracefully
+  - Added empty database handling in `SemanticSearchService`
+  - Disabled Spring AI auto-configuration when API key missing
+- **Status**: ✅ Backend starts successfully without OpenAI API key, degrades gracefully
+- **Files Modified**: 
+  - `backend/src/main/java/com/semantictalent/finder/config/OpenAIConfig.java`
+  - `backend/src/main/java/com/semantictalent/finder/service/EmbeddingService.java`
+  - `backend/src/main/java/com/semantictalent/finder/service/SemanticSearchService.java`
+  - `backend/src/main/resources/application.yml`
+
 ### TailwindCSS v4 Compatibility Issue (Fixed)
 - **Issue**: TailwindCSS v4 PostCSS plugin incompatibility causing frontend build errors
 - **Error**: "It looks like you're trying to use `tailwindcss` directly as a PostCSS plugin"
@@ -92,6 +121,72 @@ Since TailwindCSS is temporarily disabled, use these approaches for styling:
 - 🔧 **Component Tests**: React Testing Library setup needed
 - 🔧 **E2E Tests**: Cypress or Playwright implementation pending
 - 🔧 **Visual Regression**: Chromatic or similar tool needed
+
+## 🔧 Troubleshooting Guide
+
+### Frontend "Failed to fetch" Errors
+**Symptoms**: Browser console shows `TypeError: Failed to fetch` on app startup
+
+**Quick Diagnosis**:
+```bash
+# Test if backend is running
+curl http://localhost:8080/actuator/health
+
+# Test if API endpoints have CORS
+curl -H "Origin: http://localhost:3000" http://localhost:8080/api/profiles/stats
+```
+
+**Common Causes**:
+1. **Backend not running**: Start with `cd backend && ./mvnw spring-boot:run`
+2. **Wrong port**: Verify backend is on port 8080, frontend on port 3000
+3. **CORS issues**: Frontend calling non-CORS endpoint (like `/actuator/*`)
+4. **Browser cache**: Clear browser cache and reload
+
+**Solution**: Use API endpoints (`/api/*`) instead of actuator endpoints for frontend calls
+
+### Backend Startup Failures
+**Symptoms**: Backend fails to start with "Could not resolve placeholder" errors
+
+**Quick Diagnosis**:
+```bash
+# Check if Java 17+ is available
+java --version
+
+# Check for missing environment variables
+echo $OPENAI_API_KEY
+
+# Check database connectivity
+docker ps | grep postgres
+```
+
+**Common Causes**:
+1. **Missing OpenAI API Key**: Set `OPENAI_API_KEY` environment variable or leave empty for demo mode
+2. **Wrong Java Version**: Requires Java 17+ (Spring Boot 3.x requirement)
+3. **Database not running**: Start with `docker-compose up postgres`
+4. **Port conflicts**: Check if port 8080 is available
+
+**Solution**: Ensure Java 21+, start database, and set optional environment variables
+
+### Database Connection Issues
+**Symptoms**: Backend starts but shows database connection errors
+
+**Quick Diagnosis**:
+```bash
+# Check if PostgreSQL container is running
+docker ps | grep postgres
+
+# Test database connection
+docker exec semantic-talent-finder-postgres psql -U postgres -d semantic_talent_finder -c "SELECT 1;"
+
+# Check database port
+lsof -i :5433
+```
+
+**Common Causes**:
+1. **PostgreSQL not running**: Start with `docker-compose up postgres`
+2. **Wrong port**: Default is 5433 (not standard 5432)
+3. **Wrong credentials**: Check username/password in application.yml
+4. **pgvector extension missing**: Ensure using `pgvector/pgvector:pg16` image
 
 ## 🚀 Resolution Timeline
 
