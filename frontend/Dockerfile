@@ -22,7 +22,7 @@ FROM nginx:1.25-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Copy a custom Nginx configuration
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 3000
 

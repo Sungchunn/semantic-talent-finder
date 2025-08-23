@@ -43,7 +43,7 @@ class BatchProcessor:
             
             # Convert to simplified JSON format for API
             profiles = []
-            for _, row in df.head(100).iterrows():  # Process first 100 records as test
+            for _, row in df.head(5).iterrows():  # Process first 5 records as test
                 profile = {
                     "fullName": str(row.get("Full name", "")),
                     "firstName": str(row.get("First Name", "")),
@@ -108,7 +108,7 @@ class BatchProcessor:
             # Submit all batch processing tasks
             future_to_batch = {
                 executor.submit(self.process_batch_file, batch_file): batch_file 
-                for batch_file in batch_files[:10]  # Process first 10 as test
+                for batch_file in batch_files[:3]  # Process first 3 as test
             }
             
             for future in as_completed(future_to_batch):
@@ -123,7 +123,7 @@ class BatchProcessor:
                     print(f"❌ {result['file']}: {result['error']}")
         
         print(f"\n📊 Processing Summary:")
-        print(f"   Total batches: {len(batch_files[:10])}")
+        print(f"   Total batches: {len(batch_files[:3])}")
         print(f"   Successful: {successful}")
         print(f"   Failed: {failed}")
         
