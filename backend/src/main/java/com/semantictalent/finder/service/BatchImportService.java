@@ -117,23 +117,7 @@ public class BatchImportService {
         profile.setSearchableContent(searchableContent.toString().trim());
         
         // TODO: Temporarily disabled embedding generation due to PGvector serialization issue
-        // Generate embedding (with error handling)
-        /*
-        try {
-            PGvector embedding = embeddingService.generateProfileEmbedding(
-                profile.getFullName(),
-                profile.getHeadline(),
-                profile.getSummary(),
-                profile.getSkills()
-            );
-            profile.setEmbedding(embedding);
-        } catch (Exception e) {
-            log.warn("Failed to generate embedding for profile {}: {}", dto.getFullName(), e.getMessage());
-            // Continue without embedding - database allows NULL
-        }
-        */
-        
-        // Skip embedding generation for now - focus on data import
+        // Skip embedding entirely - don't even set to null to avoid bytea conversion issues
         log.debug("Skipping embedding generation for profile {} - will be implemented later", dto.getFullName());
         
         return profile;

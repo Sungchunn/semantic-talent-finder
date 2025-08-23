@@ -21,7 +21,9 @@
       "Read(//Users/chromatrical/CAREER/**)",
       "Read(//Users/chromatrical/CAREER/**)",
       "Read(//Users/chromatrical/CAREER/**)",
-      "Bash(./mvnw:*)"
+      "Bash(./mvnw:*)",
+      "Bash(java:*)",
+      "Bash(pip3 install:*)"
     ],
     "deny": []
   },
