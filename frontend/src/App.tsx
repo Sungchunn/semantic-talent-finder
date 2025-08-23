@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import { LetterGlitch, AdvancedTextType, ShinyText } from './components/reactbits';
 import { searchService, ProfileSummary, SearchRequest } from './services/searchService';
+import { simpleSearchService } from './services/simpleSearchService';
+import { ProfileDataTable, Profile } from './components/ProfileDataTable';
 import api from './services/api';
 
 const App: React.FC = () => {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState<ProfileSummary[]>([]);
+  const [profiles, setProfiles] = useState<Profile[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showDataTable, setShowDataTable] = useState(false);
 
   // Check backend connection on mount
   useEffect(() => {
@@ -38,20 +42,36 @@ const App: React.FC = () => {
     
     setIsSearching(true);
     setError(null);
+    setShowDataTable(false);
     
     try {
-      const searchRequest: SearchRequest = {
-        query: query.trim(),
-        limit: 50,
-        threshold: 0.7
-      };
+      // Use simple search that works without embeddings
+      const searchProfiles = await simpleSearchService.searchProfiles(query.trim());
+      setProfiles(searchProfiles);
+      setShowDataTable(true);
       
-      const result = await searchService.searchProfiles(searchRequest);
-      setSearchResults(result.profiles);
     } catch (err: any) {
       console.error('Search failed:', err);
       setError(err.message || 'Search failed. Please try again.');
-      setSearchResults([]);
+      setProfiles([]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  // Load all profiles on page load
+  const loadAllProfiles = async () => {
+    setIsSearching(true);
+    setError(null);
+    
+    try {
+      const allProfiles = await simpleSearchService.getAllProfiles();
+      setProfiles(allProfiles);
+      setShowDataTable(true);
+    } catch (err: any) {
+      console.error('Failed to load profiles:', err);
+      setError(err.message || 'Failed to load profiles. Please try again.');
+      setProfiles([]);
     } finally {
       setIsSearching(false);
     }
@@ -147,6 +167,17 @@ const App: React.FC = () => {
             </div>
           </form>
 
+          {/* Action Buttons */}
+          <div className="action-buttons mb-4">
+            <button
+              onClick={loadAllProfiles}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              disabled={isSearching}
+            >
+              {isSearching ? 'Loading...' : 'View All Profiles'}
+            </button>
+          </div>
+
           {/* Error Message */}
           {error && (
             <div className="error-message">
@@ -155,51 +186,10 @@ const App: React.FC = () => {
             </div>
           )}
 
-          {/* Search Results */}
-          {searchResults.length > 0 && (
+          {/* Data Table Results */}
+          {showDataTable && (
             <div className="results-container">
-              <div className="results-header">
-                <h2 className="results-title">
-                  Found {searchResults.length} matching profiles
-                </h2>
-              </div>
-              
-              <div className="results-list">
-                {searchResults.map((profile, index) => (
-                  <div key={profile.id} className="result-card">
-                    <div className="result-header">
-                      <h3 className="profile-name">{profile.fullName}</h3>
-                      <div className="similarity-score">
-                        {Math.round(profile.similarityScore * 100)}% match
-                      </div>
-                    </div>
-                    
-                    <div className="profile-details">
-                      <p className="job-title">{profile.headline}</p>
-                      <p className="company">{profile.companyName}</p>
-                      <p className="location">{profile.location}</p>
-                    </div>
-                    
-                    {profile.matchingSkills.length > 0 && (
-                      <div className="skills-section">
-                        <span className="skills-label">Matching Skills:</span>
-                        <div className="skills-list">
-                          {profile.matchingSkills.slice(0, 6).map((skill, skillIndex) => (
-                            <span key={skillIndex} className="skill-tag">
-                              {skill}
-                            </span>
-                          ))}
-                          {profile.matchingSkills.length > 6 && (
-                            <span className="skill-tag more">
-                              +{profile.matchingSkills.length - 6} more
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+              <ProfileDataTable profiles={profiles} loading={isSearching} />
             </div>
           )}
         </div>

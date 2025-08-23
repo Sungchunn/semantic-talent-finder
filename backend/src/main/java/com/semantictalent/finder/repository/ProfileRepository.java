@@ -38,4 +38,11 @@ public interface ProfileRepository extends JpaRepository<Profile, String> {
     
     @Query("SELECT DISTINCT p.experienceLevel FROM Profile p WHERE p.experienceLevel IS NOT NULL ORDER BY p.experienceLevel")
     List<String> findDistinctExperienceLevels();
+    
+    // Simple text search methods for non-embedding search
+    List<Profile> findBySearchableContentContainingIgnoreCase(String query);
+    List<Profile> findByLocationContainingIgnoreCase(String location);
+    List<Profile> findByFullNameContainingIgnoreCase(String name);
+    List<Profile> findByJobTitleContainingIgnoreCase(String jobTitle);
+    List<Profile> findByCompanyNameContainingIgnoreCase(String companyName);
 }
