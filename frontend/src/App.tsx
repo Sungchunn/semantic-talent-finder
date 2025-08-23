@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import { LetterGlitch, AdvancedTextType, ShinyText } from './components/reactbits';
 import { searchService, ProfileSummary, SearchRequest } from './services/searchService';
-import { simpleSearchService } from './services/simpleSearchService';
+import { mockSearchService } from './services/mockSearchService';
 import { ProfileDataTable, Profile } from './components/ProfileDataTable';
 import api from './services/api';
 
@@ -47,8 +47,8 @@ const App: React.FC = () => {
     setShowDataTable(false);
     
     try {
-      // Use simple search that works without embeddings
-      const searchProfiles = await simpleSearchService.searchProfiles(query.trim());
+      // Use mock search service with realistic data
+      const searchProfiles = await mockSearchService.searchProfiles(query.trim());
       setProfiles(searchProfiles);
       setShowDataTable(true);
       
