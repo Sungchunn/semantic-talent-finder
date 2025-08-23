@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -19,6 +20,7 @@ public class ImportStatusDto {
     private Double progressPercentage;
     private String errorMessage;
     private Long executionTimeMs;
-    private String startedAt;
-    private String completedAt;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private String currentStage;
 }

@@ -14,11 +14,19 @@ import java.util.Map;
 public class SearchResultDto {
     private List<ProfileSummaryDto> profiles;
     private Integer totalResults;
-    private Double executionTimeMs;
+    private Long executionTimeMs;
+    private String query;
+    private Double threshold;
     private String processedQuery;
     private List<String> suggestions;
     private Map<String, Object> aggregations;   // Industry/location/skills breakdown
     private SearchMetadata metadata;
+    
+    // Sharding support
+    private String shardId;
+    private Integer shardsQueried;
+    private boolean success;
+    private String errorMessage;
     
     @Data
     @Builder

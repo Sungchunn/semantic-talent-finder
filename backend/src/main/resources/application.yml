@@ -93,3 +93,28 @@ app:
     technical-count: 18           # From analysis: 18 technical skills identified
     soft-count: 20               # From analysis: 20 soft skills identified  
     total-unique: 1871           # From analysis: 1,871 unique skills
+  sharding:
+    enabled: true
+    strategy: geographic_hash
+    default-shard-count: 5
+    shards:
+      - shard-id: "shard_usa_east"
+        name: "USA East Coast" 
+        active: true
+        max-records: 15000000
+      - shard-id: "shard_usa_west"
+        name: "USA West Coast"
+        active: true
+        max-records: 15000000
+      - shard-id: "shard_usa_central"
+        name: "USA Central"
+        active: true
+        max-records: 13000000
+      - shard-id: "shard_usa_south"
+        name: "USA South"
+        active: true
+        max-records: 8000000
+      - shard-id: "shard_international"
+        name: "International"
+        active: true
+        max-records: 2000000

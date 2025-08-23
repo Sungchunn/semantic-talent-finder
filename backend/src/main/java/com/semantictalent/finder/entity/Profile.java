@@ -131,6 +131,9 @@ public class Profile {
     @Column(name = "import_batch_id")
     private String importBatchId;
     
+    @Column(name = "shard_id", length = 50)
+    private String shardId;
+    
     @PrePersist
     protected void onCreate() {
         createdAt = new Date();

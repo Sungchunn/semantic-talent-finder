@@ -63,7 +63,7 @@ public class SemanticSearchService {
             response.setProfiles(results);
             response.setTotalResults(results.size());
             response.setProcessedQuery(request.getQuery());
-            response.setExecutionTimeMs((double) (System.currentTimeMillis() - startTime));
+            response.setExecutionTimeMs(System.currentTimeMillis() - startTime);
             response.setSuggestions(generateSuggestions(request.getQuery()));
             
             log.info("Search completed in {}ms, found {} profiles", 
@@ -82,7 +82,7 @@ public class SemanticSearchService {
         response.setProfiles(new ArrayList<>());
         response.setTotalResults(0);
         response.setProcessedQuery(request.getQuery());
-        response.setExecutionTimeMs((double) (System.currentTimeMillis() - startTime));
+        response.setExecutionTimeMs(System.currentTimeMillis() - startTime);
         response.setSuggestions(generateSuggestions(request.getQuery()));
         
         log.info("Returning empty search results for query: {}", request.getQuery());

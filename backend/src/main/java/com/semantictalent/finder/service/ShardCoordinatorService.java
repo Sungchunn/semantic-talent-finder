@@ -261,7 +261,7 @@ public class ShardCoordinatorService {
         ShardConfig.ShardDefinition shardDef = shardConfig.getShardDefinition(geographicShard);
         if (shardDef != null && isShardOverloaded(geographicShard)) {
             // Use hash distribution to spread load across multiple shards in the region
-            return shardConfig.resolveShardByHash(profile.getId());
+            return shardConfig.resolveShardByHash(profile.getId().toString());
         }
         
         return geographicShard;
