@@ -287,6 +287,20 @@ public class ParquetImportService {
                 for (Profile profile : shardProfiles) {
                     profile.setImportBatchId(importId);
                     profile.setShardId(shardId); // Add shard tracking
+                    
+                    // Generate and set embedding
+                    try {
+                        PGvector embedding = embeddingService.generateProfileEmbedding(
+                            profile.getFullName(), 
+                            profile.getHeadline(), 
+                            profile.getSummary(), 
+                            profile.getSkills()
+                        );
+                        profile.setEmbedding(embedding);
+                    } catch (Exception e) {
+                        log.warn("Failed to generate embedding for profile {}: {}", profile.getFullName(), e.getMessage());
+                        // Continue without embedding - the column allows NULL
+                    }
                 }
                 
                 profileRepository.saveAll(shardProfiles);
