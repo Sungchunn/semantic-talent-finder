@@ -23,12 +23,14 @@ const App: React.FC = () => {
         const response = await api.get('/profiles/stats');
         if (response.status === 200) {
           setIsConnected(true);
+          setError(null); // Clear any previous errors when connection is successful
         } else {
           setIsConnected(false);
         }
       } catch (err) {
         console.error('Backend connection failed:', err);
         setIsConnected(false);
+        // Don't set error for connection check - it's not a user action
       }
     };
 
@@ -59,23 +61,6 @@ const App: React.FC = () => {
     }
   };
 
-  // Load all profiles on page load
-  const loadAllProfiles = async () => {
-    setIsSearching(true);
-    setError(null);
-    
-    try {
-      const allProfiles = await simpleSearchService.getAllProfiles();
-      setProfiles(allProfiles);
-      setShowDataTable(true);
-    } catch (err: any) {
-      console.error('Failed to load profiles:', err);
-      setError(err.message || 'Failed to load profiles. Please try again.');
-      setProfiles([]);
-    } finally {
-      setIsSearching(false);
-    }
-  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Escape') {
@@ -167,16 +152,6 @@ const App: React.FC = () => {
             </div>
           </form>
 
-          {/* Action Buttons */}
-          <div className="action-buttons mb-4">
-            <button
-              onClick={loadAllProfiles}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
-              disabled={isSearching}
-            >
-              {isSearching ? 'Loading...' : 'View All Profiles'}
-            </button>
-          </div>
 
           {/* Error Message */}
           {error && (

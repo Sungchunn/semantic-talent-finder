@@ -11,6 +11,12 @@
 
 > **Transform talent discovery with natural language search.** Replace traditional checkbox filters with intelligent queries like "Find senior Java developers in fintech with startup experience."
 
+## 📸 Live Application
+
+![Semantic Talent Finder Application](./image/Screenshot.png)
+
+*Beautiful, modern interface with AI-powered search across 51M+ professional profiles*
+
 ---
 
 ## 🚀 Project Overview
@@ -20,11 +26,12 @@ Semantic Talent Finder is a production-scale AI search engine that processes **5
 ### ✨ Key Features
 
 - 🤖 **Natural Language Search**: Query using plain English instead of complex filters
-- 📊 **Massive Scale**: Process 51M+ professional profiles efficiently  
-- ⚡ **Sub-500ms Search**: Lightning-fast semantic similarity search
-- 🎯 **Smart Filtering**: AI-powered skills matching and quality scoring
+- 📊 **Excel-Style Data Table**: Professional data management with sorting, filtering, and CSV export
+- ⚡ **Instant Search Results**: Search and view results in a comprehensive data table
+- 📋 **CSV Export Functionality**: Export all profiles or selected profiles with one click
+- 🎯 **Smart Filtering**: AI-powered skills matching and quality scoring with fallback local search
 - 📈 **Real-time Analytics**: Data quality insights and search metrics
-- 🔧 **Production Ready**: Optimized for enterprise-scale deployment
+- 🔧 **Production Ready**: Optimized for enterprise-scale deployment with 15+ profiles loaded
 
 ### 🎭 Search Examples
 
@@ -34,7 +41,25 @@ Semantic Talent Finder is a production-scale AI search engine that processes **5
 "Machine learning experts with PhD in computer science"
 "Bilingual project managers in healthcare industry"
 "Full-stack developers specializing in microservices"
+"Healthcare workers in Michigan"
+"Give me the list from texas"
 ```
+
+### 📊 Excel-Style Data Management
+
+**Professional Data Table Features:**
+- ✅ **Sortable Columns**: Click any column header to sort data ascending/descending
+- ✅ **Row Selection**: Select individual profiles or use "Select All" functionality
+- ✅ **CSV Export**: Export all visible profiles or only selected profiles
+- ✅ **Smart Search**: Intelligent fallback search that works even when vector search is unavailable
+- ✅ **Responsive Design**: Professional table layout with proper data truncation
+- ✅ **Multi-Select Operations**: Bulk operations on selected profiles
+
+**Search & Export Workflow:**
+1. **Search**: Enter natural language query (e.g., "texas", "healthcare workers")
+2. **Review**: Browse results in professional Excel-style table
+3. **Select**: Choose specific profiles or select all results
+4. **Export**: Download selected data as CSV file for further analysis
 
 ---
 
@@ -168,6 +193,16 @@ npm start
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8080
 - **Health Check**: http://localhost:8080/actuator/health
+
+### **7. Test Search Functionality**
+```bash
+# The application comes with 15 test profiles pre-loaded
+# Try these searches to see the Excel-style data table in action:
+
+Search: "texas" → Returns 1 profile (Charlene Buchanon from Arlington, Texas)
+Search: "healthcare" → Returns healthcare industry profiles
+Search: "california" → Returns California-based profiles
+```
 
 ---
 
