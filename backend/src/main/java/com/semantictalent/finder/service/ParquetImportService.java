@@ -119,28 +119,69 @@ public class ParquetImportService {
      * Process the full parquet import with sharding
      */
     private void processParquetImport(String importId, String filePath) {
-        log.info("Processing parquet import {}: {}", importId, filePath);
-        
-        try {
-            updateImportStatus(importId, "PROCESSING", 0L, 0.0, "Loading parquet file...");
-            
-            // Step 1: Validate file exists
-            if (!new File(filePath).exists()) {
-                throw new RuntimeException("Parquet file not found: " + filePath);
+        log.info("Processing real parquet import {}: {}", importId, filePath);
+        File file = new File(filePath);
+        if (!file.exists()) {
+            throw new RuntimeException("Parquet file not found in container at: " + filePath);
+        }
+
+        long totalRecords = 0;
+        try (var reader = AvroParquetReader.<GenericRecord>builder(new org.apache.hadoop.fs.Path(file.toURI())).build()) {
+            while (reader.read() != null) {
+                totalRecords++;
             }
-            
-            updateImportStatus(importId, "PROCESSING", 0L, 1.0, "Reading parquet schema...");
-            
-            // Step 2: Read parquet file in batches
-            // For now, simulate the import process since actual parquet reading requires additional libraries
-            simulateParquetImport(importId);
-            
-            updateImportStatus(importId, "COMPLETED", 51_352_619L, 100.0, "Import completed successfully");
-            log.info("Parquet import {} completed successfully", importId);
-            
         } catch (Exception e) {
-            log.error("Parquet import {} failed", importId, e);
-            updateImportStatus(importId, "FAILED", 0L, 0.0, "Import failed: " + e.getMessage());
+            log.error("Failed to count records", e);
+            throw new RuntimeException("Failed to count records in Parquet file", e);
+        }
+        updateImportStatus(importId, "PROCESSING", 0L, 0.0, "Starting real import of " + totalRecords + " records...");
+
+        long processedCount = 0;
+        try (var reader = AvroParquetReader.<GenericRecord>builder(new org.apache.hadoop.fs.Path(file.toURI())).build()) {
+            GenericRecord record;
+            List<Profile> batch = new ArrayList<>();
+            while ((record = reader.read()) != null) {
+                Profile profile = new Profile();
+                // --- Map fields from Parquet record to Profile entity ---
+                if (record.get("Full name") != null) profile.setFullName(record.get("Full name").toString());
+                if (record.get("First Name") != null) profile.setFirstName(record.get("First Name").toString());
+                if (record.get("Last Name") != null) profile.setLastName(record.get("Last Name").toString());
+                if (record.get("Job title") != null) profile.setJobTitle(record.get("Job title").toString());
+                if (record.get("Company Name") != null) profile.setCompanyName(record.get("Company Name").toString());
+                if (record.get("Industry") != null) profile.setIndustry(record.get("Industry").toString());
+                if (record.get("Location") != null) profile.setLocation(record.get("Location").toString());
+                if (record.get("LinkedIn Url") != null) profile.setLinkedinUrl(record.get("LinkedIn Url").toString());
+                if (record.get("Skills") != null) {
+                    String[] skills = record.get("Skills").toString().split(",");
+                    profile.setSkills(skills);
+                }
+                
+                // For embedding
+                profile.setHeadline(profile.getJobTitle() + " at " + profile.getCompanyName());
+                
+                // Generate and set embedding
+                PGvector embedding = embeddingService.generateProfileEmbedding(profile.getFullName(), profile.getHeadline(), profile.getSummary(), profile.getSkills());
+                profile.setEmbedding(embedding);
+
+                batch.add(profile);
+                if (batch.size() >= batchSize) {
+                    profileRepository.saveAll(batch);
+                    processedCount += batch.size();
+                    log.info("Processed batch of {}, total processed: {}", batch.size(), processedCount);
+                    updateImportStatus(importId, "PROCESSING", processedCount, (double) processedCount / totalRecords * 100, "Processing...");
+                    batch.clear();
+                }
+            }
+            if (!batch.isEmpty()) {
+                profileRepository.saveAll(batch);
+                processedCount += batch.size();
+                log.info("Processed final batch of {}, total processed: {}", batch.size(), processedCount);
+            }
+            updateImportStatus(importId, "COMPLETED", processedCount, 100.0, "Import completed successfully");
+        } catch (Exception e) {
+            log.error("Parquet import {} failed during processing", importId, e);
+            updateImportStatus(importId, "FAILED", processedCount, (double) processedCount / totalRecords * 100, "Import failed: " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
     
@@ -364,13 +405,9 @@ public class ParquetImportService {
     }
     
     private String resolveFilePath(String filename) {
-        // If filename is already absolute path, use it
-        if (filename.startsWith("/")) {
-            return filename;
-        }
-        
-        // Otherwise, resolve relative to project root
-        String projectRoot = "/Users/chromatrical/CAREER/Side Projects/semantic-talent-finder/";
-        return projectRoot + filename;
+        // In a container, the working directory is /app
+        // The data volume is mapped to /app/data
+        File file = new File("/app/", filename);
+        return file.getAbsolutePath();
     }
 }

@@ -68,6 +68,7 @@ services:
       - semantic-talent-network
     volumes:
       - ./backend/logs:/app/logs
+      - ./data:/app/data
 
   frontend:
     build:
