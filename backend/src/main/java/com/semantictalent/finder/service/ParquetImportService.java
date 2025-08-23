@@ -17,6 +17,11 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.apache.avro.generic.GenericRecord;
+import org.apache.parquet.avro.AvroParquetReader;
+import org.apache.hadoop.fs.Path;
+import com.pgvector.PGvector;
+
 @Service
 @Slf4j
 public class ParquetImportService {
@@ -126,7 +131,8 @@ public class ParquetImportService {
         }
 
         long totalRecords = 0;
-        try (var reader = AvroParquetReader.<GenericRecord>builder(new org.apache.hadoop.fs.Path(file.toURI())).build()) {
+        try (var reader = AvroParquetReader.<GenericRecord>builder(new Path(file.getAbsolutePath()))
+                .build()) {
             while (reader.read() != null) {
                 totalRecords++;
             }
@@ -137,7 +143,8 @@ public class ParquetImportService {
         updateImportStatus(importId, "PROCESSING", 0L, 0.0, "Starting real import of " + totalRecords + " records...");
 
         long processedCount = 0;
-        try (var reader = AvroParquetReader.<GenericRecord>builder(new org.apache.hadoop.fs.Path(file.toURI())).build()) {
+        try (var reader = AvroParquetReader.<GenericRecord>builder(new Path(file.getAbsolutePath()))
+                .build()) {
             GenericRecord record;
             List<Profile> batch = new ArrayList<>();
             while ((record = reader.read()) != null) {
