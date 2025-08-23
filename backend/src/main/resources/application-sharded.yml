@@ -1,0 +1,232 @@
+spring:
+  application:
+    name: semantic-talent-finder-sharded
+  profiles:
+    active: sharded
+
+# Sharding Configuration
+app:
+  sharding:
+    enabled: true
+    strategy: geographic_hash
+    default-shard-count: 5
+    max-records-per-shard: 15000000
+    
+    # Shard Definitions
+    shards:
+      - shard-id: "shard_usa_east"
+        name: "USA East Coast"
+        description: "NY, MA, FL, PA, NJ, CT, ME, NH, VT, RI, DE, MD, DC, VA, NC, SC, GA"
+        active: true
+        priority: 1
+        max-records: 15000000
+        max-storage-gb: 8.0
+        database:
+          url: "jdbc:postgresql://localhost:5433/semantic_talent_finder_usa_east"
+          username: "${DATABASE_USERNAME:postgres}"
+          password: "${DATABASE_PASSWORD:yourpassword}"
+          schema: "public"
+          max-connections: 50
+          min-idle-connections: 5
+          connection-timeout-ms: 30000
+        geographic:
+          is-primary: true
+          regions: ["USA_EAST"]
+          states: ["NY", "MA", "FL", "PA", "NJ", "CT", "ME", "NH", "VT", "RI", "DE", "MD", "DC", "VA", "NC", "SC", "GA"]
+          countries: ["USA", "US"]
+          metros: ["New York", "Boston", "Miami", "Philadelphia", "Atlanta", "Washington DC"]
+        hash:
+          algorithm: "murmur3"
+          bucket-count: 1024
+          hash-field: "profile_id"
+          hash-ranges: [0, 255]
+
+      - shard-id: "shard_usa_west" 
+        name: "USA West Coast"
+        description: "CA, WA, OR, NV, AZ, UT, CO, ID, MT, WY, AK, HI"
+        active: true
+        priority: 1
+        max-records: 15000000
+        max-storage-gb: 8.0
+        database:
+          url: "jdbc:postgresql://localhost:5434/semantic_talent_finder_usa_west"
+          username: "${DATABASE_USERNAME:postgres}"
+          password: "${DATABASE_PASSWORD:yourpassword}"
+          schema: "public"
+        geographic:
+          is-primary: true
+          regions: ["USA_WEST"]
+          states: ["CA", "WA", "OR", "NV", "AZ", "UT", "CO", "ID", "MT", "WY", "AK", "HI"]
+          countries: ["USA", "US"]
+          metros: ["San Francisco", "Los Angeles", "Seattle", "San Diego", "Portland", "Phoenix", "Denver"]
+        hash:
+          hash-ranges: [256, 511]
+
+      - shard-id: "shard_usa_central"
+        name: "USA Central"
+        description: "TX, IL, OH, MI, IN, WI, MN, IA, MO, AR, LA, MS, AL, TN, KY, WV, KS, NE, ND, SD, OK"
+        active: true
+        priority: 1
+        max-records: 13000000
+        max-storage-gb: 7.0
+        database:
+          url: "jdbc:postgresql://localhost:5435/semantic_talent_finder_usa_central"
+          username: "${DATABASE_USERNAME:postgres}"
+          password: "${DATABASE_PASSWORD:yourpassword}"
+          schema: "public"
+        geographic:
+          is-primary: true
+          regions: ["USA_CENTRAL"]
+          states: ["TX", "IL", "OH", "MI", "IN", "WI", "MN", "IA", "MO", "AR", "LA", "MS", "AL", "TN", "KY", "WV", "KS", "NE", "ND", "SD", "OK"]
+          countries: ["USA", "US"]
+          metros: ["Chicago", "Houston", "Dallas", "Detroit", "Minneapolis", "Cleveland", "Indianapolis"]
+        hash:
+          hash-ranges: [512, 767]
+
+      - shard-id: "shard_usa_south"
+        name: "USA South"  
+        description: "Additional Southern states and overflow"
+        active: true
+        priority: 2
+        max-records: 8000000
+        max-storage-gb: 4.0
+        database:
+          url: "jdbc:postgresql://localhost:5436/semantic_talent_finder_usa_south"
+          username: "${DATABASE_USERNAME:postgres}"
+          password: "${DATABASE_PASSWORD:yourpassword}"
+          schema: "public"
+        geographic:
+          is-primary: true
+          regions: ["USA_SOUTH"]
+          # Additional southern regions not covered above
+        hash:
+          hash-ranges: [768, 1023]
+
+      - shard-id: "shard_international"
+        name: "International"
+        description: "Non-USA profiles and edge cases"
+        active: true
+        priority: 3
+        max-records: 2000000
+        max-storage-gb: 1.0
+        database:
+          url: "jdbc:postgresql://localhost:5437/semantic_talent_finder_international"
+          username: "${DATABASE_USERNAME:postgres}"
+          password: "${DATABASE_PASSWORD:yourpassword}"
+          schema: "public"
+        geographic:
+          is-primary: false
+          countries: ["CA", "UK", "IN", "DE", "AU", "FR", "OTHER"]
+          
+    # Geographic Mapping
+    state-to-region:
+      # East Coast
+      "NY": "USA_EAST"
+      "MA": "USA_EAST"
+      "FL": "USA_EAST"
+      "PA": "USA_EAST"
+      "NJ": "USA_EAST"
+      "CT": "USA_EAST"
+      "ME": "USA_EAST"
+      "NH": "USA_EAST"
+      "VT": "USA_EAST"
+      "RI": "USA_EAST"
+      "DE": "USA_EAST"
+      "MD": "USA_EAST"
+      "DC": "USA_EAST"
+      "VA": "USA_EAST"
+      "NC": "USA_EAST"
+      "SC": "USA_EAST"
+      "GA": "USA_EAST"
+      
+      # West Coast  
+      "CA": "USA_WEST"
+      "WA": "USA_WEST"
+      "OR": "USA_WEST"
+      "NV": "USA_WEST"
+      "AZ": "USA_WEST"
+      "UT": "USA_WEST"
+      "CO": "USA_WEST"
+      "ID": "USA_WEST"
+      "MT": "USA_WEST"
+      "WY": "USA_WEST"
+      "AK": "USA_WEST"
+      "HI": "USA_WEST"
+      
+      # Central
+      "TX": "USA_CENTRAL"
+      "IL": "USA_CENTRAL"
+      "OH": "USA_CENTRAL"
+      "MI": "USA_CENTRAL"
+      "IN": "USA_CENTRAL"
+      "WI": "USA_CENTRAL"
+      "MN": "USA_CENTRAL"
+      "IA": "USA_CENTRAL"
+      "MO": "USA_CENTRAL"
+      "AR": "USA_CENTRAL"
+      "LA": "USA_CENTRAL"
+      "MS": "USA_CENTRAL"
+      "AL": "USA_CENTRAL"
+      "TN": "USA_CENTRAL"
+      "KY": "USA_CENTRAL"
+      "WV": "USA_CENTRAL"
+      "KS": "USA_CENTRAL"
+      "NE": "USA_CENTRAL"
+      "ND": "USA_CENTRAL"
+      "SD": "USA_CENTRAL"
+      "OK": "USA_CENTRAL"
+      
+    country-to-shard:
+      "USA": "shard_usa_east"  # Default to east, will be refined by state
+      "US": "shard_usa_east"
+      "UNITED STATES": "shard_usa_east"
+      "CA": "shard_international"
+      "CANADA": "shard_international"
+      "UK": "shard_international"
+      "UNITED KINGDOM": "shard_international"
+      "IN": "shard_international"
+      "INDIA": "shard_international"
+      
+# Thread Pool Configuration for Cross-Shard Operations
+  task:
+    execution:
+      pool:
+        shard-search-task-executor:
+          core-size: 8
+          max-size: 20
+          queue-capacity: 100
+          thread-name-prefix: "shard-search-"
+          keep-alive: "60s"
+
+# Caching Configuration  
+  cache:
+    type: redis
+    redis:
+      time-to-live: 300000  # 5 minutes for shard routing decisions
+      cache-null-values: false
+      key-prefix: "shard-cache:"
+
+logging:
+  level:
+    com.semantictalent.finder.service.ShardCoordinatorService: DEBUG
+    com.semantictalent.finder.service.ShardHealthMonitorService: INFO
+    
+# Metrics and Monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,metrics,info,shards"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+    shards:
+      enabled: true
+  health:
+    shard:
+      enabled: true
+  metrics:
+    tags:
+      application: "semantic-talent-finder"
+      environment: "sharded"

@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import java.util.Date;
+import java.util.Map;
 
 @Entity
 @Table(name = "search_queries")
@@ -29,7 +32,8 @@ public class SearchQuery {
     private Integer executionTimeMs;
     
     @Column(name = "filters_applied", columnDefinition = "JSONB")
-    private String filtersApplied;
+    @JdbcTypeCode(SqlTypes.JSON)
+    private Map<String, Object> filtersApplied;
     
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)

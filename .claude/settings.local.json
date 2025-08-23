@@ -10,8 +10,11 @@
       "Bash(npm run build:*)",
       "Bash(mv:*)",
       "Bash(cd:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)"
     ],
     "deny": []
-  }
+  },
+  "outputStyle": "Explanatory"
 }

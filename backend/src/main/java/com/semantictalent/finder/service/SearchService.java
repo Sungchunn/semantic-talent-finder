@@ -63,15 +63,14 @@ public class SearchService {
             searchQuery.setResultsCount(result.getTotalResults());
             searchQuery.setExecutionTimeMs(executionTime);
             
-            // Convert filters to JSON string if present
+            // Set filters as Map object (will be automatically converted to JSONB)
             if (request.getIndustries() != null || request.getLocations() != null || request.getExperienceLevel() != null) {
                 Map<String, Object> filters = new HashMap<>();
                 if (request.getIndustries() != null) filters.put("industries", request.getIndustries());
                 if (request.getLocations() != null) filters.put("locations", request.getLocations());
                 if (request.getExperienceLevel() != null) filters.put("experienceLevel", request.getExperienceLevel());
                 
-                // TODO: Convert to JSON string
-                searchQuery.setFiltersApplied(filters.toString());
+                searchQuery.setFiltersApplied(filters);
             }
             
             searchQueryRepository.save(searchQuery);
