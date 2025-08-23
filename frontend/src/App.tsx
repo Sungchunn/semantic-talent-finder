@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import { LetterGlitch, AdvancedTextType, ShinyText } from './components/reactbits';
 import { searchService, ProfileSummary, SearchRequest } from './services/searchService';
+import api from './services/api';
 
 const App: React.FC = () => {
   const [query, setQuery] = useState('');
@@ -15,8 +16,8 @@ const App: React.FC = () => {
     const checkConnection = async () => {
       try {
         // Use the profiles stats endpoint which has CORS enabled
-        const response = await fetch('http://localhost:8080/api/profiles/stats');
-        if (response.ok) {
+        const response = await api.get('/profiles/stats');
+        if (response.status === 200) {
           setIsConnected(true);
         } else {
           setIsConnected(false);

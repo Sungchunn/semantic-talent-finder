@@ -20,7 +20,8 @@
       "Bash(python3:*)",
       "Read(//Users/chromatrical/CAREER/**)",
       "Read(//Users/chromatrical/CAREER/**)",
-      "Read(//Users/chromatrical/CAREER/**)"
+      "Read(//Users/chromatrical/CAREER/**)",
+      "Bash(./mvnw:*)"
     ],
     "deny": []
   },
