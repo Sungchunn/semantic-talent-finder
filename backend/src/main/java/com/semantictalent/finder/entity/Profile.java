@@ -110,6 +110,7 @@ public class Profile {
     
     // Vector embedding (1536 dimensions - OpenAI text-embedding-3-small)
     @Column(name = "embedding", columnDefinition = "vector(1536)")
+    @JdbcTypeCode(SqlTypes.OTHER)
     private PGvector embedding;
     
     // Data quality metrics (based on analysis)
