@@ -16,7 +16,11 @@
       "Bash(docker exec:*)",
       "Bash(docker-compose:*)",
       "Bash(docker logs:*)",
-      "Bash(./mvnw clean compile)"
+      "Bash(./mvnw clean compile)",
+      "Bash(python3:*)",
+      "Read(//Users/chromatrical/CAREER/**)",
+      "Read(//Users/chromatrical/CAREER/**)",
+      "Read(//Users/chromatrical/CAREER/**)"
     ],
     "deny": []
   },
