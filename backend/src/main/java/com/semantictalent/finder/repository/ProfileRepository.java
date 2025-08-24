@@ -7,9 +7,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.pgvector.PGvector;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
-public interface ProfileRepository extends JpaRepository<Profile, String> {
+public interface ProfileRepository extends JpaRepository<Profile, UUID> {
     
     @Query(value = "SELECT *, (1 - (embedding <=> ?1)) as similarity_score " +
            "FROM profiles " +

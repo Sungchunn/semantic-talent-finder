@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import lombok.extern.slf4j.Slf4j;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/profiles")
@@ -20,7 +21,7 @@ public class ProfileController {
     private ProfileService profileService;
     
     @GetMapping("/{id}")
-    public ResponseEntity<ProfileDto> getProfile(@PathVariable String id) {
+    public ResponseEntity<ProfileDto> getProfile(@PathVariable UUID id) {
         try {
             ProfileDto profile = profileService.getProfileById(id);
             return ResponseEntity.ok(profile);

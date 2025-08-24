@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -26,7 +27,7 @@ public class ProfileService {
     @Autowired
     private ParquetImportService parquetImportService;
     
-    public ProfileDto getProfileById(String id) {
+    public ProfileDto getProfileById(UUID id) {
         Optional<Profile> profile = profileRepository.findById(id);
         if (profile.isPresent()) {
             return convertToDto(profile.get());
