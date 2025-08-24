@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GooeyButton, GooeyButtonGroup } from './GooeyButton';
 
 interface Comment {
   id: string;
@@ -158,17 +159,20 @@ export const CommentsPanel: React.FC = () => {
             {/* Comment Actions */}
             {!isReply && (
               <div className="mt-2 flex items-center space-x-4 text-xs text-gray-500">
-                <button 
-                  onClick={() => setReplyingTo(comment.id)}
-                  className="hover:text-blue-600 flex items-center space-x-1"
-                >
-                  <span>💬</span>
-                  <span>Reply</span>
-                </button>
-                <button className="hover:text-red-600 flex items-center space-x-1">
-                  <span>👍</span>
-                  <span>Like</span>
-                </button>
+                <GooeyButtonGroup>
+                  <GooeyButton 
+                    size="small"
+                    variant="ghost"
+                    onClick={() => setReplyingTo(comment.id)}
+                  >
+                    <span>💬</span>
+                    <span>Reply</span>
+                  </GooeyButton>
+                  <GooeyButton size="small" variant="ghost">
+                    <span>👍</span>
+                    <span>Like</span>
+                  </GooeyButton>
+                </GooeyButtonGroup>
               </div>
             )}
 
@@ -187,12 +191,13 @@ export const CommentsPanel: React.FC = () => {
                       }
                     }}
                   />
-                  <button
+                  <GooeyButton
+                    size="small"
+                    variant="ghost"
                     onClick={() => setReplyingTo(null)}
-                    className="px-3 py-2 text-xs text-gray-500 hover:text-gray-700"
                   >
                     Cancel
-                  </button>
+                  </GooeyButton>
                 </div>
               </div>
             )}
@@ -237,17 +242,17 @@ export const CommentsPanel: React.FC = () => {
               rows={3}
             />
             <div className="mt-2 flex items-center justify-between">
-              <div className="flex items-center space-x-2 text-xs text-gray-500">
-                <button className="hover:text-blue-600">📎 Attach</button>
-                <button className="hover:text-blue-600">🎯 Reference Cell</button>
-              </div>
-              <button
+              <GooeyButtonGroup>
+                <GooeyButton size="small" variant="ghost">📎 Attach</GooeyButton>
+                <GooeyButton size="small" variant="ghost">🎯 Reference Cell</GooeyButton>
+              </GooeyButtonGroup>
+              <GooeyButton
+                size="small"
                 onClick={addComment}
                 disabled={!newComment.trim()}
-                className="px-4 py-1.5 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Comment
-              </button>
+              </GooeyButton>
             </div>
           </div>
         </div>

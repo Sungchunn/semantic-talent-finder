@@ -1,0 +1,254 @@
+/* Static Gooey Button Styles - No Animation Version */
+
+.gooey-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.gooey-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  min-width: 120px;
+  gap: 8px;
+}
+
+.gooey-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+}
+
+.gooey-button:active {
+  transform: translateY(-1px);
+  transition: transform 0.1s;
+}
+
+.gooey-button:focus {
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3), 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.gooey-button.primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.gooey-button.primary:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.gooey-button.secondary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.gooey-button.secondary:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.gooey-button.danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.gooey-button.danger:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+.gooey-button.outline {
+  background: transparent;
+  border: 2px solid #667eea;
+  color: #667eea;
+  box-shadow: none;
+}
+
+.gooey-button.outline:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.gooey-button.ghost {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gooey-button.ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gooey-button.small {
+  padding: 8px 16px;
+  font-size: 12px;
+  min-width: 80px;
+}
+
+.gooey-button.large {
+  padding: 16px 32px;
+  font-size: 16px;
+  min-width: 160px;
+}
+
+.gooey-button.icon-only {
+  padding: 12px;
+  min-width: 48px;
+  border-radius: 50%;
+}
+
+.gooey-button.wide {
+  width: 100%;
+  justify-content: center;
+}
+
+.gooey-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+/* Button Group Styles */
+.gooey-button-group {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.gooey-button-group .gooey-button {
+  margin: 0;
+}
+
+.gooey-button-group.connected .gooey-button {
+  border-radius: 0;
+  margin: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gooey-button-group.connected .gooey-button:first-child {
+  border-radius: 25px 0 0 25px;
+}
+
+.gooey-button-group.connected .gooey-button:last-child {
+  border-radius: 0 25px 25px 0;
+  border-right: none;
+}
+
+.gooey-button-group.connected .gooey-button:only-child {
+  border-radius: 25px;
+  border-right: none;
+}
+
+/* Excel-specific Button Styles */
+.excel-action-button {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.excel-action-button:hover {
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35);
+}
+
+.excel-export-button {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
+}
+
+.excel-export-button:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+}
+
+.excel-filter-button {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+.excel-filter-button:hover {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
+/* Professional minimalist styles for dashboard */
+.dashboard-button {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #374151;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.dashboard-button:hover {
+  background: white;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #111827;
+}
+
+.dashboard-button.active {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .gooey-button {
+    padding: 10px 20px;
+    font-size: 13px;
+    min-width: 100px;
+  }
+  
+  .gooey-button.small {
+    padding: 6px 12px;
+    font-size: 11px;
+    min-width: 60px;
+  }
+  
+  .gooey-button.large {
+    padding: 14px 28px;
+    font-size: 15px;
+    min-width: 140px;
+  }
+  
+  .gooey-button-group {
+    gap: 6px;
+  }
+  
+  .gooey-button-group.stack {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .gooey-button-group.stack .gooey-button {
+    width: 100%;
+  }
+}

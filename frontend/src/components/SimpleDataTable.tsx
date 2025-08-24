@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GooeyButton, GooeyButtonGroup, ExcelExportButton, ExcelActionButton } from './GooeyButton';
 
 export interface Profile {
   id: string;
@@ -114,12 +115,13 @@ export const SimpleDataTable: React.FC<SimpleDataTableProps> = ({
       <div className="bg-gray-50 border-b p-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
-            <button
+            <GooeyButton
+              variant="ghost"
+              size="small"
               onClick={onBackToHome}
-              className="flex items-center px-4 py-2 text-blue-600 hover:text-blue-800 font-medium"
             >
               ← Back to Search
-            </button>
+            </GooeyButton>
             <h1 className="text-2xl font-bold text-gray-900">Search Results</h1>
           </div>
           <div className="flex items-center space-x-4">
@@ -135,21 +137,17 @@ export const SimpleDataTable: React.FC<SimpleDataTableProps> = ({
         </div>
         
         {/* Action buttons */}
-        <div className="mt-4 flex space-x-2">
-          <button
-            onClick={() => exportToCSV(false)}
-            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm"
-          >
-            📊 Export All to CSV
-          </button>
-          {selectedProfiles.size > 0 && (
-            <button
-              onClick={() => exportToCSV(true)}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
-            >
-              📋 Export Selected ({selectedProfiles.size})
-            </button>
-          )}
+        <div className="mt-4">
+          <GooeyButtonGroup>
+            <ExcelExportButton size="small" onClick={() => exportToCSV(false)}>
+              📊 Export All to CSV
+            </ExcelExportButton>
+            {selectedProfiles.size > 0 && (
+              <ExcelActionButton size="small" onClick={() => exportToCSV(true)}>
+                📋 Export Selected ({selectedProfiles.size})
+              </ExcelActionButton>
+            )}
+          </GooeyButtonGroup>
         </div>
       </div>
 
@@ -158,12 +156,9 @@ export const SimpleDataTable: React.FC<SimpleDataTableProps> = ({
         {profiles.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-gray-500 text-lg">No profiles found for your search.</p>
-            <button
-              onClick={onBackToHome}
-              className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            >
+            <ExcelActionButton className="mt-4" onClick={onBackToHome}>
               Try Another Search
-            </button>
+            </ExcelActionButton>
           </div>
         ) : (
           <div className="overflow-x-auto">

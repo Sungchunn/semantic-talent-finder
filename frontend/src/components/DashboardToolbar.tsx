@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GooeyButton, GooeyButtonGroup, ExcelExportButton, ExcelFilterButton, DashboardButton } from './GooeyButton';
 
 interface DashboardToolbarProps {
   selectedCount: number;
@@ -47,47 +48,51 @@ export const DashboardToolbar: React.FC<DashboardToolbarProps> = ({
 
           {/* Text Formatting */}
           <div className="flex items-center space-x-1 border-r border-gray-200 pr-4">
-            <button className="p-2 text-gray-600 hover:bg-gray-100 rounded" title="Bold">
-              <strong>B</strong>
-            </button>
-            <button className="p-2 text-gray-600 hover:bg-gray-100 rounded" title="Italic">
-              <em>I</em>
-            </button>
-            <button className="p-2 text-gray-600 hover:bg-gray-100 rounded" title="Underline">
-              <u>U</u>
-            </button>
+            <GooeyButtonGroup connected>
+              <DashboardButton size="small" title="Bold">
+                <strong>B</strong>
+              </DashboardButton>
+              <DashboardButton size="small" title="Italic">
+                <em>I</em>
+              </DashboardButton>
+              <DashboardButton size="small" title="Underline">
+                <u>U</u>
+              </DashboardButton>
+            </GooeyButtonGroup>
           </div>
 
           {/* Number Format */}
           <div className="flex items-center space-x-1 border-r border-gray-200 pr-4">
-            {formatButtons.map(format => (
-              <button
-                key={format.id}
-                onClick={() => setActiveFormat(format.id)}
-                className={`px-3 py-1.5 text-xs rounded flex items-center space-x-1 ${
-                  activeFormat === format.id
-                    ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
-                title={format.label}
-              >
-                <span>{format.icon}</span>
-                <span>{format.label}</span>
-              </button>
-            ))}
+            <GooeyButtonGroup>
+              {formatButtons.map(format => (
+                <DashboardButton
+                  key={format.id}
+                  size="small"
+                  onClick={() => setActiveFormat(format.id)}
+                  active={activeFormat === format.id}
+                  title={format.label}
+                >
+                  <span>{format.icon}</span>
+                  <span className="ml-1">{format.label}</span>
+                </DashboardButton>
+              ))}
+            </GooeyButtonGroup>
           </div>
 
           {/* Alignment */}
           <div className="flex items-center space-x-1">
-            {alignmentButtons.map(align => (
-              <button
-                key={align.id}
-                className="p-2 text-gray-600 hover:bg-gray-100 rounded"
-                title={align.label}
-              >
-                {align.icon}
-              </button>
-            ))}
+            <GooeyButtonGroup connected>
+              {alignmentButtons.map(align => (
+                <DashboardButton
+                  key={align.id}
+                  size="small"
+                  iconOnly
+                  title={align.label}
+                >
+                  {align.icon}
+                </DashboardButton>
+              ))}
+            </GooeyButtonGroup>
           </div>
         </div>
 
@@ -101,38 +106,33 @@ export const DashboardToolbar: React.FC<DashboardToolbarProps> = ({
             </div>
           )}
 
-          {/* Filter Button */}
-          <button className="flex items-center space-x-2 px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-100 rounded border border-gray-300">
-            <span>🔍</span>
-            <span>Filter</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+          {/* Action Buttons */}
+          <GooeyButtonGroup>
+            <ExcelFilterButton size="small">
+              <span>🔍</span>
+              <span>Filter</span>
+              <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </ExcelFilterButton>
 
-          {/* Sort Button */}
-          <button className="flex items-center space-x-2 px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-100 rounded border border-gray-300">
-            <span>⬇️</span>
-            <span>Sort</span>
-          </button>
+            <DashboardButton size="small" variant="outline">
+              <span>⬇️</span>
+              <span>Sort</span>
+            </DashboardButton>
 
-          {/* Export Button */}
-          <button 
-            onClick={onExport}
-            className="flex items-center space-x-2 px-4 py-1.5 text-sm bg-green-600 text-white hover:bg-green-700 rounded font-medium"
-          >
-            <span>📤</span>
-            <span>Export</span>
-          </button>
+            <ExcelExportButton size="small" onClick={onExport}>
+              <span>📤</span>
+              <span>Export</span>
+            </ExcelExportButton>
+          </GooeyButtonGroup>
 
           {/* More Actions Dropdown */}
-          <div className="relative">
-            <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-              </svg>
-            </button>
-          </div>
+          <DashboardButton size="small" iconOnly variant="ghost">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+            </svg>
+          </DashboardButton>
         </div>
       </div>
     </div>
