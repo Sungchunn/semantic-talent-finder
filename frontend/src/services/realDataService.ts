@@ -39,7 +39,9 @@ export const realDataService = {
 
   // Simple text search using backend API
   async searchProfiles(query: string): Promise<Profile[]> {
+    console.log('[DEBUG] searchProfiles called with query:', query);
     try {
+      console.log('[DEBUG] Making API request to:', `${API_BASE_URL}/search`);
       const response = await fetch(`${API_BASE_URL}/search`, {
         method: 'POST',
         headers: {
@@ -48,12 +50,22 @@ export const realDataService = {
         body: JSON.stringify({ query }),
       });
       
+      console.log('[DEBUG] API response status:', response.status);
+      console.log('[DEBUG] API response ok:', response.ok);
+      
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
       const backendProfiles = await response.json();
-      return backendProfiles.map(transformProfile);
+      console.log('[DEBUG] Backend profiles received:', backendProfiles.length, 'profiles');
+      console.log('[DEBUG] First profile:', backendProfiles[0]);
+      
+      const transformedProfiles = backendProfiles.map(transformProfile);
+      console.log('[DEBUG] Transformed profiles:', transformedProfiles.length, 'profiles');
+      console.log('[DEBUG] First transformed profile:', transformedProfiles[0]);
+      
+      return transformedProfiles;
     } catch (error) {
       console.error('Error searching profiles:', error);
       throw error;

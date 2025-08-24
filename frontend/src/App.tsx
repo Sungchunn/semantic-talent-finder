@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
-import { LetterGlitch, AdvancedTextType, ShinyText } from './components/reactbits';
-import { searchService, ProfileSummary, SearchRequest } from './services/searchService';
 import { realDataService } from './services/realDataService';
 import { SearchResultsPage } from './components/SearchResultsPage';
 import { Profile } from './components/SimpleDataTable';
@@ -9,7 +7,6 @@ import api from './services/api';
 
 const App: React.FC = () => {
   const [query, setQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<ProfileSummary[]>([]);
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
@@ -44,13 +41,17 @@ const App: React.FC = () => {
     
     if (!query.trim()) return;
     
+    console.log('[DEBUG] Starting search with query:', query.trim());
     setIsSearching(true);
     setError(null);
     setSearchQuery(query.trim());
     
     try {
       // Use real data service with actual database profiles
+      console.log('[DEBUG] Calling realDataService.searchProfiles...');
       const searchProfiles = await realDataService.searchProfiles(query.trim());
+      console.log('[DEBUG] Search completed, received profiles:', searchProfiles.length);
+      console.log('[DEBUG] Setting profiles state and navigating to results page');
       setProfiles(searchProfiles);
       setCurrentPage('results');
       
@@ -67,7 +68,6 @@ const App: React.FC = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Escape') {
       setQuery('');
-      setSearchResults([]);
       setError(null);
     }
   };
@@ -93,96 +93,79 @@ const App: React.FC = () => {
 
   // Render home page
   return (
-    <div className="app-container">
-      {/* Animated Background */}
-      <div className="background-layer">
-        <LetterGlitch 
-          glitchColors={['#0a4a3a', '#61dca3', '#61b3dc', '#1a5a4a']}
-          glitchSpeed={75}
-          outerVignette={true}
-          centerVignette={false}
-          smooth={true}
-        />
-      </div>
+    <div className="home-container">
+      {/* Header */}
+      <header className="app-header">
+        <div className="header-content">
+          <div className="logo">
+            <div className="logo-text">Semantic Talent Finder</div>
+          </div>
+          <div className="status-indicator">
+            <div className={`status-dot ${isConnected ? 'connected' : 'disconnected'}`}></div>
+            <span className="status-text">
+              {isConnected ? 'Connected to database' : 'Backend disconnected'}
+            </span>
+          </div>
+        </div>
+      </header>
 
       {/* Main Content */}
-      <div className="content-layer">
-        <div className="search-container">
-          <div className="header">
-            <AdvancedTextType
-              text="Semantic Talent Finder"
-              as="h1"
-              className="title"
-              typingSpeed={100}
-              showCursor={false}
-              loop={false}
-            />
-            <p className="subtitle">
-              AI-powered semantic search across 51M+ professional profiles
-            </p>
-            <div className="status-indicator">
-              <div className={`status-dot ${isConnected ? 'connected' : 'disconnected'}`}></div>
-              <span className="status-text">
-                {isConnected ? 'Connected to database' : 'Backend disconnected'}
-              </span>
-            </div>
+      <div className="home-hero">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Find the Perfect Talent
+          </h1>
+          <p className="hero-subtitle">
+            AI-powered semantic search across 51M+ professional profiles
+          </p>
+
+          <div className="search-section">
+            <form onSubmit={handleSearch} className="search-form">
+              <div className="search-input-container">
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  className="search-input"
+                  placeholder="Search for talent... (e.g., senior Java developer with AWS experience)"
+                  disabled={isSearching}
+                  autoFocus
+                />
+                <button 
+                  type="submit" 
+                  className="search-button"
+                  disabled={isSearching || !query.trim()}
+                >
+                  {isSearching ? (
+                    <div className="spinner"></div>
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path 
+                        d="M21 21L16.514 16.506M19 10.5A8.5 8.5 0 1 1 10.5 2A8.5 8.5 0 0 1 19 10.5Z" 
+                        stroke="currentColor" 
+                        strokeWidth="2" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </div>
+              
+              <div className="search-hints">
+                Press Enter to search • ESC to clear
+              </div>
+            </form>
+
+            {/* Error Message */}
+            {error && (
+              <div className="error-message">
+                <div className="error-icon">⚠</div>
+                <span>{error}</span>
+              </div>
+            )}
           </div>
-
-          <form onSubmit={handleSearch} className="search-form">
-            <div className="search-input-container">
-              {!query && (
-                <div className="search-placeholder">
-                  <ShinyText 
-                    text="Search for talent... (e.g., senior Java developer with AWS experience)"
-                    speed={3}
-                  />
-                </div>
-              )}
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={handleKeyDown}
-                className="search-input"
-                placeholder=""
-                disabled={isSearching}
-                autoFocus
-              />
-              <button 
-                type="submit" 
-                className="search-button"
-                disabled={isSearching || !query.trim()}
-              >
-                {isSearching ? (
-                  <div className="spinner"></div>
-                ) : (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path 
-                      d="M21 21L16.514 16.506M19 10.5A8.5 8.5 0 1 1 10.5 2A8.5 8.5 0 0 1 19 10.5Z" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
-            
-            <div className="search-hints">
-              <span>Press Enter to search • ESC to clear</span>
-            </div>
-          </form>
-
-
-          {/* Error Message */}
-          {error && (
-            <div className="error-message">
-              <div className="error-icon">⚠</div>
-              <span>{error}</span>
-            </div>
-          )}
-
         </div>
       </div>
     </div>
