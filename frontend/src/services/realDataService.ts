@@ -1,4 +1,4 @@
-import { Profile } from '../components/ProfileDataTable';
+import { Profile } from '../components/SimpleDataTable';
 
 const API_BASE_URL = 'http://localhost:8080/api/simple';
 
@@ -6,18 +6,33 @@ const API_BASE_URL = 'http://localhost:8080/api/simple';
 function transformProfile(backendProfile: any): Profile {
   return {
     id: backendProfile.id,
+    // High Quality Fields (required)
     fullName: backendProfile.fullName || '',
+    location: backendProfile.location || '',
     firstName: backendProfile.firstName || '',
     lastName: backendProfile.lastName || '',
-    jobTitle: backendProfile.jobTitle || 'N/A',
-    companyName: backendProfile.companyName || 'N/A',
-    industry: backendProfile.industry || 'N/A',
-    location: backendProfile.location || 'N/A',
     linkedinUrl: backendProfile.linkedinUrl || '',
-    summary: backendProfile.summary || '',
+    
+    // High Quality Fields (optional)
+    locality: backendProfile.locality || undefined,
+    region: backendProfile.region || undefined,
+    linkedinUsername: backendProfile.linkedinUsername || undefined,
+    locationCountry: backendProfile.locationCountry || undefined,
+    locationContinent: backendProfile.locationContinent || undefined,
+    
+    // Medium Quality Fields
+    industry: backendProfile.industry || undefined,
+    jobTitle: backendProfile.jobTitle || undefined,
+    metro: backendProfile.metro || undefined,
+    gender: backendProfile.gender || undefined,
+    lastUpdated: backendProfile.lastUpdated || undefined,
+    
+    // Legacy fields for compatibility
+    companyName: backendProfile.companyName || undefined,
+    summary: backendProfile.summary || undefined,
     skills: backendProfile.skills || [],
-    headline: backendProfile.headline || '',
-    importBatchId: backendProfile.importBatchId || ''
+    headline: backendProfile.headline || undefined,
+    importBatchId: backendProfile.importBatchId || undefined
   };
 }
 

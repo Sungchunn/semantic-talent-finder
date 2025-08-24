@@ -94,106 +94,77 @@ export const SearchResultsPage: React.FC<SearchResultsPageProps> = ({
           </div>
 
           {profiles.length === 0 ? (
-            <div className="profiles-grid">
-              <div className="profile-card text-center" style={{ padding: '3rem' }}>
-                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔍</div>
-                <h3 style={{ marginBottom: '0.5rem', color: 'var(--color-gray-600)' }}>No results found</h3>
-                <p style={{ color: 'var(--color-gray-500)' }}>
+            <div className="no-results">
+              <div className="no-results-content">
+                <div className="no-results-icon">🔍</div>
+                <h3 className="no-results-title">No results found</h3>
+                <p className="no-results-text">
                   Try adjusting your search terms or searching for different skills or job titles.
                 </p>
               </div>
             </div>
           ) : (
-            <div className="profiles-grid">
-              {profiles.map((profile, index) => (
-                <div key={profile.id || index} className="profile-card">
-                  <div className="profile-header">
-                    <div>
-                      <h3 className="profile-name">{profile.fullName || 'N/A'}</h3>
-                      <div className="profile-title">{profile.jobTitle || 'N/A'}</div>
-                      <div className="profile-company">{profile.companyName || 'N/A'}</div>
-                      <div className="profile-location">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.6 }}>
-                          <path 
-                            d="M21 10C21 17L12 23L3 10C3 5.02944 7.02944 1 12 1C16.9706 1 21 5.02944 21 10Z" 
-                            stroke="currentColor" 
-                            strokeWidth="2" 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round"
-                          />
-                          <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/>
-                        </svg>
-                        {profile.location || 'N/A'}
-                      </div>
-                    </div>
-                    {profile.industry && (
-                      <div className="profile-industry">
-                        {profile.industry}
-                      </div>
-                    )}
-                  </div>
-
-                  {profile.summary && (
-                    <div className="profile-details" style={{ marginBottom: '1rem' }}>
-                      <p style={{ color: 'var(--color-gray-600)', fontSize: 'var(--text-sm)', lineHeight: 1.5 }}>
-                        {profile.summary.length > 200 ? profile.summary.substring(0, 200) + '...' : profile.summary}
-                      </p>
-                    </div>
-                  )}
-
-                  {profile.skills && profile.skills.length > 0 && (
-                    <div className="skills-section">
-                      <span className="skills-label">Skills</span>
-                      <div className="skills-list">
-                        {profile.skills.slice(0, 8).map((skill, skillIndex) => (
-                          <span key={skillIndex} className="skill-tag">
-                            {skill}
-                          </span>
-                        ))}
-                        {profile.skills.length > 8 && (
-                          <span className="skill-tag" style={{ opacity: 0.7 }}>
-                            +{profile.skills.length - 8} more
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  )}
-
-                  {profile.linkedinUrl && (
-                    <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--color-gray-200)' }}>
-                      <a 
-                        href={profile.linkedinUrl.startsWith('http') ? profile.linkedinUrl : `https://${profile.linkedinUrl}`}
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        style={{ 
-                          color: 'var(--color-primary)', 
-                          textDecoration: 'none', 
-                          fontSize: 'var(--text-sm)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 'var(--space-1)'
-                        }}
-                      >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                        View LinkedIn Profile
-                      </a>
-                    </div>
-                  )}
-
-                  {profile.importBatchId && (
-                    <div style={{ 
-                      marginTop: '1rem', 
-                      fontSize: 'var(--text-xs)', 
-                      color: 'var(--color-gray-400)',
-                      fontFamily: 'var(--font-mono)'
-                    }}>
-                      ID: {profile.importBatchId}
-                    </div>
-                  )}
-                </div>
-              ))}
+            <div className="sql-table-container">
+              <div className="table-info">
+                <span className="results-count">{profiles.length} rows returned</span>
+              </div>
+              <div className="sql-table-wrapper">
+                <table className="sql-table">
+                  <thead>
+                    <tr>
+                      <th>Full Name</th>
+                      <th>Location</th>
+                      <th>Locality</th>
+                      <th>Region</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>LinkedIn URL</th>
+                      <th>LinkedIn Username</th>
+                      <th>Location Country</th>
+                      <th>Location Continent</th>
+                      <th>Industry</th>
+                      <th>Job Title</th>
+                      <th>Metro</th>
+                      <th>Gender</th>
+                      <th>Last Updated</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {profiles.map((profile, index) => (
+                      <tr key={profile.id || index}>
+                        <td className="name-cell">{profile.fullName || 'NULL'}</td>
+                        <td>{profile.location || 'NULL'}</td>
+                        <td>{profile.locality || 'NULL'}</td>
+                        <td>{profile.region || 'NULL'}</td>
+                        <td>{profile.firstName || 'NULL'}</td>
+                        <td>{profile.lastName || 'NULL'}</td>
+                        <td className="linkedin-cell">
+                          {profile.linkedinUrl ? (
+                            <a 
+                              href={profile.linkedinUrl.startsWith('http') ? profile.linkedinUrl : `https://${profile.linkedinUrl}`}
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="linkedin-link"
+                            >
+                              {profile.linkedinUrl.length > 30 ? profile.linkedinUrl.substring(0, 30) + '...' : profile.linkedinUrl}
+                            </a>
+                          ) : (
+                            'NULL'
+                          )}
+                        </td>
+                        <td>{profile.linkedinUsername || 'NULL'}</td>
+                        <td>{profile.locationCountry || 'NULL'}</td>
+                        <td>{profile.locationContinent || 'NULL'}</td>
+                        <td>{profile.industry || 'NULL'}</td>
+                        <td>{profile.jobTitle || 'NULL'}</td>
+                        <td>{profile.metro || 'NULL'}</td>
+                        <td>{profile.gender || 'NULL'}</td>
+                        <td>{profile.lastUpdated || 'NULL'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </div>

@@ -3,14 +3,27 @@ import { GooeyButton, GooeyButtonGroup, ExcelExportButton, ExcelActionButton } f
 
 export interface Profile {
   id: string;
+  // High Quality Fields
   fullName: string;
-  firstName?: string;
-  lastName?: string;
-  jobTitle?: string;
-  companyName?: string;
+  location: string;
+  locality?: string;
+  region?: string;
+  firstName: string;
+  lastName: string;
+  linkedinUrl: string;
+  linkedinUsername?: string;
+  locationCountry?: string;
+  locationContinent?: string;
+  
+  // Medium Quality Fields
   industry?: string;
-  location?: string;
-  linkedinUrl?: string;
+  jobTitle?: string;
+  metro?: string;
+  gender?: string;
+  lastUpdated?: string;
+  
+  // Legacy fields for compatibility
+  companyName?: string;
   summary?: string;
   skills?: string[];
   headline?: string;

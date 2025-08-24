@@ -4,6 +4,7 @@ import { realDataService } from './services/realDataService';
 import { SearchResultsPage } from './components/SearchResultsPage';
 import { Profile } from './components/SimpleDataTable';
 import api from './services/api';
+import SimpleRotatingText from './components/SimpleRotatingText';
 
 const App: React.FC = () => {
   const [query, setQuery] = useState('');
@@ -98,7 +99,12 @@ const App: React.FC = () => {
       <header className="app-header">
         <div className="header-content">
           <div className="logo">
-            <div className="logo-text">Semantic Talent Finder</div>
+            <div className="logo-text">
+              <SimpleRotatingText
+                texts={['Semantic Talent Finder', 'AI-Powered Search', 'Find Perfect Talent', 'Smart Recruiting']}
+                rotationInterval={3000}
+              />
+            </div>
           </div>
           <div className="status-indicator">
             <div className={`status-dot ${isConnected ? 'connected' : 'disconnected'}`}></div>
@@ -128,7 +134,7 @@ const App: React.FC = () => {
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
                   className="search-input"
-                  placeholder="Search for talent... (e.g., senior Java developer with AWS experience)"
+                  placeholder={isSearching ? "Searching..." : "Search for talent... (e.g., senior Java developer with AWS experience)"}
                   disabled={isSearching}
                   autoFocus
                 />
