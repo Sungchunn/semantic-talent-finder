@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import { LetterGlitch, AdvancedTextType, ShinyText } from './components/reactbits';
 import { searchService, ProfileSummary, SearchRequest } from './services/searchService';
-import { mockSearchService } from './services/mockSearchService';
-import { ProfileDataTable, Profile } from './components/ProfileDataTable';
+import { realDataService } from './services/realDataService';
+import { SearchResultsPage } from './components/SearchResultsPage';
+import { Profile } from './components/SimpleDataTable';
 import api from './services/api';
 
 const App: React.FC = () => {
@@ -13,7 +14,8 @@ const App: React.FC = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [showDataTable, setShowDataTable] = useState(false);
+  const [currentPage, setCurrentPage] = useState<'home' | 'results'>('home');
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Check backend connection on mount
   useEffect(() => {
@@ -44,13 +46,13 @@ const App: React.FC = () => {
     
     setIsSearching(true);
     setError(null);
-    setShowDataTable(false);
+    setSearchQuery(query.trim());
     
     try {
-      // Use mock search service with realistic data
-      const searchProfiles = await mockSearchService.searchProfiles(query.trim());
+      // Use real data service with actual database profiles
+      const searchProfiles = await realDataService.searchProfiles(query.trim());
       setProfiles(searchProfiles);
-      setShowDataTable(true);
+      setCurrentPage('results');
       
     } catch (err: any) {
       console.error('Search failed:', err);
@@ -70,6 +72,26 @@ const App: React.FC = () => {
     }
   };
 
+  const handleBackToHome = () => {
+    setCurrentPage('home');
+    setProfiles([]);
+    setError(null);
+    setQuery('');
+  };
+
+  // Render results page if we have search results
+  if (currentPage === 'results') {
+    return (
+      <SearchResultsPage
+        profiles={profiles}
+        searchQuery={searchQuery}
+        loading={isSearching}
+        onBackToHome={handleBackToHome}
+      />
+    );
+  }
+
+  // Render home page
   return (
     <div className="app-container">
       {/* Animated Background */}
@@ -161,12 +183,6 @@ const App: React.FC = () => {
             </div>
           )}
 
-          {/* Data Table Results */}
-          {showDataTable && (
-            <div className="results-container">
-              <ProfileDataTable profiles={profiles} loading={isSearching} />
-            </div>
-          )}
         </div>
       </div>
     </div>
